@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="line">
+            <size android:height="24dp" android:width="50dp" />
+            <solid android:color="@color/app_primary_color" />
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+    <item android:left="5dp" android:top="-15dp" android:right="-15dp" android:bottom="35dp">
+        <rotate android:fromDegrees="65.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="5dp" android:top="35dp" android:right="-15dp" android:bottom="-15dp">
+        <rotate android:fromDegrees="115.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="6dp" android:top="-15dp" android:right="-26dp" android:bottom="33dp">
+        <rotate android:fromDegrees="65.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color_700" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="5dp" android:top="35dp" android:right="-26dp" android:bottom="-19dp">
+        <rotate android:fromDegrees="115.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color_700" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="-34dp" android:top="-15dp" android:right="30dp" android:bottom="28dp">
+        <rotate android:fromDegrees="66.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color_700" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="-34dp" android:top="28dp" android:right="30dp" android:bottom="-15dp">
+        <rotate android:fromDegrees="-66.0">
+            <shape android:shape="line">
+                <solid android:color="@color/app_primary_color_700" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

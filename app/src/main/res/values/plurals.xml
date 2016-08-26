@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="date_format_relative_days">
+        <item quantity="other">%d days</item>
+        <item quantity="one">%d day</item>
+    </plurals>
+    <plurals name="date_format_relative_hours">
+        <item quantity="other">%d hrs</item>
+        <item quantity="one">%d hr</item>
+    </plurals>
+    <plurals name="date_format_relative_minutes">
+        <item quantity="other">%d mins</item>
+        <item quantity="one">%d min</item>
+    </plurals>
+    <plurals name="discussion_replies_format">
+        <item quantity="other">%d ANSWERS</item>
+        <item quantity="one">%d ANSWER</item>
+    </plurals>
+    <plurals name="lesson_text_details">
+        <item quantity="other">%d questions</item>
+        <item quantity="one">%d question</item>
+    </plurals>
+    <plurals name="quiz_comment_replies_format">
+        <item quantity="other">%d Replies</item>
+        <item quantity="one">%d Reply</item>
+    </plurals>
+    <plurals name="quiz_comments_button_format">
+        <item quantity="other">%d Comments</item>
+        <item quantity="one">%d Comment</item>
+    </plurals>
+    <plurals name="quiz_shortcut_attempts_left">
+        <item quantity="other">%d lives left</item>
+        <item quantity="one">%d life left</item>
+    </plurals>
+</resources>

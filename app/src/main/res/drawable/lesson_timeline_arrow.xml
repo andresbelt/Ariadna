@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/all_quiz_in_lesson_unchacked" android:state_activated="true" />
+    <item android:state_enabled="true" android:drawable="@drawable/all_quiz_in_lesson_chacked" />
+    <item android:drawable="@drawable/all_quiz_in_lesson_acess_denied" />
+</selector>

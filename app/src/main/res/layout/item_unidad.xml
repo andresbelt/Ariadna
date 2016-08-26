@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@drawable/list_selector"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/module_vertical_padding"
+        android:layout_marginLeft="@dimen/module_horizontal_padding"
+        android:layout_marginRight="@dimen/module_horizontal_padding"
+        android:layout_marginTop="@dimen/module_vertical_padding"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/module_circle"
+            android:layout_width="@dimen/module_circle_size"
+            android:layout_height="@dimen/module_circle_size"
+            android:layout_margin="@dimen/module_circle_padding"
+            android:background="@drawable/module_circle">
+
+            <ImageView
+                android:id="@+id/module_icon"
+                android:layout_width="@dimen/module_icon_size"
+                android:layout_height="@dimen/module_icon_size"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/module_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/module_text_size"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/module_details"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/module_circle_padding"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/module_counts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12sp" />
+
+            <ProgressBar
+                android:id="@+id/module_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:progress="100"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

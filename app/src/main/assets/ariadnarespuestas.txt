@@ -1,0 +1,1148 @@
+{
+  "glossary": [{
+    "name": "General",
+    "terms": [{
+      "term": "javac",
+      "text": "The Java Compiler"
+    }, {
+      "term": "jar",
+      "text": "The Java Archiving Tool"
+    }, {
+      "term": "jdb",
+      "text": "The Java Debugging Tool"
+    }, {
+      "term": "JRE",
+      "text": "Java Runtime Environment"
+    }, {
+      "term": "JVM",
+      "text": "The Java Virtual Machine"
+    }, {
+      "term": "IDE",
+      "text": "Integrated Development Environment"
+    }, {
+      "term": "argument",
+      "text": "a piece of data that is passed into a method or program. Also known as parameter"
+    }, {
+      "term": "break;",
+      "text": "used to exit a for, switch, while or do-while statement"
+    }, {
+      "term": "continue;",
+      "text": "terminates the current iteration"
+    }, {
+      "term": "exception",
+      "text": "an error or anomaly that occurs as a program is executing"
+    }, {
+      "term": "array",
+      "text": "array is a collection of variables of the same type"
+    }, {
+      "term": "package",
+      "text": "a group of similar types of classes"
+    }, {
+      "term": "API",
+      "text": "Application Program Interface"
+    }]
+  }, {
+    "name": "Data Types",
+    "terms": [{
+      "term": "int",
+      "text": "used to declare an integer variable"
+    }, {
+      "term": "float",
+      "text": "used to declare a floating point variable"
+    }, {
+      "term": "boolean",
+      "text": "used to declare a Boolean variable, which returns just two possible values: true and false"
+    }, {
+      "term": "char",
+      "text": "used to declare a character variable"
+    }, {
+      "term": "String",
+      "text": "a sequence of characters"
+    }, {
+      "term": "void",
+      "text": "indicates that a method does not return a value"
+    }, {
+      "term": "null",
+      "text": "absence of value"
+    }, {
+      "term": "integer",
+      "text": "whole number"
+    }, {
+      "term": "floating point number",
+      "text": "a real number"
+    }, {
+      "term": "enum",
+      "text": "a collection of constants"
+    }, {
+      "term": "Boolean",
+      "text": "a data type with only two possible values: true or false"
+    }, {
+      "term": "ArrayList",
+      "text": "a resizable array"
+    }, {
+      "term": "LinkedList",
+      "text": "a data structure consisting of a group of nodes which together represent a sequence. Each node is composed of data and a link to the next node in the sequence"
+    }, {
+      "term": "HashMap",
+      "text": "used for storing collection of the data in the form of key and value pairs"
+    }, {
+      "term": "Iterator",
+      "text": "an object, that enables to cycle through a collection"
+    }]
+  }, {
+    "name": "OOP",
+    "terms": [{
+      "term": "instance",
+      "text": "each object is called an instance of a class"
+    }, {
+      "term": "constructor",
+      "text": "special methods that are used to initialize objects, and are invoked at the time of object creation"
+    }, {
+      "term": "method",
+      "text": "a collection of statements that are grouped together to perform an operation (also called a function)"
+    }, {
+      "term": "encapsulation",
+      "text": "the packing of data and methods into a single component"
+    }, {
+      "term": "inheritance",
+      "text": "a process by which one class inherits the members and methods of another class"
+    }, {
+      "term": "polymorphism",
+      "text": "polymorphism means that a call to a member method will cause a different method to be executed depending on the type of object that invokes the method"
+    }, {
+      "term": "extends",
+      "text": "used to inherit a subclass"
+    }, {
+      "term": "static",
+      "text": "static variables and methods belong to the class instead of a specific instance"
+    }, {
+      "term": "abstract class",
+      "text": "If a class is declared abstract it cannot be instantiated, and you have to inherit from it from another class.Any class that contains an abstract method, should be defined as abstract."
+    }, {
+      "term": "interface",
+      "text": "a completely abstract class, that contains only abstract methods"
+    }, {
+      "term": "getter",
+      "text": "The getter method returns the value of the attribute"
+    }, {
+      "term": "setter",
+      "text": "The setter method takes a parameter and assigns it to the attribute"
+    }]
+  }],
+  "groups": [],
+  "id": 1068,
+  "modules": [{
+    "alignment": 1,
+    "allowShortcut": true,
+    "groupID": 0,
+    "hintPrice": 5,
+    "id": 1208,
+    "lessons": [{
+      "id": 2131,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Introduction to Java",
+      "quizzes": [{
+        "answers": [{
+          "id": 92118,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Just one version"
+        }, {
+          "id": 92119,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Two versions"
+        }, {
+          "id": 92120,
+          "isCorrect": false,
+          "properties": {},
+          "text": "One for each platform"
+        }],
+        "id": 4183,
+        "question": "To distribute your application to different platforms, how many Java versions do you need to create?",
+        "textContent": "[h1]Welcome to Java![/h1]\r\n\r\n[b]Java [/b]is a high level, modern programming language designed in the early 1990s by Sun Microsystems, and currently owned by Oracle. \r\n\r\nJava is [b]Platform Independent[/b], which means that you only need to write the program once to be able to run it on a number of different platforms!\r\nJava is [b]portable[/b], [b]robust[/b], and [b]dynamic[/b], with the ability to fit the needs of virtually any type of application.\r\n[note]Java guarantees that you\u0027ll be able to [b]Write Once, Run Anywhere[/b].[/note]",
+        "type": 1,
+        "videoEnd": 135.0,
+        "videoStart": 20.4
+      }, {
+        "answers": [{
+          "id": 92124,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Java is used only in NASA\u0027s space related applications"
+        }, {
+          "id": 92125,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Java has a huge developer community"
+        }, {
+          "id": 92126,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Java is used only in web and mobile applications"
+        }],
+        "id": 4185,
+        "question": "Which one of the following statements is true?",
+        "textContent": "[h1]Java[/h1]\r\n\r\nMore than [b]3 billion[/b] devices run Java. \r\nJava is used to develop apps for Google\u0027s [b]Android [/b]OS, various Desktop Applications, such as media players, antivirus programs, Web Applications, Enterprise Applications (i.e. banking), and many more!\r\n[note]Learn, practice, and then join the huge community of Java developers around the world![/note]",
+        "type": 1,
+        "videoEnd": 209.5,
+        "videoStart": 145.0
+      }],
+      "type": 0,
+      "videoID": "Qi954__kQbo"
+    }, {
+      "id": 2132,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "The Development Cycle",
+      "quizzes": [{
+        "answers": [{
+          "id": 89549,
+          "isCorrect": false,
+          "properties": {
+            "prefix": ".",
+            "postfix": ""
+          },
+          "text": "java"
+        }],
+        "id": 4186,
+        "question": "What is the extension for Java source code files?",
+        "textContent": "[h1]The Development Cycle[/h1]\r\n\r\nThe basic development process of any Java program includes the following stages: [img id\u003d\"2383\" width\u003d\"100%\"]\r\n[note]In Java, source code files have a [b].java[/b] extension.[/note]",
+        "type": 2,
+        "videoEnd": 312.0,
+        "videoStart": 213.5
+      }, {
+        "answers": [{
+          "id": 92130,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Using Java archive with .jar extension"
+        }, {
+          "id": 92131,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Using Java archive with .exe extension"
+        }, {
+          "id": 92132,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Using .java source files"
+        }],
+        "id": 4188,
+        "question": "How are Java applications distributed?",
+        "textContent": "[h1]Distribution[/h1]\r\n\r\nAfter testing and fixing any existing bugs, you will be ready to [b]distribute [/b]your application to end users. \r\nTypically, most Java applications are distributed using a Java archive file, which has the [b].jar[/b] extension.\r\n[note]You will learn more about the distribution process in upcoming lessons.[/note]",
+        "type": 1,
+        "videoEnd": 411.0,
+        "videoStart": 312.0
+      }],
+      "type": 0,
+      "videoID": "Qi954__kQbo"
+    }, {
+      "id": 2133,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Installing the JDK",
+      "quizzes": [{
+        "answers": [{
+          "id": 92141,
+          "isCorrect": true,
+          "properties": {},
+          "text": "jdb"
+        }, {
+          "id": 92142,
+          "isCorrect": false,
+          "properties": {},
+          "text": "cmd"
+        }, {
+          "id": 92143,
+          "isCorrect": true,
+          "properties": {},
+          "text": "javac"
+        }, {
+          "id": 92144,
+          "isCorrect": true,
+          "properties": {},
+          "text": "jar"
+        }],
+        "id": 4189,
+        "question": "Which three tools are included in the JDK?",
+        "textContent": "[h1]Java Development Kit[/h1]\r\n\r\nThe Java Development Kit ([b]JDK[/b]) is a software development environment for Java applications and applets. It includes:\r\n- The [b]J[/b]ava [b]C[/b]ompiler ([b]javac)[/b]\r\n- The [b]J[/b]ava [b]Ar[/b]chiving Tool ([b]jar)[/b]\r\n- The [b]J[/b]ava [b]D[/b]e[b]b[/b]ugging Tool ([b]jdb)[/b]\r\n- A complete [b]J[/b]ava [b]R[/b]untime [b]E[/b]nvironment [b](JRE[/b]), for running Java programs\r\n\r\nAfter installing the JDK, you will be able to run [b]javac[/b], [b]jar [/b]and [b]jdb[/b] from the Console (Command Prompt in Windows).\r\n[note]JDK is available for free at [b]www.oracle.com [/b]under [b]Java SDKs and Tools -\u003e Java SE[/b].\r\nThe upcoming lessons will explain the installation and setup process. [/note]",
+        "type": 1,
+        "videoEnd": 72.7,
+        "videoStart": 17.0
+      }, {
+        "answers": [{
+          "id": 92148,
+          "isCorrect": true,
+          "properties": {},
+          "text": "www.oracle.com"
+        }, {
+          "id": 92149,
+          "isCorrect": false,
+          "properties": {},
+          "text": "www.google.com"
+        }, {
+          "id": 92150,
+          "isCorrect": false,
+          "properties": {},
+          "text": "www.jdk.com"
+        }],
+        "id": 4451,
+        "question": "You can download the JDK from...",
+        "textContent": "[h1]Installing the JDK[/h1]\r\n\r\n[h2]Step 1[/h2]\r\nGo to www.oracle.com \u003e Downloads \u003e Java SE.\r\n\r\n[h2]Step 2[/h2]\r\nClick the \"[b]Accept License Agreement[/b]\" checkbox. \r\nChoose your platform from the list to download the corresponding installer.[img id\u003d\"2384\" width\u003d\"100%\"]\r\n[note]Once you\u0027ve downloaded the installer, follow the instructions for installing the JDK on your machine.[/note]",
+        "type": 1,
+        "videoEnd": 172.0,
+        "videoStart": 73.0
+      }, {
+        "answers": [{
+          "id": 106573,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Download the JDK from Oracle website"
+        }, {
+          "id": 106574,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Install the JDK"
+        }, {
+          "id": 106575,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Set the PATH environment to variable"
+        }, {
+          "id": 106576,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Test the installation while running javac from the command line"
+        }],
+        "id": 4190,
+        "question": "Rearrange the following steps in the correct order for successful Java installation.",
+        "textContent": "[h1]JDK \u0026 PATH[/h1]\r\n\r\nOn Windows, the [b]JDK [/b]will be installed by default in the directory \"C:\\Program Files\\Java\\jdk1.8.0_xx\" with the latest upgrade number indicated by xx. [b]JRE [/b]defaults to \"C:\\Program Files\\Java\\jre1.8.0_xx\". \r\nOpen the [b]JDK[/b] folder, open the bin folder, and copy the [b]path[/b], which you will need to use in the next step. [img id\u003d\"2390\" width\u003d\"100%\"]\r\nFor the JDK to work, you need to add its path to the PATH environment variable. To do that, right click on My Computer and go to Properties \u003e Advanced system settings.\r\nSwitch to the Advanced tab \u003e Environment Variables and click on [b]New [/b]button if PATH does not exist in the list. If PATH already exists, select it and click [b]Edit[/b].[img id\u003d\"2389\" width\u003d\"100%\"]\r\nAdd the copied path value to the variable.\r\nYou should see something like this when adding the PATH: [img id\u003d\"2391\" width\u003d\"100%\"]\r\n[note]If the PATH variable already exists, just add the value to it, and then separate it from the other values with a semicolon.\r\nDo NOT delete any existing entries; otherwise, some existing applications may not work properly.[/note]\r\nSave the changes. \r\nTo verify that JDK is properly installed, open the Command Prompt, type in [b]javac[/b], and press Enter. (You have to re-open the Command Prompt so the new PATH variable is recognized).\r\nIf the JDK has been successfully installed, you will see something similar to the screen below: [img id\u003d\"2392\" width\u003d\"100%\"]\r\n[note]The latest installers add the PATH variable to your system automatically.\r\nOur tutorial shows the installation in Windows, but the [b]javac [/b]command works on all supported platforms.[/note]",
+        "type": 8,
+        "videoEnd": 337.0,
+        "videoStart": 180.0
+      }],
+      "tags": "jdk",
+      "type": 0,
+      "videoID": "CWo9IuiroEE"
+    }, {
+      "id": 2134,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "The Java Virtual Machine",
+      "quizzes": [{
+        "answers": [{
+          "id": 92170,
+          "isCorrect": false,
+          "properties": {},
+          "text": "... compiles source files into machine code."
+        }, {
+          "id": 92171,
+          "isCorrect": false,
+          "properties": {},
+          "text": "... compiles source files into object files."
+        }, {
+          "id": 92172,
+          "isCorrect": true,
+          "properties": {},
+          "text": "... translates bytecode into machine code."
+        }],
+        "id": 4191,
+        "question": "Complete the statement: The Java Virtual Machine...",
+        "textContent": "[h1]Java Virtual Machine [/h1]\r\n\r\nThe [b]Java Virtual Machine[/b] (JVM) is an execution environment for Java applications.\r\nIt interprets compiled Java binary code (called [b]bytecode[/b]) to enable a computer\u0027s processor to carry out a Java program\u0027s instructions.\r\nJava was designed to allow application programs to be built that could be run on any platform without having to be rewritten or recompiled by the programmer for each separate platform. The Java virtual machine makes this possible.\r\n[note]Basically, the Java compiler reads Java language source (.java) files, translates the source into Java bytecodes, and places the bytecodes into class (.class) files. \r\nThe class files can then be executed on the Java Virtual Machine (JVM).[/note]",
+        "type": 1,
+        "videoEnd": 489.0,
+        "videoStart": 411.0
+      }, {
+        "answers": [{
+          "id": 94899,
+          "isCorrect": false,
+          "properties": {},
+          "text": "All programming languages have virtual machines"
+        }, {
+          "id": 94900,
+          "isCorrect": true,
+          "properties": {},
+          "text": ".class files contain abstract instructions for JVM"
+        }, {
+          "id": 94901,
+          "isCorrect": true,
+          "properties": {},
+          "text": "The same bytecode can be run on different JVMs"
+        }],
+        "id": 4192,
+        "question": "Which two of the following statements are true?",
+        "textContent": "[h1]Java Virtual Machine[/h1]\r\n\r\nIn other programming languages, the compiler will typically produce code for a particular system. The Java compiler, however, produces code for a virtual machine. \r\n\r\n- The JVM is a main component of Java architecture, and is part of the JRE (Java Runtime Environment).\r\n- The JVM is operating system-dependent. In other words, the JVM must translate the bytecode into machine language, and the machine language depends on which operating system is being used, which makes the JVM platform-dependent, or operating system-dependent.\r\n- The JVM is responsible for allocating memory needed by the Java program.\r\n[note]Every device that has a JVM installed is able to translate and run your .class files. \r\nThis makes it possible to run the same bytecode on different platforms.[/note]",
+        "type": 1,
+        "videoEnd": 580.0,
+        "videoStart": 489.5
+      }],
+      "tags": "jvm",
+      "type": 0,
+      "videoID": "Qi954__kQbo"
+    }, {
+      "id": 2135,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Running a Java Program",
+      "quizzes": [{
+        "answers": [{
+          "id": 105300,
+          "isCorrect": false,
+          "properties": {},
+          "text": ".txt"
+        }, {
+          "id": 105301,
+          "isCorrect": false,
+          "properties": {},
+          "text": ".class"
+        }, {
+          "id": 105302,
+          "isCorrect": true,
+          "properties": {},
+          "text": ".java"
+        }],
+        "id": 4193,
+        "question": "What is the extension of Java source files?",
+        "textContent": "[h1]Your First Java Program[/h1]\r\n\r\nThe easiest way to write a simple program is by using a text editor. We will use [b]NotePad++[/b], which is available for free.\r\nUsing the text editor of your choice, create a text file with the following code, and name it ExampleProgram.[b]java[/b].[code format\u003d\"java\" ]public class ExampleProgram {\r\n  public static void main(String[ ] args) {\r\n    System.out.println(\"Hello World\");\r\n  }\r\n}[/code]\r\n[note]In lessons to come, our lines of code will be explained in more detail. \r\nRight now, we\u0027ll just explain how to compile and run your program.[/note]",
+        "type": 1,
+        "videoEnd": 123.0,
+        "videoStart": 10.0
+      }, {
+        "answers": [{
+          "id": 92200,
+          "isCorrect": false,
+          "properties": {},
+          "text": "saving our source code"
+        }, {
+          "id": 92201,
+          "isCorrect": true,
+          "properties": {},
+          "text": "compiling a Java program"
+        }, {
+          "id": 92202,
+          "isCorrect": false,
+          "properties": {},
+          "text": "running a Java program"
+        }],
+        "id": 4194,
+        "question": "We use the javac command line tool for:",
+        "textContent": "[h1]Compile[/h1]\r\n\r\nOpen a command prompt window and go to the directory in which you saved the file. \r\nWe\u0027ll say that it\u0027s C:\\sololearn.\r\n\r\nTo compile your code, type[b] javac ExampleProgram.java[/b], and press Enter. \r\nIf there are no errors in your code, the command prompt will take you to the next line and generate a bytecode file, [b]ExampleProgram.class[/b].\r\n[note]You have now generated your class file, which contains the program\u0027s bytecode.\r\nNext step is to run it![/note]",
+        "type": 1,
+        "videoEnd": 341.0,
+        "videoStart": 123.0
+      }, {
+        "answers": [{
+          "id": 92203,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": " Apples"
+          },
+          "text": "java"
+        }],
+        "id": 4195,
+        "question": "Type in the command to run a program called \"Apples\":",
+        "textContent": "[h1]Run[/h1]\r\n    \r\nNow, when we have the .class file containing the bytecode, we can run it. \r\nType [b]java ExampleProgram[/b] to run your program. \r\nThis will print \"Hello World\" to the command prompt window.\r\n[note]Congratulations! You have just compiled and run your first Java program.[/note]",
+        "type": 2,
+        "videoEnd": 361.8,
+        "videoStart": 341.0
+      }],
+      "type": 0,
+      "videoID": "5u8rFbpdvds"
+    }, {
+      "id": 2136,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Creating a Project with Eclipse",
+      "quizzes": [{
+        "answers": [{
+          "id": 92207,
+          "isCorrect": false,
+          "properties": {},
+          "text": "It is difficult to find errors in code with Eclipse"
+        }, {
+          "id": 92208,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Eclipse is part of the JDK"
+        }, {
+          "id": 92209,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Eclipse is like a text editor, but for Java"
+        }],
+        "id": 4196,
+        "question": "Which of the following statements is true?",
+        "textContent": "[h1]Installing Eclipse[/h1]\r\n\r\nIn the previous lesson, we learned how to compile and run Java programs from the command prompt using JDK commands and a simple text editor.\r\nAlternatively, special editors with numerous useful features are available for compiling, running, and debugging Java applications. These editors are called [b]Integrated Development Environments[/b] (IDE).\r\n\r\n[b]Eclipse [/b]is the most popular IDE for Java. It can be obtained as a free download from [b]www.eclipse.org[/b]. For regular Java programs, choose[b] Eclipse IDE for Java Developers[/b].[b][/b]\r\n[note]Eclipse versions are available for various operating systems. Make sure that you find and download the appropriate version for your system.[/note]",
+        "type": 1,
+        "videoEnd": 111.0,
+        "videoStart": 32.5
+      }, {
+        "answers": [{
+          "id": 106334,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Console"
+        }, {
+          "id": 106335,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Problems"
+        }, {
+          "id": 106336,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Declaration"
+        }, {
+          "id": 106337,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Javadoc"
+        }],
+        "id": 4198,
+        "question": "In what window does Eclipse show the output?",
+        "textContent": "[h1]Using Eclipse[/h1]\r\n\r\nOnce you have downloaded the Eclipse archive, the next step is to decompress the file, which creates an unzipped Eclipse folder.\r\nSince Eclipse has no installer, there will be an executable file in the Eclipse folder (for Windows: [b]eclipse.exe[/b]). Double clicking the file launches Eclipse (this also applies to other operating systems).\r\n\r\nWhen opened for the first time, Eclipse requests that you create a [b]Workspace [/b]folder, where it will store all of your Java programs.\r\nTo create a new Eclipse project, go to [b]File-\u003eNew-\u003eJava Project [/b]and enter a name for it (e.g., MyProject). \r\nYou will see your newly created project at the left/right side of your screen. Click the plus sign next to the folder to expand it, and you\u0027ll see a folder called src.\r\nRight click on the src folder, go to New, [b]select [/b]Class, name the class (e.g., MyClass), and click Finish.\r\nHere, we\u0027ll use the same example code we used in the previous lesson. [code format\u003d\"java\" codeId\u003d\"715\"]class MyClass {\r\n  public static void main(String[ ] args) {\r\n    System.out.println(\"Hello World\");\r\n  }\r\n}[/code]\r\nYou will now have your project\u0027s structure, as follows: [img id\u003d\"2861\" width\u003d\"100%\"]\r\nTo run your code, Click the [b]Run [/b]icon on the top bar, select Run As, and select Java Application.[img id\u003d\"2862\" width\u003d\"100%\"]\r\nIn the [b]Console [/b]window at the bottom of the screen, you should see \"Hello World\". [img id\u003d\"2863\" width\u003d\"100%\"] \r\n[note]If something is wrong with your code, Eclipse automatically displays the errors in the [b]Console [/b]and[b] Problems [/b]windows.[/note]",
+        "type": 1,
+        "videoEnd": 386.5,
+        "videoStart": 111.0
+      }],
+      "tags": "eclipse",
+      "type": 0,
+      "videoID": "CE8UIbb_4iM"
+    }, {
+      "id": 2137,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "A Hello World Program",
+      "quizzes": [{
+        "answers": [{
+          "id": 99484,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "main"
+        }],
+        "id": 4199,
+        "question": "Which method is the starting point for all Java programs?",
+        "textContent": "[h1]Your First Java Program[/h1]\r\n\r\nNow that you\u0027ve seen the \"Hello World\" program, we\u0027ll explain how it works. \r\nOnce again, here is the code: [code format\u003d\"java\" codeId\u003d\"716\"][b]class[/b] MyClass {\r\n  public static void [b]main[/b](String[ ] args) {\r\n    System.out.println(\"Hello World\");\r\n  }\r\n}[/code]\r\nIn Java, every line of code that can actually run needs to be inside a [b]class[/b].\r\nIn our example, we named the class [b]MyClass[/b]. You will learn more about classes in the upcoming modules.\r\n\r\nIn Java, each application has an entry point, or a starting point, which is a method called [b]main[/b]. Along with main, the keywords [b]public [/b]and [b]static [/b]will also be explained later. \r\n[note]As a summary:\r\n- Every program in Java must have a [b]class[/b].\r\n- Every Java program starts from the [b]main[/b] method.[/note]",
+        "type": 2,
+        "videoEnd": 159.0,
+        "videoStart": 74.0
+      }, {
+        "answers": [{
+          "id": 106628,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "void ",
+            "postfix": "()"
+          },
+          "text": "hello"
+        }],
+        "id": 4200,
+        "question": "Fill in the blank to declare a method called \"hello()\".",
+        "textContent": "[h1]The main Method[/h1]\r\n\r\nTo run our program, the [b]main [/b]method must be identical to this signature:[code format\u003d\"java\" ][b]public static void main(String[ ] args)[/b][/code]\r\n- [b]public[/b]: anyone can access it\r\n- [b]static[/b]: method can be run without creating an instance of the class containing the main method\r\n- [b]void[/b]: method doesn\u0027t return any value\r\n- [b]main[/b]: the name of the method\r\n\r\nFor example, the following code declares a method called [b]test[/b], which does not return anything and has no parameters:[code format\u003d\"java\" ]void test()[/code]\r\n[note]The method\u0027s parameters are declared inside the parentheses that follow the name of the method. \r\nFor [b]main[/b], it\u0027s an array of strings called [b]args[/b]. We will use it in our next lesson, so don\u0027t worry if you don\u0027t understand it all now.[/note]",
+        "type": 2,
+        "videoEnd": 238.0,
+        "videoStart": 159.0
+      }, {
+        "answers": [{
+          "id": 95316,
+          "isCorrect": false,
+          "properties": {},
+          "text": "System.printText()"
+        }, {
+          "id": 95317,
+          "isCorrect": false,
+          "properties": {},
+          "text": "System.out()"
+        }, {
+          "id": 95318,
+          "isCorrect": true,
+          "properties": {},
+          "text": "System.out.println()"
+        }, {
+          "id": 95319,
+          "isCorrect": false,
+          "properties": {},
+          "text": "out.writeText() "
+        }],
+        "id": 4201,
+        "question": "Which method prints text in a Java program?",
+        "textContent": "[h1]System.out.println()[/h1]\r\n\r\nNext is the body of the [b]main [/b]method, enclosed in curly braces: [code format\u003d\"java\"]{\r\n   System.out.println(\"Hello World!\");\r\n}[/code]\r\nThe [b]println [/b]method prints a line of text to the screen.\r\nThe [b]System [/b]class and its [b]out [/b]stream are used to access the [b]println [/b]method.\r\n[note]In classes, methods, and other flow-control structures code is always enclosed in curly braces { }.[/note]",
+        "type": 1,
+        "videoEnd": 377.5,
+        "videoStart": 238.0
+      }, {
+        "answers": [{
+          "id": 105648,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "class"
+        }, {
+          "id": 105649,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "main"
+        }],
+        "id": 4202,
+        "question": "Fill in the blanks to create a valid Java program.\r\n[!raw!]\r\n{0} Apples {\r\n    public static void {1}(String[ ]args) {\r\n    System.out.println(\"Hello, World!\");\r\n   }\r\n}",
+        "textContent": "[h1]Semicolons in Java[/h1]\r\n\r\nYou can pass a different text as the parameter to the [b]println [/b]method to print it. [code format\u003d\"java\" codeId\u003d\"717\"]class MyClass {\r\n  public static void main(String[ ] args) {\r\n    [b]System.out.println(\"I am learning Java\");[/b]\r\n  }\r\n}[/code]\r\nIn Java, each code statement must end with a [b]semicolon[/b].  \r\n[note]Remember: do not use [b]semicolons [/b]after method and class declarations that follow with the body defined using the curly braces.[/note]",
+        "type": 3,
+        "videoEnd": 418.5,
+        "videoStart": 377.0
+      }],
+      "type": 0,
+      "videoID": "SHIT5VkNrCg"
+    }, {
+      "id": 2138,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Java Comments",
+      "quizzes": [{
+        "answers": [{
+          "id": 95322,
+          "isCorrect": false,
+          "properties": {},
+          "text": "** characters at the beginning of the line"
+        }, {
+          "id": 95323,
+          "isCorrect": false,
+          "properties": {},
+          "text": "*/ characters at the beginning of the line"
+        }, {
+          "id": 95324,
+          "isCorrect": false,
+          "properties": {},
+          "text": "// characters at the end of the line"
+        }, {
+          "id": 95325,
+          "isCorrect": true,
+          "properties": {},
+          "text": "// characters at the beginning of the line "
+        }],
+        "id": 4203,
+        "question": "Single-line comments are created using:",
+        "textContent": "[h1]Comments[/h1]\r\n\r\nThe purpose of including comments in your code is to explain what the code is doing.\r\nJava supports both single and multi-line comments. All characters that appear within a comment are ignored by the Java compiler.\r\n\r\nA [b]single-line[/b] comment starts with [b]two forward slashes [/b]and continues until it reaches the end of the line. \r\nFor example:[code format\u003d\"java\"][b]// this is a single-line comment[/b]\r\nx \u003d 5; [b]// a single-line comment after code[/b][/code]\r\n[note]Adding comments as you write code is a good practice, because they provide clarification and understanding when you need to refer back to it, as well as for others who might need to read it.[/note]",
+        "type": 1,
+        "videoEnd": 64.5,
+        "videoStart": 12.0
+      }, {
+        "answers": [{
+          "id": 95326,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "/*"
+        }, {
+          "id": 95327,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "*/"
+        }],
+        "id": 4205,
+        "question": "Make this text a multi-line comment.\r\n[!raw!]\r\n{0} some\r\n* comment text\r\n{1}",
+        "textContent": "[h1]Multi-Line Comments[/h1]\r\n\r\nJava also supports comments that span multiple lines.\r\nYou start this type of comment with a forward slash followed by an asterisk, and end it with an asterisk followed by a forward slash. \r\nFor example: [code format\u003d\"java\"]/*  This is also a\r\n    comment spanning\r\n    multiple lines */[/code]\r\nNote that Java does not support nested multi-line comments. \r\nHowever, you can nest single-line comments within multi-line comments. [code format\u003d\"java\"]/* This is a single-line comment:\r\n\r\n    // a single-line comment\r\n\r\n */[/code]",
+        "type": 3,
+        "videoEnd": 106.5,
+        "videoStart": 65.0
+      }, {
+        "answers": [{
+          "id": 95328,
+          "isCorrect": false,
+          "properties": {},
+          "text": "// characters in the beginning of the line."
+        }, {
+          "id": 95329,
+          "isCorrect": false,
+          "properties": {},
+          "text": "// and */ characters to wrap a comment."
+        }, {
+          "id": 95330,
+          "isCorrect": false,
+          "properties": {},
+          "text": "/* and */ characters to wrap a comment."
+        }, {
+          "id": 95331,
+          "isCorrect": true,
+          "properties": {},
+          "text": "/** and */ characters to wrap a comment."
+        }],
+        "id": 4206,
+        "question": "You can add a Java doc style comment by using:",
+        "textContent": "[h1]Documentation Comments[/h1]\r\n\r\n[b]Documentation comments[/b] are special comments that have the appearance of multi-line comments, with the difference being that they generate external documentation of your source code. These begin with a forward slash followed by two asterisks, and end with an asterisk followed by a forward slash. \r\nFor example:[code format\u003d\"java\"]/** This is a documentation comment */\r\n\r\n/** This is also a\r\n    documentation comment */[/code]\r\n[b]Javadoc [/b]is a tool which comes with JDK and it is used for generating Java code documentation in HTML format from Java source code which has required documentation in a predefined format.\r\n\r\nWhen a documentation comment begins with more than two asterisks, Javadoc assumes that you want to create a \"box\" around the comment in the source code. It simply ignores the extra asterisks.\r\nFor example: [code format\u003d\"java\"]/**********************\r\n\r\nThis is the start of a method\r\n\r\n***********************/[/code]\r\n[note]This will retain just the text \"This is the start of a method\" for the documentation.[/note]",
+        "type": 1,
+        "videoEnd": 142.6,
+        "videoStart": 107.0
+      }],
+      "tags": "comments",
+      "type": 0,
+      "videoID": "bTbDkhFy3e4"
+    }, {
+      "id": 2139,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Variables",
+      "quizzes": [{
+        "answers": [{
+          "id": 95332,
+          "isCorrect": true,
+          "properties": {},
+          "text": "String"
+        }, {
+          "id": 95333,
+          "isCorrect": false,
+          "properties": {},
+          "text": "double"
+        }, {
+          "id": 95334,
+          "isCorrect": false,
+          "properties": {},
+          "text": "int"
+        }],
+        "id": 4207,
+        "question": "Which variable type would you use for a city name?",
+        "textContent": "[h1]Variables[/h1]\r\n\r\n[b]Variables [/b]store data for processing.\r\nA variable is given a name (or [b]identifier[/b]), such as area, age, height, and the like. The name uniquely identifies each variable, assigning a value to the variable and retrieving the value stored.\r\n\r\nVariables have [b]types[/b]. Some examples:\r\n- [b]int[/b]: for integers (whole numbers) such as 123 and -456\r\n- [b]double[/b]: for floating-point or real numbers with optional decimal points and fractional parts in fixed or scientific notations, such as 3.1416, -55.66.\r\n- [b]String[/b]: for texts such as \"Hello\" or \"Good Morning!\". Text strings are enclosed within double quotes.\r\n\r\nYou can declare a variable of a type and assign it a value. Example:[code format\u003d\"java\"]String name \u003d \"David\";[/code]\r\nThis creates a variable called [b]name [/b]of type [b]String[/b], and assigns it the value \"David\".\r\n[note]It is important to note that a variable is associated with a type, and is only capable of storing values of that particular type. For example, an [b]int [/b]variable can store integer values, such as 123; but it cannot store real numbers, such as 12.34, or texts, such as \"Hello\".[/note]",
+        "type": 1,
+        "videoEnd": 176.0,
+        "videoStart": 106.0
+      }, {
+        "answers": [{
+          "id": 100217,
+          "isCorrect": true,
+          "properties": {},
+          "text": "String"
+        }, {
+          "id": 100218,
+          "isCorrect": true,
+          "properties": {},
+          "text": "int"
+        }, {
+          "id": 100219,
+          "isCorrect": true,
+          "properties": {},
+          "text": "double"
+        }, {
+          "id": 100220,
+          "isCorrect": false,
+          "properties": {},
+          "text": "true"
+        }, {
+          "id": 100221,
+          "isCorrect": false,
+          "properties": {},
+          "text": "class"
+        }, {
+          "id": 100222,
+          "isCorrect": false,
+          "properties": {},
+          "text": "void"
+        }],
+        "id": 4208,
+        "question": "Fill in the blanks to have a valid Java program.\r\n[!raw!]\r\nclass Apples {\r\n  public static void main(String[ ]args) {\r\n    {0} name \u003d \"John\";\r\n    {1} age \u003d 24;\r\n    {2} height \u003d 189.87;\r\n  }\r\n}",
+        "textContent": "[h1]Variables[/h1]\r\n\r\nExamples of variable declarations:[code format\u003d\"java\" codeId\u003d\"718\"]class MyClass {\r\n  public static void main(String[ ] args) {\r\n    [b]String[/b] name \u003d\"David\";\r\n    [b]int[/b] age \u003d 42;\r\n    [b]double [/b]score \u003d15.9;\r\n    [b]char[/b] group \u003d \u0027Z\u0027;\r\n  }\r\n}[/code]\r\n[b]char [/b]stands for character and holds a single character.\r\n\r\nAnother type is the [b]Boolean [/b]type, which has only two possible values: [b]true [/b]and [b]false[/b].\r\nThis data type is used for simple flags that track true/false conditions.\r\n[b]For example:[/b] [code format\u003d\"java\" ][b]boolean [/b]online \u003d true;[/code]\r\n[note]You can use a comma-separated list to declare more than one variable of the specified type. Example: int a \u003d 42, b \u003d 11;[/note]",
+        "type": 6,
+        "videoEnd": 232.0,
+        "videoStart": 176.0
+      }],
+      "tags": "variables",
+      "type": 0,
+      "videoID": "C34yzarygX4"
+    }, {
+      "id": 2140,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Primitive Operators",
+      "quizzes": [{
+        "answers": [{
+          "id": 95341,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "int"
+        }, {
+          "id": 95342,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "5"
+        }],
+        "id": 4452,
+        "question": "Fill in the blank to declare an integer variable and set its value to 5.\r\n[!raw!]\r\n{0} var \u003d {1};",
+        "textContent": "[h1]The Math Operators[/h1]\r\n\r\nJava provides a rich set of operators to use in manipulating variables. A value used on either side of an operator is called an [b]operand[/b]. \r\nFor example, in the expression below, the numbers 6 and 3 are operands of the plus operator: [code format\u003d\"java\"]int x \u003d 6 + 3;[/code]\r\nJava arithmetic operators: \r\n+ [b]addition[/b]\r\n- [b]subtraction[/b]\r\n* [b]multiplication[/b]\r\n/ [b]division[/b]\r\n% [b]modulo[/b]\r\n[note]Arithmetic operators are used in mathematical expressions in the same way that they are used in algebraic equations.[/note]",
+        "type": 3,
+        "videoEnd": 87.0,
+        "videoStart": 61.0
+      }, {
+        "answers": [{
+          "id": 95343,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "+"
+        }, {
+          "id": 95344,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "y"
+        }, {
+          "id": 95345,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "result"
+        }],
+        "id": 4209,
+        "question": "Fill in the blanks to print the sum of the two variables.\r\n[!raw!]\r\nint x \u003d 2; int y \u003d 4;\r\nint result \u003d x {0} {1};\r\nSystem.out.println({2});",
+        "textContent": "[h1]Addition[/h1]\r\n\r\nThe + operator adds together two values, such as two constants, a constant and a variable, or a variable and a variable. Here are a few examples of addition: [code format\u003d\"java\"]int sum1 \u003d 50 + 10; \r\nint sum2 \u003d sum1 + 66; \r\nint sum3 \u003d sum2 + sum2;[/code]\r\n[h2]Subtraction[/h2]\r\nThe - operator subtracts one value from another.[code format\u003d\"java\"]int sum1 \u003d 1000 - 10;\r\nint sum2 \u003d sum1 - 5;\r\nint sum3 \u003d sum1 - sum2;[/code]",
+        "type": 3,
+        "videoEnd": 134.5,
+        "videoStart": 96.0
+      }, {
+        "answers": [{
+          "id": 95346,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "3"
+        }],
+        "id": 4210,
+        "question": "What is the result of the following code?\r\nint x \u003d 15; int y \u003d 4;\r\nint result \u003d x / y;\r\nSystem.out.println(result);",
+        "textContent": "[h1]Multiplication[/h1]\r\n\r\nThe * operator multiplies two values.[code format\u003d\"java\"]int sum1 \u003d 1000 * 2;\r\nint sum2 \u003d sum1 * 10;\r\nint sum3 \u003d sum1 * sum2;[/code]\r\n[h2]Division[/h2]\r\nThe / operator divides one value by another.[code format\u003d\"java\"]int sum1 \u003d 1000 / 5;\r\nint sum2 \u003d sum1 / 2;\r\nint sum3 \u003d sum1 / sum2;[/code]\r\n[note]In the example above, the result of the division equation will be a whole number, as [b]int [/b]is used as the data type. You can use [b]double [/b]to retrieve a value with a decimal point.[/note]",
+        "type": 2,
+        "videoEnd": 211.0,
+        "videoStart": 135.0
+      }, {
+        "answers": [{
+          "id": 99501,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "3"
+        }],
+        "id": 4211,
+        "question": "What value is stored in the result variable?\r\nint x \u003d 8, y \u003d 5;\r\nint result \u003d x % y;",
+        "textContent": "[h1]Modulo[/h1]\r\n\r\nThe [b]modulo [/b](or remainder) math operation performs an integer division of one value by another, and returns the remainder of that division. \r\nThe operator for the modulo operation is the percentage (%) character.\r\nExample:[code format\u003d\"java\" codeId\u003d\"719\"]int value \u003d 23;\r\nint res \u003d value % 6; // res is 5[/code]\r\n[note]Dividing 23 by 6 returns a quotient of 3, with a remainder of 5. Thus, the value of 5 is assigned to the [b]res [/b]variable.[/note]",
+        "type": 2,
+        "videoEnd": 266.7,
+        "videoStart": 211.0
+      }],
+      "tags": "operators",
+      "type": 0,
+      "videoID": "8ZaTSedtf9M"
+    }, {
+      "id": 2141,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Increment \u0026 Decrement",
+      "quizzes": [{
+        "answers": [{
+          "id": 99494,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "++"
+        }],
+        "id": 4212,
+        "question": "Fill in the blanks to print 11.\r\n[!raw!]\r\nint a \u003d 10;\r\n{0}a;\r\nSystem.out.println(a);",
+        "textContent": "[h1]Increment Operators[/h1]\r\n\r\n[b][/b]An [b]increment [/b]or [b]decrement [/b]operator provides a more convenient and compact way to increase or decrease the value of a variable by [b]one[/b]. \r\nFor instance, the statement [b]x\u003dx+1;[/b] can be simplified to [b]++x;[/b] \r\nExample: [code format\u003d\"java\" codeId\u003d\"720\"]int test \u003d 5;\r\n++test; // test is now 6[/code]\r\nThe [b]decrement [/b]operator (--) is used to decrease the value of a variable by one. [code format\u003d\"java\" codeId\u003d\"721\"]int test \u003d 5;\r\n--test; // test is now 4[/code]",
+        "type": 3,
+        "videoEnd": 83.5,
+        "videoStart": 4.0
+      }, {
+        "answers": [{
+          "id": 99495,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "14"
+        }],
+        "id": 4213,
+        "question": "What is the output of the following code?\r\nint x \u003d 14; \r\nSystem.out.println(x++);",
+        "textContent": "[h1]Prefix \u0026 Postfix[/h1]\r\n\r\nTwo forms, [b]prefix [/b]and [b]postfix[/b], may be used with both the increment and decrement operators.\r\nWith prefix form, the operator appears before the operand, while in postfix form, the operator appears after the operand. Below is an explanation of how the two forms work:\r\n[b]Prefix[/b]: Increments the variable\u0027s value and uses the new value in the expression. \r\nExample:[code format\u003d\"java\" codeId\u003d\"722\"]int x \u003d 34;\r\nint y \u003d [b]++x[/b]; // y is 35[/code]\r\nThe value of x is first incremented to 35, and is then assigned to y, so the values of both x and y are now 35.\r\n[b]Postfix[/b]: The variable\u0027s value is first used in the expression and is then increased. \r\nExample:[code format\u003d\"java\" codeId\u003d\"723\"]int x \u003d 34;\r\nint y \u003d [b]x++[/b]; // y is 34[/code]\r\nx is first assigned to y, and is then incremented by one. Therefore, x becomes 35, while y is assigned the value of 34.\r\n[note]The same applies to the [b]decrement [/b]operator.[/note]",
+        "type": 2,
+        "videoEnd": 167.5,
+        "videoStart": 83.5
+      }, {
+        "answers": [{
+          "id": 99496,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "x"
+        }, {
+          "id": 99497,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "y"
+        }],
+        "id": 4214,
+        "question": "Fill in the missing parts in the following code to print 13.\r\n[!raw!]\r\nint x \u003d 25; int y;\r\ny \u003d {0} - 12;\r\nSystem.out.println({1});",
+        "textContent": "[h1]Assignment Operators [/h1]\r\n\r\nYou are already familiar with the [b]assignment [/b]operator (\u003d), which assigns a value to a variable. [code format\u003d\"java\" ]int value \u003d 5;[/code]\r\nThis assigned the value 5 to a variable called [b]value [/b]of type [b]int[/b].\r\n\r\nJava provides a number of assignment operators to make it easier to write code.\r\n[b]Addition and assignment (+\u003d):[/b] [code format\u003d\"java\" codeId\u003d\"724\"]int num1 \u003d 4;\r\nint num2 \u003d 8;\r\n[b]num2 +\u003d num1[/b]; // num2 \u003d num2 + num1;\r\n\r\n// num2 is 12 and num1 is 4[/code]\r\n[b]Subtraction and assignment (-\u003d):[/b] [code format\u003d\"java\" codeId\u003d\"725\"]int num1 \u003d 4;\r\nint num2 \u003d 8;\r\n[b]num2 -\u003d num1;[/b] // num2 \u003d num2 - num1;\r\n\r\n// num2 is 4 and num1 is 4[/code]\r\n[note]Similarly, Java supports multiplication and assignment (*\u003d), division and assignment (/\u003d), and remainder and assignment (%\u003d).[/note]",
+        "type": 3,
+        "videoEnd": 297.5,
+        "videoStart": 168.0
+      }],
+      "tags": "operators",
+      "type": 0,
+      "videoID": "ydcTx6idTs0"
+    }, {
+      "id": 2142,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Strings",
+      "quizzes": [{
+        "answers": [{
+          "id": 95353,
+          "isCorrect": true,
+          "properties": {},
+          "text": "String"
+        }, {
+          "id": 95354,
+          "isCorrect": true,
+          "properties": {},
+          "text": "var"
+        }, {
+          "id": 95355,
+          "isCorrect": false,
+          "properties": {},
+          "text": "char"
+        }, {
+          "id": 95356,
+          "isCorrect": false,
+          "properties": {},
+          "text": "print"
+        }, {
+          "id": 95357,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Hello"
+        }],
+        "id": 4216,
+        "question": "Fill in the blanks to print \"Hello\".\r\n[!raw!]\r\n{0} var;\r\nvar \u003d \"Hello\";\r\nSystem.out.println({1});",
+        "textContent": "[h1]Strings[/h1]\r\n\r\nA [b]String [/b]is an object that represents a sequence of characters.\r\n For example, \"Hello\" is a string of 5 characters.\r\n\r\nFor example:[code format\u003d\"java\"][b]String [/b]s \u003d \"SoloLearn\"; [/code]",
+        "type": 6,
+        "videoEnd": 173.5,
+        "videoStart": 70.0
+      }, {
+        "answers": [{
+          "id": 99498,
+          "isCorrect": true,
+          "properties": {},
+          "text": "\u0027k\u0027 is a char"
+        }, {
+          "id": 99499,
+          "isCorrect": false,
+          "properties": {},
+          "text": "\"hello\" is a char"
+        }, {
+          "id": 99500,
+          "isCorrect": false,
+          "properties": {},
+          "text": "char is used to store numeric values"
+        }],
+        "id": 4215,
+        "question": "Which statement in regard to the char data type is true?",
+        "textContent": "[h1]String Concatenation[/h1]\r\n\r\nThe + (plus) operator between strings adds them together to make a new string. This process is called [b]concatenation[/b].\r\nThe resulted string is the first string put together with the second string.\r\nFor example: [code format\u003d\"java\" codeId\u003d\"726\"][b]String[/b] firstName, lastName;\r\nfirstName \u003d \"David\";\r\nlastName \u003d \"Williams\";\r\n\r\nSystem.out.println(\"My name is \" + firstName +\" \"+lastName);\r\n        \r\n// Prints: My name is David Williams[/code]\r\n[note]The [b]char [/b]data type represents a single character. [/note]",
+        "type": 1,
+        "videoEnd": 252.0,
+        "videoStart": 174.0
+      }],
+      "tags": "strings",
+      "type": 0,
+      "videoID": "BGU7TS8NBO0"
+    }, {
+      "id": 2220,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 1,
+      "name": "Getting User Input",
+      "quizzes": [{
+        "answers": [{
+          "id": 104702,
+          "isCorrect": true,
+          "properties": {},
+          "text": "Scanner"
+        }, {
+          "id": 104703,
+          "isCorrect": true,
+          "properties": {},
+          "text": "nextLine"
+        }, {
+          "id": 104704,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Input"
+        }, {
+          "id": 104705,
+          "isCorrect": false,
+          "properties": {},
+          "text": "getLine"
+        }, {
+          "id": 104706,
+          "isCorrect": false,
+          "properties": {},
+          "text": "nextGet"
+        }],
+        "id": 4423,
+        "question": "Fill in the blanks to get user input.\r\n[!raw!]\r\nimport java.util.Scanner;\r\nclass test {\r\n   public static void main(String[ ] args) {\r\n      {0} sc \u003d new Scanner(System.in);\r\n      String st \u003d sc.{1}();\r\n   }\r\n}",
+        "textContent": "[h1]Getting User Input [/h1]\r\n\r\nWhile Java provides many different methods for getting user input, the [b]Scanner [/b]object is the most common, and perhaps the easiest to implement. Import the [b]Scanner [/b]class to use the [b]Scanner [/b]object, as seen here:[code format\u003d\"java\" ][b]import [/b]java.util.Scanner; [/code]\r\nIn order to use the [b]Scanner [/b]class, create an instance of the class by using the following syntax:[code format\u003d\"java\" ][b]Scanner [/b]myVar \u003d new [b]Scanner[/b](System.in);[/code]\r\nYou can now read in different kinds of input data that the user enters. \r\nHere are some methods that are available through the Scanner class:\r\nRead a byte - nextByte()\r\nRead a short - nextShort()\r\nRead an int - nextInt()\r\nRead a long - nextLong()\r\nRead a float - nextFloat()\r\nRead a double - nextDouble()\r\nRead a boolean - nextBoolean()\r\nRead a complete line - nextLine()\r\nRead a word - next()\r\n\r\nExample of a program used to get user input: [code format\u003d\"java\" codeId\u003d\"935\"]import java.util.Scanner;\r\n\r\nclass MyClass {\r\n  public static void main(String[ ] args) {\r\n    Scanner myVar \u003d new Scanner(System.in);\r\n    System.out.println(myVar.nextLine());        \r\n  }\r\n}[/code]\r\n[note]This will wait for the user to input something and print that input.\r\nThe code might seem complex, but you will understand it all in the upcoming lessons.[/note]",
+        "type": 6,
+        "videoEnd": 287.0,
+        "videoStart": 7.0
+      }],
+      "tags": "input",
+      "type": 0,
+      "videoID": "5DdacOkrTgo"
+    }, {
+      "id": 2207,
+      "isRestricted": false,
+      "isShortcut": false,
+      "mode": 0,
+      "name": "Module 1 Quiz",
+      "quizzes": [{
+        "answers": [{
+          "id": 29148,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "int"
+        }, {
+          "id": 29149,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "+"
+        }, {
+          "id": 29150,
+          "isCorrect": false,
+          "properties": {
+            "prefix": "",
+            "postfix": ""
+          },
+          "text": "sum"
+        }],
+        "id": 4386,
+        "question": "Please type in a code to declare two variables of type int and print their sum.\r\n[!raw!]\r\nint x \u003d 4;\r\n{0} y \u003d 7;\r\nint sum \u003d x {1} y;\r\nSystem.out.println({2});",
+        "type": 3,
+        "videoEnd": 0.0,
+        "videoStart": 0.0
+      }, {
+        "answers": [{
+          "id": 29151,
+          "isCorrect": true,
+          "properties": {},
+          "text": "...there must be a method called \"main\"."
+        }, {
+          "id": 29152,
+          "isCorrect": false,
+          "properties": {},
+          "text": "...there must be at least two variables declared."
+        }, {
+          "id": 29153,
+          "isCorrect": false,
+          "properties": {},
+          "text": "...all of the variables must be integers."
+        }],
+        "id": 4387,
+        "question": "In every Java program...",
+        "type": 1,
+        "videoEnd": 0.0,
+        "videoStart": 0.0
+      }, {
+        "answers": [{
+          "id": 29020,
+          "isCorrect": true,
+          "properties": {},
+          "text": "String"
+        }, {
+          "id": 29021,
+          "isCorrect": true,
+          "properties": {},
+          "text": "System"
+        }, {
+          "id": 29022,
+          "isCorrect": false,
+          "properties": {},
+          "text": "Java"
+        }, {
+          "id": 29023,
+          "isCorrect": true,
+          "properties": {},
+          "text": "name"
+        }, {
+          "id": 29024,
+          "isCorrect": false,
+          "properties": {},
+          "text": "int"
+        }],
+        "id": 4388,
+        "question": "Fill in the blanks to output the name:\r\n[!raw!]\r\n{0} name;\r\nname \u003d \"David\";\r\n{1}.out.println({2});",
+        "type": 6,
+        "videoEnd": 0.0,
+        "videoStart": 0.0
+      }],
+      "type": 1
+    }],
+    "name": "Basic Concepts",
+    "rewardXp": 0,
+    "skipPrice": 10
+  }],
+  "name": "Java Tutorial",
+  "tags": "java",
+  "version": 422
+}

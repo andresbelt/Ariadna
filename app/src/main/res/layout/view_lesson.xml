@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/lesson"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="4dp"
+    card_view:cardPreventCornerOverlap="false"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+
+    <include layout="@layout/view_lesson_merge" />
+
+</android.support.v7.widget.CardView>
