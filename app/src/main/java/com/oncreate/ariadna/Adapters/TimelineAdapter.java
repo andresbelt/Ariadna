@@ -45,7 +45,7 @@ public class TimelineAdapter extends HeaderAdapter {
         private ImageView timelineIcon;
         private View view;
 
-        /* renamed from: com.sololearn.app.adapters.TimelineAdapter.ViewHolder.1 */
+
         class C05001 implements OnClickListener {
             final /* synthetic */ TimelineAdapter val$this$0;
 

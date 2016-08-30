@@ -11,7 +11,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
 
 import com.oncreate.ariadna.ModelsVO.Achievement;
-import com.oncreate.ariadna.UI.CircleImageView;
+import com.oncreate.ariadna.UI.views.CircleImageView;
 import com.oncreate.ariadna.Util.StorageService;
 
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ public class AchievementManager {
 
     private StorageService storageService;
 
-    /* renamed from: com.sololearn.app.AchievementManager.1 */
     class C04591 implements OnClickListener {
         C04591() {
         }
@@ -45,10 +44,9 @@ public class AchievementManager {
         }
     }
 
-    /* renamed from: com.sololearn.app.AchievementManager.2 */
-    class C04612 implements AnimationListener {
+class C04612 implements AnimationListener {
 
-        /* renamed from: com.sololearn.app.AchievementManager.2.1 */
+
         class C04601 implements Runnable {
             C04601() {
             }
@@ -82,7 +80,6 @@ public class AchievementManager {
         }
     }
 
-    /* renamed from: com.sololearn.app.AchievementManager.3 */
     class C11113 implements ImageManager.Listener {
         final /* synthetic */ Achievement val$achievement;
 

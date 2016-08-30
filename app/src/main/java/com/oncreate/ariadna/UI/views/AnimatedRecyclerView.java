@@ -1,4 +1,4 @@
-package com.oncreate.ariadna.UI;
+package com.oncreate.ariadna.UI.views;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;

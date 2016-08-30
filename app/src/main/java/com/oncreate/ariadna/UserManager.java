@@ -78,7 +78,6 @@ public class UserManager {
 
 
 
-    /* renamed from: com.sololearn.core.UserManager.5 */
 //    class LogoutListener implements com.android.volley.Response.Listener<ServiceResult> {
 //        LogoutListener() {
 //        }

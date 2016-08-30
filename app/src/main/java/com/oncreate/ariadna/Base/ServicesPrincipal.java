@@ -73,12 +73,11 @@ public class ServicesPrincipal {
     private UserManager userManager;
 
     class C13164 implements Response.Listener<AuthenticationResult> {
-        final /* synthetic */ Listener val$listener;
+        final Listener val$listener;
 
-        /* renamed from: com.sololearn.core.web.WebService.4.1 */
         class C13151 implements Listener<AuthenticationResult> {
 
-            /* renamed from: com.sololearn.core.web.WebService.4.1.1 */
+
             class C13141 implements AuthenticationResolver.Listener {
                 final /* synthetic */ AuthenticationResult val$response;
 
@@ -410,7 +409,6 @@ public class ServicesPrincipal {
         }
     }
 
-    /* renamed from: com.sololearn.app.App.3 */
     class C11143 implements AuthenticationResolver {
         C11143() {
         }

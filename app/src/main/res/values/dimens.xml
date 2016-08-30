@@ -16,4 +16,8 @@
     <item name="modules_horizontal_padding" type="dimen">0.0dip</item>
     <item name="module_certificate_width" type="dimen" >70.0dip</item>
     <item name="dialog_max_width" type="dimen">360.0dip</item>
+    <item name="lesson_comment_reply_shift" type="dimen">16.0dip</item>
+    <dimen name="lesson_comment_elevation">3.0dip</dimen>
+    <dimen name="lesson_comment_reply_elevation">1.5dip</dimen>
+    <dimen name="fab_placeholder_height">88.0dip</dimen>
 </resources>

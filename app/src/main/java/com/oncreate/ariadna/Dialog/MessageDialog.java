@@ -19,7 +19,7 @@ public class MessageDialog extends AppDialog {
     private android.support.v7.app.AlertDialog.Builder dialogBuilder;
     private Listener listener;
 
-    /* renamed from: com.sololearn.app.dialogs.MessageDialog.1 */
+
     class C05101 implements Runnable {
         C05101() {
         }
@@ -37,10 +37,8 @@ public class MessageDialog extends AppDialog {
         private Fragment resultFragment;
         private int resultId;
 
-        /* renamed from: com.sololearn.app.dialogs.MessageDialog.Builder.1 */
         class C05121 implements OnClickListener {
 
-            /* renamed from: com.sololearn.app.dialogs.MessageDialog.Builder.1.1 */
             class C05111 implements Runnable {
                 final /* synthetic */ int val$which;
 

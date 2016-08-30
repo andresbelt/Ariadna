@@ -18,17 +18,18 @@ import com.google.android.gms.common.ConnectionResult;
 import com.oncreate.ariadna.Adapters.HeaderAdapter;
 import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.LessonManager;
+
 import com.oncreate.ariadna.R;
+import com.oncreate.ariadna.UI.views.ActionMenuItemBadgeView;
 import com.oncreate.ariadna.loginLearn.StringUtils;
 
 
 public abstract class LessonFragmentBase extends AppFragment implements OnClickListener {
     private BottomSheetBehavior<View> bottomSheetBehavior;
     private Button commentsButton;
-    private LessonCommentFragment commentsFragment;
+  //  private LessonCommentFragment commentsFragment;
     private LessonManager lessonManager;
 
-    /* renamed from: com.sololearn.app.fragments.LessonFragmentBase.3 */
     class C05383 implements Runnable {
         C05383() {
         }
@@ -41,7 +42,7 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
     }
 
     /* renamed from: com.sololearn.app.fragments.LessonFragmentBase.1 */
-    class C11761 implements GetQuestionCountListener {
+    class C11761 implements LessonManager.GetQuestionCountListener {
         final /* synthetic */ ActionMenuItemBadgeView val$badge;
 
         C11761(ActionMenuItemBadgeView actionMenuItemBadgeView) {
@@ -84,14 +85,14 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.LessonFragmentBase.4 */
-    class C11784 implements GetQuestionCountListener {
+
+    class C11784 implements LessonManager.GetQuestionCountListener {
         C11784() {
         }
 
         public void onResponse(int count) {
             if (LessonFragmentBase.this.isAlive()) {
-                LessonFragmentBase.this.commentsButton.setText(LessonFragmentBase.this.getResources().getQuantityString(C0471R.plurals.quiz_comments_button_format, count, new Object[]{Integer.valueOf(count)}));
+                LessonFragmentBase.this.commentsButton.setText(LessonFragmentBase.this.getResources().getQuantityString(R.plurals.quiz_comments_button_format, count, new Object[]{Integer.valueOf(count)}));
             }
         }
     }
@@ -117,14 +118,14 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
     }
 
     private void updateDiscussBadge(ActionMenuItemBadgeView badge) {
-        if (getApp().isDiscussionEnabled()) {
-            getLessonManager().getQuestionCount(new C11761(badge));
-        }
+//        if (getApp().isDiscussionEnabled()) {
+//            getLessonManager().getQuestionCount(new C11761(badge));
+//        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_discuss /*2131755732*/:
+            case R.id.action_discuss :
                 navigate(DiscussionFragment.createBackstackAwareWithQuery(getLessonManager().getLesson().getTags()));
                 return true;
             default:
@@ -182,11 +183,11 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.bottomSheetBehavior = BottomSheetBehavior.from(view.findViewById(C0471R.id.quiz_comments));
+        this.bottomSheetBehavior = BottomSheetBehavior.from(view.findViewById(R.id.quiz_comments));
         this.bottomSheetBehavior.setHideable(true);
         this.bottomSheetBehavior.setPeekHeight(0);
         this.bottomSheetBehavior.setBottomSheetCallback(new C11772());
-        this.commentsButton = (Button) view.findViewById(C0471R.id.quiz_comments_button);
+        this.commentsButton = (Button) view.findViewById(R.id.quiz_comments_button);
         this.commentsButton.setOnClickListener(this);
         updateCommentsNumber();
         if (getArguments().getBoolean(LessonManager.ARG_SHOW_COMMENTS, false)) {
@@ -208,8 +209,8 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
         this.bottomSheetBehavior.setPeekHeight(getActivity().getWindow().getDecorView().getHeight() / 2);
         this.bottomSheetBehavior.setState(4);
         if (this.commentsFragment == null) {
-            this.commentsFragment = LessonCommentFragment.forQuiz(getLessonManager().getQuizId(), getCommentType());
-            getChildFragmentManager().beginTransaction().add((int) C0471R.id.quiz_comments, this.commentsFragment).commit();
+        //    this.commentsFragment = LessonCommentFragment.forQuiz(getLessonManager().getQuizId(), getCommentType());
+          //  getChildFragmentManager().beginTransaction().add((int) R.id.quiz_comments, this.commentsFragment).commit();
         }
     }
 

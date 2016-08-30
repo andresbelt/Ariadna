@@ -433,7 +433,7 @@
         }],
         "id": 4194,
         "question": "We use the javac command line tool for:",
-        "textContent": "[h1]Compile[/h1]\r\n\r\nOpen a command prompt window and go to the directory in which you saved the file. \r\nWe\u0027ll say that it\u0027s C:\\sololearn.\r\n\r\nTo compile your code, type[b] javac ExampleProgram.java[/b], and press Enter. \r\nIf there are no errors in your code, the command prompt will take you to the next line and generate a bytecode file, [b]ExampleProgram.class[/b].\r\n[note]You have now generated your class file, which contains the program\u0027s bytecode.\r\nNext step is to run it![/note]",
+        "textContent": "[h1]Compile[/h1]\r\n\r\nOpen a command prompt window and go to the directory in which you saved the file. \r\nWe\u0027ll say that it\u0027s C:\\.\r\n\r\nTo compile your code, type[b] javac ExampleProgram.java[/b], and press Enter. \r\nIf there are no errors in your code, the command prompt will take you to the next line and generate a bytecode file, [b]ExampleProgram.class[/b].\r\n[note]You have now generated your class file, which contains the program\u0027s bytecode.\r\nNext step is to run it![/note]",
         "type": 1,
         "videoEnd": 341.0,
         "videoStart": 123.0

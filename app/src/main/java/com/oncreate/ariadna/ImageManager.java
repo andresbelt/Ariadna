@@ -52,7 +52,6 @@ public class ImageManager {
         void onResult(Bitmap bitmap);
     }
 
-    /* renamed from: com.sololearn.core.ImageManager.2 */
     class C12962 implements Listener {
         final /* synthetic */ Listener val$listener;
         final /* synthetic */ String val$path;
@@ -136,7 +135,6 @@ public class ImageManager {
         }
     }
 
-    /* renamed from: com.sololearn.core.ImageManager.1 */
     class C14321 implements ImageListener {
         final /* synthetic */ Listener val$listener;
 

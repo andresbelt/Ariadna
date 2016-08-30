@@ -13,6 +13,9 @@ import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.LessonState;
 import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.Quiz;
+import com.oncreate.ariadna.UI.Fragments.LessonFragment;
+import com.oncreate.ariadna.UI.Fragments.QuizFragment;
+import com.oncreate.ariadna.Util.BundleBuilder;
 import com.oncreate.ariadna.loginLearn.ParamMap;
 import com.oncreate.ariadna.loginLearn.StringUtils;
 import com.oncreate.ariadna.loginLearn.WebService;
@@ -50,7 +53,6 @@ public class LessonManager {
         void onResponse(int i);
     }
 
-//    /* renamed from: com.sololearn.app.LessonManager.1 */
 //    class C11281 implements Listener<DiscussionPostResult> {
 //        final /* synthetic */ GetQuestionCountListener val$listener;
 //
@@ -67,7 +69,6 @@ public class LessonManager {
 //        }
 //    }
 //
-//    /* renamed from: com.sololearn.app.LessonManager.2 */
 //    class C11292 implements Listener<DiscussionPostResult> {
 //        final /* synthetic */ GetQuestionCountListener val$listener;
 //        final /* synthetic */ int val$quizId;
@@ -129,14 +130,14 @@ public class LessonManager {
         if (lesson.getType() != 1 && !forceQuiz && lesson.getMode() != 0) {
             switch (lesson.getMode()) {
                 case AppActivity.OFFSET_TOOLBAR /*1*/:
-                    fragment = new TextFragment();
+                   // fragment = new TextFragment();
                     break;
                 case AppActivity.OFFSET_TABS /*2*/:
                 case ConnectionResult.SIGN_IN_REQUIRED /*4*/:
                     fragment = new LessonFragment();
                     break;
-                case LoadingDialog.HORIZONTAL_INDETERMINATE /*3*/:
-                    fragment = new VideoFragment();
+                case 3 /*3*/:
+                   //fragment = new VideoFragment();
                     break;
                 default:
                     break;

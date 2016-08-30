@@ -1,4 +1,4 @@
-package com.oncreate.ariadna.UI;
+package com.oncreate.ariadna.UI.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;

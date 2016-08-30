@@ -58,7 +58,7 @@ public class ProgressManager {
     private int totalItems;
     private UserManager userManager;
 
-    /* renamed from: com.sololearn.core.ProgressManager.5 */
+
     class C06835 extends AsyncTask<Void, Void, Void> {
         private int currentLevel;
         private int currentXp;
@@ -106,7 +106,6 @@ public class ProgressManager {
         }
     }
 
-    /* renamed from: com.sololearn.core.ProgressManager.9 */
     class C06859 extends AsyncTask<Boolean, Void, Void> {
         C06859() {
         }
@@ -149,19 +148,18 @@ public class ProgressManager {
         }
     }
 
-    /* renamed from: com.sololearn.core.ProgressManager.2 */
     class C12982 extends TypeToken<SparseArray<Level>> {
         C12982() {
         }
     }
 
-    /* renamed from: com.sololearn.core.ProgressManager.3 */
+
     class C12993 extends TypeToken<SparseArray<LessonProgress>> {
         C12993() {
         }
     }
 
-    /* renamed from: com.sololearn.core.ProgressManager.4 */
+
     class C13004 implements CourseManager.Listener {
         C13004() {
         }
@@ -202,7 +200,7 @@ public class ProgressManager {
         }
     }
 
-    /* renamed from: com.sololearn.core.ProgressManager.8 */
+
     class C13028 extends TypeToken<SparseArray<Long>> {
         C13028() {
         }

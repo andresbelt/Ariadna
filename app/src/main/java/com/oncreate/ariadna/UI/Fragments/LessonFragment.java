@@ -22,8 +22,8 @@ public class LessonFragment extends PagerFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-            addFragment((int) R.string.page_title_lesson_text, TextFragment.class, getArguments());
-            addFragment((int) R.string.page_title_lesson_video, VideoFragment.class, getArguments());
+           // addFragment((int) R.string.page_title_lesson_text, TextFragment.class, getArguments());
+           // addFragment((int) R.string.page_title_lesson_video, VideoFragment.class, getArguments());
         }
         setHasOptionsMenu(true);
     }

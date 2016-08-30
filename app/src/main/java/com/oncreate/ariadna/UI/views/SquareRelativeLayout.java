@@ -1,4 +1,4 @@
-package com.oncreate.ariadna.UI;
+package com.oncreate.ariadna.UI.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;

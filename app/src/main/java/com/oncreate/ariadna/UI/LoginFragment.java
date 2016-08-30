@@ -41,7 +41,6 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
 
     class Initialized implements AriadnaApplication.InitializationListener {
 
-        /* renamed from: com.sololearn.app.fragments.SplashLoginFragment.1.1 */
 
         Initialized() {
         }

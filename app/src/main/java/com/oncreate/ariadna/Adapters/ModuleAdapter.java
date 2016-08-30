@@ -58,7 +58,7 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
     public class ShortcutViewHolder extends android.support.v7.widget.RecyclerView.ViewHolder {
         private Module module;
 
-        /* renamed from: com.sololearn.app.adapters.ModuleAdapter.ShortcutViewHolder.1 */
+
         class C04971 implements OnClickListener {
             final /* synthetic */ ModuleAdapter val$this$0;
 
@@ -115,7 +115,6 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
             }
         }
 
-        /* renamed from: com.sololearn.app.adapters.ModuleAdapter.ViewHolder.2 */
         class C11482 implements ImageManager.Listener {
             final /* synthetic */ int val$loadIconId;
 

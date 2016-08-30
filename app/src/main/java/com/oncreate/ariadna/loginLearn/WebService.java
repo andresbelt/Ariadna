@@ -141,7 +141,6 @@ public class WebService {
         }
     }
 
-    /* renamed from: com.sololearn.core.web.WebService.2 */
     class C13122 implements Listener<AuthenticationResult> {
         final /* synthetic */ String val$action;
         final /* synthetic */ Object val$data;
@@ -199,14 +198,13 @@ public class WebService {
         }
     }
 
-    /* renamed from: com.sololearn.core.web.WebService.4 */
-    class C13164 implements Listener<AuthenticationResult> {
-        final /* synthetic */ Listener val$listener;
 
-        /* renamed from: com.sololearn.core.web.WebService.4.1 */
+    class C13164 implements Listener<AuthenticationResult> {
+        final Listener val$listener;
+
         class C13151 implements Listener<AuthenticationResult> {
 
-            /* renamed from: com.sololearn.core.web.WebService.4.1.1 */
+
             class C13141 implements AuthenticationResolver.Listener {
                 final /* synthetic */ AuthenticationResult val$response;
 

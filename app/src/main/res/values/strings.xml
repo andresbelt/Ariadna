@@ -53,4 +53,11 @@
     <string name="lesson_locked_title">Lesson Locked</string>
     <string name="lesson_locked_text">Complete the previous lessons to unlock this one.</string>
     <string name="quiz_shortcut_title">Test Out</string>
+    <string name="quiz_hint_showcase_title">Having Trouble?</string>
+    <string name="quiz_login_hint_text">Please sign in to use the unlock/hint feature.</string>
+    <string name="quiz_login_hint_title">Sign in required</string>
+    <string name="action_not_now">action_not_now</string>
+    <string name="action_login">Sign in</string>
+    <string name="lesson_comment_input_error">Comment cannot be empty.</string>
+    <string name="loading">Loading...</string>
 </resources>
