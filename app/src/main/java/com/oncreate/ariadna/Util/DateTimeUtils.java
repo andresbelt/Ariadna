@@ -16,6 +16,7 @@ public class DateTimeUtils {
 
     public static String getDurationString(int totalSeconds) {
         Context context = AriadnaApplication.getInstance();
+        int hours = (totalSeconds % SECONDS_IN_DAY) / SECONDS_IN_HOUR;
         int minutes = (totalSeconds % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
         int seconds = totalSeconds % SECONDS_IN_MINUTE;
         if (totalSeconds / SECONDS_IN_HOUR == 0) {
@@ -31,7 +32,7 @@ public class DateTimeUtils {
             return getRelativeDateString(differenceSeconds);
         }
         Calendar.getInstance().setTime(date);
-        return String.format(resources.getString(R.string.date_format_day), new Object[]{Integer.valueOf(cal.get(2) + 1), Integer.valueOf(cal.get(5)), Integer.valueOf(cal.get(1))});
+        return String.format(resources.getString(R.string.date_format_day), new Object[]{Integer.valueOf(Calendar.getInstance().get(2) + 1), Integer.valueOf(Calendar.getInstance().get(5)), Integer.valueOf(Calendar.getInstance().get(1))});
     }
 
     public static String getRelativeDateString(Date date, boolean ignoreNegatives) {

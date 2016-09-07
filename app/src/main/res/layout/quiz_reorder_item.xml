@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    ads:cardElevation="1dp"
+    ads:cardUseCompatPadding="true"
+    app:clickable="true"
+    ads:contentPadding="12dp"
+    app:focusable="true"
+    app:gravity="center"
+    app:layout_height="match_parent"
+    app:layout_marginBottom="0dp"
+    app:layout_width="wrap_content">
+
+    <RelativeLayout
+        app:layout_height="match_parent"
+        app:layout_width="match_parent">
+
+        <TextView
+            app:gravity="center"
+            app:id="@+id/text"
+            app:layout_height="wrap_content"
+            app:layout_width="match_parent"
+            app:paddingLeft="10dp"
+            app:paddingRight="10dp"
+            app:textColor="@color/black_87"
+            app:textSize="@dimen/quiz_answer_text_size" />
+
+        <RelativeLayout
+            app:background="@color/transparent"
+            app:layout_alignParentRight="true"
+            app:layout_centerVertical="true"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:orientation="horizontal"
+            app:paddingRight="8dp">
+
+            <ImageView
+                app:background="@drawable/pattern"
+                app:contentDescription="@string/app_name"
+                app:id="@+id/first"
+                app:layout_alignParentTop="true"
+                app:layout_height="5dp"
+                app:layout_width="5dp" />
+
+            <ImageView
+                app:background="@drawable/pattern"
+                app:contentDescription="@string/app_name"
+                app:id="@+id/second"
+                app:layout_below="@id/first"
+                app:layout_height="5dp"
+                app:layout_marginTop="3dp"
+                app:layout_width="5dp" />
+
+            <ImageView
+                app:background="@drawable/pattern"
+                app:contentDescription="@string/app_name"
+                app:id="@+id/third"
+                app:layout_below="@id/second"
+                app:layout_height="5dp"
+                app:layout_marginTop="3dp"
+                app:layout_width="5dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

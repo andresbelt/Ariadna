@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<gridLayoutAnimation android:interpolator="@android:anim/fade_in"
+<gridLayoutAnimation
     android:animation="@anim/slide_item_up"
     android:animationOrder="normal"
     android:columnDelay="10%"

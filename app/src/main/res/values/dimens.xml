@@ -17,7 +17,34 @@
     <item name="module_certificate_width" type="dimen" >70.0dip</item>
     <item name="dialog_max_width" type="dimen">360.0dip</item>
     <item name="lesson_comment_reply_shift" type="dimen">16.0dip</item>
+    <item name="lesson_button_width" type="dimen">112.0dip</item>
+    <item name="lesson_text_size" type="dimen" >15.0sp</item>
+    <item name="min_drag_move" type="dimen">5.0dip</item>
+    <item name="quiz_placeholder_item_padding" type="dimen" >4.0dip</item>
+    <item name="quiz_strike_line_height" type="dimen">32.0dip</item>
     <dimen name="lesson_comment_elevation">3.0dip</dimen>
     <dimen name="lesson_comment_reply_elevation">1.5dip</dimen>
     <dimen name="fab_placeholder_height">88.0dip</dimen>
+    <dimen name="quiz_action_buttons_height">80.0dip</dimen>
+    <dimen name="quiz_answer_text_size">16.0sp</dimen>
+    <dimen name="quiz_result_icon_size">36.0dip</dimen>
+    <dimen name="quiz_result_text_size">22.0sp</dimen>
+    <dimen name="quiz_correct_wrong_button_height">40.0dip</dimen>
+    <dimen name="quiz_correct_wrong_button_text_size">14.0sp</dimen>
+    <dimen name="quiz_details_height">44.0dip</dimen>
+    <dimen name="quiz_hint_text_size">14.0sp</dimen>
+    <dimen name="quiz_image_placeholder_container_size">70.0dip</dimen>
+    <dimen name="quiz_image_placeholder_item_scaled_size">140.0dip</dimen>
+    <dimen name="quiz_image_placeholder_item_size">70.0dip</dimen>
+    <dimen name="quiz_placeholder_source_padding">2.0dip</dimen>
+    <dimen name="quiz_points_text_size">18.0dip</dimen>
+    <dimen name="quiz_question">20.0sp</dimen>
+    <dimen name="quiz_question_padding">16.0dip</dimen>
+    <dimen name="max_click_drag">10.0dip</dimen>
+    <dimen name="lesson_circle_button_text_size">10.0sp</dimen>
+    <dimen name="correct_wrong_bottom_margin">80.0dip</dimen>
+    <dimen name="button_text_size">14.0sp</dimen>
+    <dimen name="quiz_multiple_typein_padding_bottom">4.0dip</dimen>
+    <dimen name="quiz_multiple_typein_padding_top">4.0dip</dimen>
+    <dimen name="quiz_placeholder_text_size">18.0sp</dimen>
 </resources>

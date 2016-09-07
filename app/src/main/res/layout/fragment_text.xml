@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    app:layout_height="match_parent"
+    app:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        app:id="@+id/scroll_view"
+        app:layout_height="wrap_content"
+        app:layout_width="wrap_content">
+
+        <RelativeLayout
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:padding="8dp">
+
+            <android.support.v7.widget.CardView
+                ads:cardPreventCornerOverlap="false"
+                ads:cardUseCompatPadding="true"
+                ads:contentPadding="8dp"
+                app:id="@+id/text_container"
+                app:layout_height="wrap_content"
+                app:layout_width="match_parent" />
+
+            <Button
+
+                app:id="@+id/btn_text_continue"
+                app:layout_alignParentRight="true"
+                app:layout_below="@+id/text_container"
+                app:layout_height="match_parent"
+                app:layout_marginTop="8dp"
+                app:layout_width="wrap_content"
+                app:minWidth="@dimen/lesson_button_width"
+                app:text="@string/challenge_page_text_continue" />
+
+            <Button
+
+                app:id="@+id/quiz_comments_button"
+                app:layout_below="@id/text_container"
+                app:layout_height="match_parent"
+                app:layout_marginTop="8dp"
+                app:layout_width="wrap_content"
+                app:text="@string/quiz_comments_button"
+                app:textColor="@color/app_primary_color_700" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <FrameLayout
+        app:background="@color/background_color"
+        app:id="@+id/quiz_comments"
+        ads:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+        app:layout_height="match_parent"
+        app:layout_width="wrap_content"
+        app:orientation="horizontal" />
+</android.support.design.widget.CoordinatorLayout>

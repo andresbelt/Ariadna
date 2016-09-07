@@ -86,7 +86,7 @@ public class LessonComment extends PostBase {
 
     public Loader getLoader() {
         if (this.loader == null) {
-            this.loader = new Loader();
+          //  this.loader = new Loader();
         }
         return this.loader;
     }

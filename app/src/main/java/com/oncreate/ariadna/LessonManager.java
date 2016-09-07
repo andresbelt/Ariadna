@@ -2,7 +2,7 @@ package com.oncreate.ariadna;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.android.volley.Response.Listener;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.oncreate.ariadna.Adapters.TimelineAdapter;
 import com.oncreate.ariadna.Base.AppActivity;
@@ -15,10 +15,9 @@ import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.Quiz;
 import com.oncreate.ariadna.UI.Fragments.LessonFragment;
 import com.oncreate.ariadna.UI.Fragments.QuizFragment;
+import com.oncreate.ariadna.UI.Fragments.TextFragment;
 import com.oncreate.ariadna.Util.BundleBuilder;
-import com.oncreate.ariadna.loginLearn.ParamMap;
 import com.oncreate.ariadna.loginLearn.StringUtils;
-import com.oncreate.ariadna.loginLearn.WebService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -127,10 +126,11 @@ public class LessonManager {
         args.putInt(ARG_LESSON_ID, lesson.getId());
         args.putInt(ARG_QUIZ_ID, quizId);
         AppFragment fragment = null;
+        fragment = new QuizFragment();
         if (lesson.getType() != 1 && !forceQuiz && lesson.getMode() != 0) {
             switch (lesson.getMode()) {
                 case AppActivity.OFFSET_TOOLBAR /*1*/:
-                   // fragment = new TextFragment();
+                    fragment = new TextFragment();
                     break;
                 case AppActivity.OFFSET_TABS /*2*/:
                 case ConnectionResult.SIGN_IN_REQUIRED /*4*/:
@@ -143,7 +143,6 @@ public class LessonManager {
                     break;
             }
         }
-        fragment = new QuizFragment();
         if (fragment != null) {
             fragment.setName(lesson.getName());
             fragment.setArguments(args);
@@ -185,11 +184,11 @@ public class LessonManager {
         return bundle;
     }
 
-    public static AppFragment getShortcutFragment(int moduleId) {
-        QuizFragment fragment = new QuizFragment();
-        fragment.setArguments(new BundleBuilder().putBoolean(ARG_SHORTCUT, true).putInt(ARG_SHORTCUT_MODULE_ID, moduleId).toBundle());
-        return fragment;
-    }
+//    public static AppFragment getShortcutFragment(int moduleId) {
+//     //   QuizFragment fragment = new QuizFragment();
+//   //     fragment.setArguments(new BundleBuilder().putBoolean(ARG_SHORTCUT, true).putInt(ARG_SHORTCUT_MODULE_ID, moduleId).toBundle());
+//    //    return fragment;
+//    }
 
     private LessonManager(LessonManager manager) {
         this.lesson = manager.lesson;

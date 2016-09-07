@@ -73,13 +73,13 @@ public class LessonAdapter extends Adapter<LessonAdapter.ViewHolder> {
             this.number.setText(LessonAdapter.this.context.getString(R.string.lesson_number_format, new Object[]{Integer.valueOf(lessonNumber), Integer.valueOf(LessonAdapter.this.items.size())}));
             this.state = AriadnaApplication.getInstance().getProgressManager().getLessonState(lesson.getId());
             switch (this.state.getState()) {
-//                case LessonCommentFragment.TYPE_TEXT_OR_VIDEO /*0*/:
-//                    this.status.setBackgroundColor(0);
-//                    this.details.setTextColor(-7829368);
-//                    this.cardView.setCardBackgroundColor(ContextCompat.getColor(LessonAdapter.this.context, R.color.card_disabled_background));
-//                    this.icon.setVisibility(0);
-//                    this.icon.setImageResource(R.drawable.lesson_locked_icon);
-//                    break;
+                case 0 /*0*/:
+                    this.status.setBackgroundColor(0);
+                    this.details.setTextColor(-7829368);
+                    this.cardView.setCardBackgroundColor(ContextCompat.getColor(LessonAdapter.this.context, R.color.card_disabled_background));
+                    this.icon.setVisibility(0);
+                    this.icon.setImageResource(R.drawable.lesson_locked_icon);
+                    break;
                 case AppActivity.OFFSET_TOOLBAR /*1*/:
                     this.status.setBackgroundResource(R.drawable.lesson_status_normal);
                     this.details.setTextColor(-1);

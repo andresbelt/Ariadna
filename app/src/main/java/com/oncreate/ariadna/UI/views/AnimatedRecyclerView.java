@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.GridLayoutAnimationController;
 import android.view.animation.GridLayoutAnimationController.AnimationParameters;
 import android.view.animation.LayoutAnimationController;
 

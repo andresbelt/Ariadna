@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent">
+
+    <com.oncreate.ariadna.UI.Quiz.QuizSelector
+        app:id="@+id/quiz_selector"
+        app:layout_above="@+id/quiz_buttons"
+        app:layout_height="match_parent"
+        app:layout_marginBottom="@dimen/quiz_action_buttons_height"
+        app:layout_width="wrap_content" />
+
+    <RelativeLayout
+        app:id="@+id/quiz_buttons"
+        app:layout_gravity="bottom"
+        app:layout_height="wrap_content"
+        app:layout_marginBottom="8dp"
+        app:layout_marginLeft="8dp"
+        app:layout_marginRight="8dp"
+        app:layout_width="match_parent">
+
+        <Button
+
+            app:id="@+id/quiz_comments_button"
+            app:layout_gravity="center"
+            app:layout_height="wrap_content"
+            app:layout_width="wrap_content"
+            app:text="@string/quiz_comments_button"
+            app:textColor="@color/app_primary_color_700" />
+
+        <Button
+
+            app:id="@+id/quiz_check_button"
+            app:layout_alignParentRight="true"
+            app:layout_gravity="center"
+
+            app:minWidth="@dimen/lesson_button_width"
+            app:text="@string/quiz_check_button"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <FrameLayout
+        app:id="@+id/quiz_result"
+        app:visibility="invisible"
+        app:layout_width="match_parent"
+        app:layout_height="match_parent">
+
+        <LinearLayout
+            app:background="@drawable/correct_wrong_bg"
+            app:gravity="center"
+            app:id="@+id/quiz_result_popup"
+            app:layout_gravity="bottom"
+            app:layout_marginBottom="@dimen/correct_wrong_bottom_margin"
+            app:paddingBottom="16dp"
+            app:paddingLeft="16dp"
+            app:paddingRight="16dp"
+            app:paddingTop="8dp"
+            app:layout_height="wrap_content"
+            app:layout_width="wrap_content">
+
+            <ImageView
+                app:id="@+id/quiz_result_icon"
+                app:layout_gravity="center"
+                app:layout_height="@dimen/quiz_result_icon_size"
+                app:layout_width="@dimen/quiz_result_icon_size"
+                app:src="@drawable/quiz_wrong_icon" />
+
+            <LinearLayout
+
+                app:orientation="horizontal"
+                app:layout_width="wrap_content"
+                app:layout_height="wrap_content">
+
+                <TextView
+                    app:id="@+id/quiz_result_text"
+                    app:layout_height="wrap_content"
+                    app:layout_marginLeft="16dp"
+                    app:layout_marginRight="16dp"
+                    app:layout_width="wrap_content"
+                    app:singleLine="true"
+                    app:textColor="@color/wrong_text"
+                    app:textSize="@dimen/quiz_result_text_size" />
+
+                <TextView
+                    app:id="@+id/quiz_result_attempts"
+                    app:layout_height="wrap_content"
+                    app:layout_marginLeft="16dp"
+                    app:layout_marginTop="8dp"
+                    app:layout_width="wrap_content"
+                    app:textColor="@color/wrong_text"
+                    app:textSize="@dimen/button_text_size" />
+            </LinearLayout>
+
+            <Button
+
+                app:id="@+id/quiz_result_button"
+                app:layout_height="@dimen/quiz_correct_wrong_button_height"
+
+                app:minWidth="0dp"
+                app:text="@string/action_back"
+                app:textSize="@dimen/quiz_correct_wrong_button_text_size"
+
+                app:layout_width="wrap_content" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        app:background="@color/background_color"
+        app:id="@+id/quiz_comments"
+        android:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+
+        app:orientation="horizontal"
+        app:layout_height="wrap_content"
+        app:layout_width="wrap_content" />
+</android.support.design.widget.CoordinatorLayout>

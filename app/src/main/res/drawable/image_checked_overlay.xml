@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="center">
+        <bitmap android:gravity="center" android:src="@drawable/image_check" />
+    </item>
+    <item>
+        <shape android:shape="ring">
+            <solid android:color="@color/transparent" />
+            <stroke android:width="5dp" android:color="@color/app_primary_color" />
+        </shape>
+    </item>
+</layer-list>

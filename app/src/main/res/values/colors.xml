@@ -12,4 +12,26 @@
     <color name="card_background">#fffafafa</color>
     <color name="app_primary_color_800">#ff00839f</color>
     <color name="app_accent_color">#ff8bc34a</color>
+    <color name="card_disabled_background">#ffdfdfdf</color>
+    <color name="black_87">#87000000</color>
+    <color name="background_color">#ffe9e9e9</color>
+    <color name="note_block_text">#ff727272</color>
+    <color name="app_accent_color_700">#ff689f38</color>
+    <color name="app_background_color">#fff3f3f3</color>
+    <color name="quiz_info_layout_text_color">#ff4d791a</color>
+    <color name="quiz_question_text_color">#ff3b3b3b</color>
+    <color name="card_selected_background">#ffeaeaea</color>
+    <color name="black_54">#54000000</color>
+    <color name="correct_text">#ff8bb44d</color>
+    <color name="wrong_text">#ffe05074</color>
+    <color name="correct_wrong_shadow_1">#05848484</color>
+    <color name="correct_wrong_shadow_2">#10848484</color>
+    <color name="correct_wrong_shadow_3">#15848484</color>
+    <color name="correct_wrong_shadow_4">#20848484</color>
+    <color name="correct_wrong_shadow_5">#25848484</color>
+    <color name="correct_wrong_shadow_6">#30848484</color>
+    <color name="correct_wrong_shadow_7">#35848484</color>
+    <color name="correct_wrong_shadow_8">#40848484</color>
+    <color name="correct_wrong_popup">#fffaeee0</color>
+    <color name="green_text">#ff139446</color>
 </resources>

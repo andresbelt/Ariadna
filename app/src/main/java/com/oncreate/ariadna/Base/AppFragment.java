@@ -62,6 +62,10 @@ public abstract class AppFragment extends Fragment {
         this.isAlive = true;
     }
 
+    public boolean inflateHeaderExtras(LayoutInflater inflater, ViewGroup viewGroup) {
+        viewGroup.removeAllViews();
+        return false;
+    }
 
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
@@ -219,6 +223,13 @@ public abstract class AppFragment extends Fragment {
         this.forcefeedAnimation = forcefeedAnimation;
     }
 
+    protected boolean navigateBack() {
+        return ((AppActivity) getActivity()).navigateBack();
+    }
+
+    protected void navigateBack(String entry) {
+        ((AppActivity) getActivity()).navigateBack(entry);
+    }
 
     public void onOrientationChange(int orientation) {
     }

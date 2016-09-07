@@ -46,7 +46,7 @@
     <string name="lesson_number_format">%1$d/%2$d</string>
     <string name="module_certificate">certificado</string>
     <string name="no_internet_connection_title">Not Connected</string>
-    <string name="no_internet_connection_message"><![CDATA[<string name=\"no_internet_connection_message\">Please check your internet connection and try again.</string>]]></string>
+    <string name="no_internet_connection_message">Please check your internet connection and try again.</string>
     <string name="action_ok">OK</string>
     <string name="unknown_error_message">Please try again in a little bit.</string>
     <string name="unknown_error_title">Something went wrong</string>
@@ -60,4 +60,52 @@
     <string name="action_login">Sign in</string>
     <string name="lesson_comment_input_error">Comment cannot be empty.</string>
     <string name="loading">Loading...</string>
+    <string name="duration_format">%1$02d:%2$02d</string>
+    <string name="duration_format_hour">%1$02d:%2$02d:%3$02d</string>
+    <string name="date_format_day">%1$d/%2$d/%3$d</string>
+    <string name="date_format_now">Just Now</string>
+    <string name="action_retry">Try again</string>
+    <string name="challenge_page_text_continue">Continue</string>
+    <string name="quiz_comments_button">Comments</string>
+    <string name="text_version_code_run_text">Try it yourself</string>
+    <string name="quiz_hint">Hint</string>
+    <string name="action_share">Share</string>
+
+    <string name="cero">0</string>
+    <string name="action_back">Back</string>
+
+    <string name="quiz_comment_replies_load_more">Load more replies</string>
+    <string name="quiz_comment_replies_loading">Loading replies…</string>
+
+    <string name="quiz_correct_text">Correct!</string>
+
+    <string name="quiz_hint_no_xp_text">"You don't have enough XP to use this feature."</string>
+    <string name="quiz_hint_no_xp_title">XP required</string>
+    <string name="quiz_hint_prompt_text">Use %1$dXP of your %2$dXP to get a hint.</string>
+    <string name="quiz_hint_prompt_title">Get a Hint</string>
+    <string name="quiz_hint_showcase_message">Get a hint</string>
+
+    <string name="quiz_multiple_choice_tip">Select all that apply</string>
+    <string name="quiz_number_format">%1$d/%2$d</string>
+    <string name="quiz_share">Share</string>
+    <string name="quiz_shortcut_completed_text">You have successfully completed the test!</string>
+    <string name="quiz_shortcut_completed_title">Success</string>
+    <string name="quiz_shortcut_failed_text">Test Out failed. You ran out of lives.</string>
+    <string name="quiz_shortcut_failed_title">Test Out failed</string>
+    <string name="quiz_shortcut_leave_text">Are you sure you want to leave the test?</string>
+    <string name="quiz_shortcut_leave_title">Quit Test Out</string>
+
+    <string name="quiz_slide_to_delete_tip">Slide to delete the wrong answers</string>
+    <string name="quiz_time_format">Time: %s</string>
+    <string name="quiz_unlock">Unlock</string>
+    <string name="quiz_unlock_prompt_text">Use %1$dXP of your %2$dXP to unlock the correct answer.</string>
+    <string name="quiz_unlock_prompt_title">Unlock Answer</string>
+    <string name="quiz_unlock_showcase_message">Unlock the correct answer</string>
+    <string name="quiz_unlock_showcase_title">Having Trouble?</string>
+    <string name="quiz_wrong_text">Wrong</string>
+    <string name="action_cancel">cancel</string>
+    <string name="action_continue">Continue</string>
+    <string name="challenge_leave_dialog_button_text">leave</string>
+    <string name="quiz_check_button">CHECK</string>
+    <string name="internet_connection_failed">Please check your internet connection and try again.</string>
 </resources>

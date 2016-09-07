@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.google.android.gms.common.ConnectionResult;
 import com.oncreate.ariadna.Adapters.HeaderAdapter;
 import com.oncreate.ariadna.Base.AppFragment;
+import com.oncreate.ariadna.Dialog.LoadingDialog;
 import com.oncreate.ariadna.LessonManager;
 
 import com.oncreate.ariadna.R;
@@ -108,13 +109,13 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.quiz, menu);
-        MenuItem item = menu.findItem(R.id.action_discuss);
-        ActionMenuItemBadgeView view = new ActionMenuItemBadgeView(getContext());
-        view.initialize(item);
-        item.setActionView(view);
-        view.setOnClickListener(this);
-        updateDiscussBadge(view);
+//        inflater.inflate(R.menu.quiz, menu);
+//        MenuItem item = menu.findItem(R.id.action_discuss);
+//        ActionMenuItemBadgeView view = new ActionMenuItemBadgeView(getContext());
+//        view.initialize(item);
+//        item.setActionView(view);
+//        view.setOnClickListener(this);
+//        updateDiscussBadge(view);
     }
 
     private void updateDiscussBadge(ActionMenuItemBadgeView badge) {
@@ -125,9 +126,9 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_discuss :
-                navigate(DiscussionFragment.createBackstackAwareWithQuery(getLessonManager().getLesson().getTags()));
-                return true;
+//            case R.id.action_discuss :
+//                navigate(DiscussionFragment.createBackstackAwareWithQuery(getLessonManager().getLesson().getTags()));
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -183,16 +184,16 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.bottomSheetBehavior = BottomSheetBehavior.from(view.findViewById(R.id.quiz_comments));
-        this.bottomSheetBehavior.setHideable(true);
-        this.bottomSheetBehavior.setPeekHeight(0);
-        this.bottomSheetBehavior.setBottomSheetCallback(new C11772());
-        this.commentsButton = (Button) view.findViewById(R.id.quiz_comments_button);
-        this.commentsButton.setOnClickListener(this);
-        updateCommentsNumber();
-        if (getArguments().getBoolean(LessonManager.ARG_SHOW_COMMENTS, false)) {
-            view.postDelayed(new C05383(), 100);
-        }
+//        this.bottomSheetBehavior = BottomSheetBehavior.from(view.findViewById(R.id.quiz_comments));
+//        this.bottomSheetBehavior.setHideable(true);
+//        this.bottomSheetBehavior.setPeekHeight(0);
+//        this.bottomSheetBehavior.setBottomSheetCallback(new C11772());
+//        this.commentsButton = (Button) view.findViewById(R.id.quiz_comments_button);
+//        this.commentsButton.setOnClickListener(this);
+//        updateCommentsNumber();
+//        if (getArguments().getBoolean(LessonManager.ARG_SHOW_COMMENTS, false)) {
+//            view.postDelayed(new C05383(), 100);
+//        }
     }
 
     private void updateCommentsNumber() {
@@ -208,33 +209,33 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
     private void showComments() {
         this.bottomSheetBehavior.setPeekHeight(getActivity().getWindow().getDecorView().getHeight() / 2);
         this.bottomSheetBehavior.setState(4);
-        if (this.commentsFragment == null) {
+      //  if (this.commentsFragment == null) {
         //    this.commentsFragment = LessonCommentFragment.forQuiz(getLessonManager().getQuizId(), getCommentType());
           //  getChildFragmentManager().beginTransaction().add((int) R.id.quiz_comments, this.commentsFragment).commit();
-        }
+       // }
     }
 
     public boolean onBackPressed() {
-        if (this.commentsFragment != null && this.bottomSheetBehavior.getState() == 3 && this.commentsFragment.onBackPressed()) {
-            return true;
-        }
-        if (this.commentsFragment == null || (this.bottomSheetBehavior.getState() != 4 && this.bottomSheetBehavior.getState() != 3)) {
-            return super.onBackPressed();
-        }
-        this.bottomSheetBehavior.setState(5);
+       // if (this.commentsFragment != null && this.bottomSheetBehavior.getState() == 3 && this.commentsFragment.onBackPressed()) {
+//            return true;
+//        }
+//        if (this.commentsFragment == null || (this.bottomSheetBehavior.getState() != 4 && this.bottomSheetBehavior.getState() != 3)) {
+//            return super.onBackPressed();
+//        }
+//        this.bottomSheetBehavior.setState(5);
         return true;
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.quiz_comments_button /*2131755475*/:
-                showComments();
-            case R.id.action_discuss /*2131755732*/:
-                String tags = getLessonManager().getLesson().getTags();
-                if (StringUtils.isNullOrWhitespace(tags)) {
-                    tags = getApp().getCourseManager().getCourse().getTags();
-                }
-                navigate(DiscussionFragment.createBackstackAwareWithQuery(tags));
+            //case R.id.quiz_comments_button /*2131755475*/:
+          //      showComments();
+//            case R.id.action_discuss /*2131755732*/:
+//                String tags = getLessonManager().getLesson().getTags();
+//                if (StringUtils.isNullOrWhitespace(tags)) {
+//                    tags = getApp().getCourseManager().getCourse().getTags();
+//                }
+//                navigate(DiscussionFragment.createBackstackAwareWithQuery(tags));
             default:
         }
     }
@@ -248,10 +249,10 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
     }
 
     public boolean interceptNavigation() {
-        if (this.commentsFragment != null) {
-            getChildFragmentManager().beginTransaction().remove(this.commentsFragment).commitAllowingStateLoss();
-            this.commentsFragment = null;
-        }
+        //if (this.commentsFragment != null) {
+        //    getChildFragmentManager().beginTransaction().remove(this.commentsFragment).commitAllowingStateLoss();
+      //      this.commentsFragment = null;
+    //    }
         return super.interceptNavigation();
     }
 }
