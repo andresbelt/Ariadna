@@ -26,7 +26,6 @@ import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ProgressManager;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.UI.HomeActivity;
-import com.oncreate.ariadna.UI.LoginFragment;
 import com.oncreate.ariadna.UI.Quiz.QuizSelector;
 import com.oncreate.ariadna.UI.Quiz.QuizView;
 import com.oncreate.ariadna.UserManager;

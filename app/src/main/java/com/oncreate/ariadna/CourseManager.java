@@ -7,7 +7,6 @@ import android.util.SparseArray;
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.oncreate.ariadna.Base.AriadnaApplication;
-import com.oncreate.ariadna.Base.ServicesPrincipal;
 import com.oncreate.ariadna.ModelsVO.Course;
 import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.Module;
@@ -211,7 +210,7 @@ public class CourseManager {
         int version;
         WebService webService = this.webService;
         Class cls = GetCourseResult.class;
-        String str = ServicesPrincipal.GET_COURSE;
+        String str = WebService.GET_COURSE;
         ParamMap create = ParamMap.create();
         String str2 = "version";
         if (this.course != null) {

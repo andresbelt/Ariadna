@@ -401,16 +401,10 @@ public class PagerFragment extends AppFragment implements OnPageChangeListener {
         }
     }
 
-    public void setPage(int position) {
-        getApp().getActivity().setTab(position);
-    }
 
     protected void onFragmentCreated(Fragment fragment, int position) {
     }
 
-    public ViewPager getViewPager() {
-        return this.viewPager;
-    }
 
     public void lockViewPager(boolean lock) {
         this.isPagingEnabled = !lock;

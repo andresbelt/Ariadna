@@ -157,20 +157,13 @@ public abstract class AppFragment extends Fragment {
         if (getResources().getConfiguration().orientation == 2) {
             onOrientationChange(2);
         }
-        if (getParentFragment() == null) {
-            getApp().getActivity().setViewPager(getViewPager());
-        }
+
 
     }
 
     protected int getHeaderOffset() {
         return getApp().getActivity().getToolbarOffset(0);
     }
-
-    protected ViewPager getViewPager() {
-        return null;
-    }
-
 
     protected void setHeaderShift(int shift) {
         View view = getView();

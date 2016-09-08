@@ -60,6 +60,7 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         }
     }
 
+
     /* renamed from: com.sololearn.app.fragments.ModulesFragment.2 */
     class C11852 implements ProgressManager.Listener {
         C11852() {

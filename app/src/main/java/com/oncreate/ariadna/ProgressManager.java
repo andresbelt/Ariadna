@@ -5,10 +5,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.oncreate.ariadna.Base.ServicesPrincipal;
-import com.oncreate.ariadna.ModelsVO.Achievement;
 import com.oncreate.ariadna.ModelsVO.Course;
 import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.LessonProgress;
@@ -20,15 +17,10 @@ import com.oncreate.ariadna.ModelsVO.Progress;
 import com.oncreate.ariadna.ModelsVO.ProgressChangeset;
 import com.oncreate.ariadna.ModelsVO.Quiz;
 import com.oncreate.ariadna.ModelsVO.QuizProgress;
-import com.oncreate.ariadna.Request.Services;
 import com.oncreate.ariadna.Util.StorageService;
-import com.oncreate.ariadna.loginLearn.AppFieldNamingPolicy;
-import com.oncreate.ariadna.loginLearn.UtcDateTypeAdapter;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 

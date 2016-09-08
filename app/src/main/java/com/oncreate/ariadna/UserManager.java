@@ -5,12 +5,11 @@ import android.content.SharedPreferences.Editor;
 
 import com.android.volley.Response;
 import com.google.android.gms.common.Scopes;
+import com.oncreate.ariadna.ModelsVO.LoginPost;
+import com.oncreate.ariadna.ModelsVO.UserVO;
 import com.oncreate.ariadna.Util.StorageService;
-import com.oncreate.ariadna.loginLearn.AuthenticationResult;
 import com.oncreate.ariadna.loginLearn.ParamMap;
-import com.oncreate.ariadna.loginLearn.User;
 import com.oncreate.ariadna.loginLearn.WebService;
-import com.oncreate.ariadna.loginLearn.XAuth;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,7 +33,7 @@ public class UserManager {
         private Interop() {
         }
 
-        public void setUser(User user) {
+        public void setUser(UserVO user) {
             boolean isLoggedIn = UserManager.this.isAuthenticated();
             UserManager.this.setUser(user);
             UserManager.this.notifyStateChanged(isLoggedIn ? UserManager.UPDATED : UserManager.LOGGED_IN);
@@ -57,25 +56,6 @@ public class UserManager {
         void onStateChanged(UserManager userManager, int i);
     }
 
-//    class LoginListener implements com.android.volley.Response.Listener<AuthenticationResult> {
-//        final com.android.volley.Response.Listener listener;
-//
-//        LoginListener(String str, com.android.volley.Response.Listener listener) {
-//            this.listener = listener;
-//        }
-//
-//        public void onResponse(AuthenticationResult response) {
-//            if (response.isSuccessful()) {
-//                UserManager.this.setUser(response.getUser());
-//                UserManager.this.notifyStateChanged(UserManager.LOGGED_IN);
-//            }
-//            if (this.val$listener != null) {
-//                this.val$listener.onResponse(response);
-//            }
-//        }
-//    }
-
-
 
 
 //    class LogoutListener implements com.android.volley.Response.Listener<ServiceResult> {
@@ -89,18 +69,16 @@ public class UserManager {
 //        }
 //    }
 
-    class C13031 implements Response.Listener<AuthenticationResult> {
+    class LoginListener implements Response.Listener<LoginPost> {
         final /* synthetic */ Response.Listener val$listener;
-        final /* synthetic */ String val$passwordHash;
 
-        C13031(String str, Response.Listener listener) {
-            this.val$passwordHash = str;
+        LoginListener(Response.Listener listener) {
             this.val$listener = listener;
         }
 
-        public void onResponse(AuthenticationResult response) {
+        public void onResponse(LoginPost response) {
             if (response.isSuccessful()) {
-                UserManager.this.setUser(response.getUser());
+                UserManager.this.setUser(response.getItems());
                 UserManager.this.notifyStateChanged(UserManager.LOGGED_IN);
             }
             if (this.val$listener != null) {
@@ -134,10 +112,9 @@ public class UserManager {
     }
 
 
-    public void login(String email, String password, com.android.volley.Response.Listener<AuthenticationResult> listener) {
+    public void login(String email, Response.Listener<LoginPost> listener) {
 
-        String passwordHash = XAuth.hashPassword(password);
-        webService.request(AuthenticationResult.class, WebService.LOGIN, ParamMap.create().add(Scopes.EMAIL, email).add("password", passwordHash).add("isExplicit", Boolean.valueOf(true)), new C13031(passwordHash,listener));
+        webService.request(LoginPost.class, WebService.LOGIN, ParamMap.create().add(Scopes.EMAIL, email), new LoginListener(listener));
     }
 
 
@@ -152,9 +129,9 @@ public class UserManager {
     }
 
 
-    private void setUser(User user) {
+    private void setUser(UserVO user) {
         this.id = user.getId();
-        this.name = user.getName();
+        this.name = user.getNombre();
         this.storageService.getPreferences().edit().putInt(PREF_USER_ID, this.id).putString(PREF_USER_NAME, this.name).remove(PREF_USER_LOGGED_OUT).apply();
     }
 

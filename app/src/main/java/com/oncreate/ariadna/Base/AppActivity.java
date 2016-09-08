@@ -175,9 +175,6 @@ public abstract class AppActivity extends AppCompatActivity {
 
     protected abstract AppFragment createHomeFragment();
 
-    public abstract void setViewPager(ViewPager viewPager);
-
-    public abstract void setTab(int i);
 
     protected void navigateHomeOnStart() {
         navigateHome();
@@ -214,9 +211,6 @@ public abstract class AppActivity extends AppCompatActivity {
             }
             if (!clearBackStack(true)) {
                 resetHome();
-                if (position != -1) {
-                    setTab(position);
-                }
             }
         } else {
             this.homeFragment = createHomeFragment();

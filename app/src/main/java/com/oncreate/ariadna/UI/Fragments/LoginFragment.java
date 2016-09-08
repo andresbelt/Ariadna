@@ -1,7 +1,5 @@
-package com.oncreate.ariadna.UI;
+package com.oncreate.ariadna.UI.Fragments;
 
-import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -10,23 +8,17 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.android.volley.Response;
-import com.google.android.gms.common.Scopes;
 import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
-import com.oncreate.ariadna.Base.ServicesPrincipal;
+import com.oncreate.ariadna.Dialog.MessageDialog;
+import com.oncreate.ariadna.ModelsVO.LoginPost;
 import com.oncreate.ariadna.R;
-import com.oncreate.ariadna.Request.Services;
-import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.InputValidator;
-import com.oncreate.ariadna.loginLearn.AuthenticationResult;
-import com.oncreate.ariadna.loginLearn.ParamMap;
 import com.oncreate.ariadna.loginLearn.ServiceError;
-import com.oncreate.ariadna.loginLearn.XAuth;
 
 public class LoginFragment extends AppFragment implements View.OnClickListener, View.OnKeyListener{
     protected TextInputLayout emailLayout;
@@ -42,6 +34,15 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
     class Initialized implements AriadnaApplication.InitializationListener {
 
 
+        class C12061 implements MessageDialog.Listener {
+            C12061() {
+            }
+
+            public void onResult(int result) {
+                LoginFragment.this.initialize();
+            }
+        }
+
         Initialized() {
         }
 
@@ -53,22 +54,20 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
         public void onError() {
 
             Log.i("","error inicializando");
-          //  MessageDialog.build(SplashLoginFragment.this.getContext()).setTitle((int) C0471R.string.no_internet_connection_title).setMessage((int) C0471R.string.no_internet_connection_message).setPositiveButton((int) C0471R.string.action_retry).setListener(new C12061()).show(SplashLoginFragment.this.getChildFragmentManager());
+            MessageDialog.build(LoginFragment.this.getContext()).setTitle((int) R.string.no_internet_connection_title).setMessage((int) R.string.no_internet_connection_message).setPositiveButton((int) R.string.action_retry).setListener(new C12061()).show(LoginFragment.this.getChildFragmentManager());
         }
     }
 
 
-    class servicesLoginListener implements Response.Listener<AuthenticationResult> {
-        final /* synthetic */ String val$email;
+    class servicesLoginListener implements Response.Listener<LoginPost> {
+        final String val$email;
 
-        final /* synthetic */ String val$password;
 
-        servicesLoginListener( String str, String str2) {
+        servicesLoginListener(String str) {
             this.val$email = str;
-            this.val$password = str2;
         }
 
-        public void onResponse(AuthenticationResult response) {
+        public void onResponse(LoginPost response) {
 
             if (response.isSuccessful()) {
                LoginFragment.this.returnFromLogin();
@@ -153,28 +152,7 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
         return false;
     }
 
-    public boolean isMenuBlocked() {
-        return true;
-    }
 
-    class C13031 implements com.android.volley.Response.Listener<AuthenticationResult> {
-        final /* synthetic */ com.android.volley.Response.Listener val$listener;
-        final /* synthetic */ String val$passwordHash;
-
-        C13031(String str, com.android.volley.Response.Listener listener) {
-            this.val$passwordHash = str;
-            this.val$listener = listener;
-        }
-
-        public void onResponse(AuthenticationResult response) {
-            if (response.isSuccessful()) {
-
-            }
-            if (this.val$listener != null) {
-                this.val$listener.onResponse(response);
-            }
-        }
-    }
 
     @Override
     public void onClick(View view) {
@@ -183,8 +161,8 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
             case R.id.btn_ingre:
                 if(validateAll())
                 if(!this.email.getText().toString().isEmpty()) {
-                    String passwordHash = XAuth.hashPassword("2728596");
-                    getApp().getUserManager().login(email.getText().toString(), "2728596", new servicesLoginListener( email.getText().toString(), "2728596"));
+                    //String passwordHash = XAuth.hashPassword("2728596");
+                    getApp().getUserManager().login(email.getText().toString(), new servicesLoginListener(email.getText().toString()));
 //                    String passwordHash = XAuth.hashPassword("2728596");
 //                    ServicesPrincipal.getInstance(getActivity()).request(AuthenticationResult.class, ServicesPrincipal.LOGIN, ParamMap.create().add(Scopes.EMAIL, email).add("password",passwordHash ).add("isExplicit", Boolean.valueOf(true)), new C13031(passwordHash, new servicesLoginListener(email.getText().toString(),passwordHash)));
 
@@ -253,7 +231,7 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
     }
 
 
-        protected String validate(EditText input, boolean required) {
+    protected String validate(EditText input, boolean required) {
         TextInputLayout layout = null;
         String text = input.getText().toString();
         String message = null;
@@ -272,7 +250,6 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
         if (this.email != null) {
             isValid = validate(this.email, true) == null;
         }
-
         return isValid;
     }
 
@@ -286,7 +263,6 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
 
 
     protected void returnFromLogin() {
-
         navigateHome();
     }
 

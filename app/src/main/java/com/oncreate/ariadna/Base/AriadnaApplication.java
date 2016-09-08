@@ -14,7 +14,6 @@ import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.SettingsManager;
 import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.StorageService;
-import com.oncreate.ariadna.loginLearn.AuthenticationResolver;
 import com.oncreate.ariadna.loginLearn.WebService;
 
 /**
@@ -38,7 +37,7 @@ public class AriadnaApplication extends Application {
     private AchievementManager achievementManager;
 private  WebService webService ;
 
-    private String clientId = "com.sololearn.java", clientSecret = "c936726a2af54a6d9730",sessionId;
+    private String sessionId;
     public static AriadnaApplication getInstance() {
         return app;
     }
@@ -57,11 +56,10 @@ private  WebService webService ;
         Resources r = getResources();
         isPlayEnabled = r.getBoolean(R.bool.is_play_enabled);
         storage = new StorageService(this);
-
         isStartupLoginEnabled = r.getBoolean(R.bool.is_startup_login_enabled);
-      achievementManager = new AchievementManager(getImageManager(), this.storage);
+        achievementManager = new AchievementManager(getImageManager(), this.storage);
         settingsManager = new SettingsManager(this, this.storage, isPlayEnabled);
-        webService = new WebService(this, this.storage, this.settingsManager, clientId, clientSecret);
+        webService = new WebService(this, this.storage, this.settingsManager);
         courseManager = new CourseManager(this.storage,webService);
         progressManager = new ProgressManager(this.storage, this.courseManager, this.userManager, achievementManager);
 
@@ -135,15 +133,6 @@ private  WebService webService ;
         if (this.userManager.isAuthenticated()) {
             this.progressManager.sync();
         }
-     //   FacebookSdk.sdkInitialize(getApplicationContext());
-//        updateGcm();
-//        if (this.settingsManager.isLocationEnabled()) {
-//            try {
-//                updateLocation();
-//            } catch (Exception e) {
-//               // Crittercism.logHandledException(e);
-//            }
-//        }
     }
 
     public void initialize(InitializationListener listener) {
@@ -166,9 +155,6 @@ private  WebService webService ;
         inputMethodManager.hideSoftInputFromWindow(this.activity.getCurrentFocus().getWindowToken(), 0);
         return true;
     }
-
-
-
 
 
     public SettingsManager getSettings() {
