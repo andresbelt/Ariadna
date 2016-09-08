@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    ads:cardElevation="2dp"
+    ads:cardPreventCornerOverlap="false"
+    ads:cardUseCompatPadding="true"
+    app:layout_height="match_parent"
+    app:layout_width="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <com.oncreate.ariadna.UI.views.SquareRelativeLayout
+        app:id="@+id/container"
+        app:layout_height="@dimen/quiz_image_placeholder_container_size"
+        app:layout_width="@dimen/quiz_image_placeholder_container_size"
+      >
+
+        <ImageView
+            app:id="@+id/image"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content" />
+    </com.oncreate.ariadna.UI.views.SquareRelativeLayout>
+
+</android.support.v7.widget.CardView>

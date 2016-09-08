@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/white_overlay_5"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ripple">
+        <shape android:shape="line">
+            <solid android:color="@color/app_accent_color" />
+            <size android:height="48dp" android:width="48dp" />
+        </shape>
+        <color android:color="@color/wallet_bright_foreground_disabled_holo_light" />
+    </item>
+</ripple>
