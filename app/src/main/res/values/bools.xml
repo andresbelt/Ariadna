@@ -4,6 +4,5 @@
     <bool name="landscape_mode">false</bool>
     <bool name="is_play_enabled">false</bool>
     <bool name="useTranslucentStatus">false</bool>
-    <bool name="is_startup_login_enabled">true</bool>
 
 </resources>

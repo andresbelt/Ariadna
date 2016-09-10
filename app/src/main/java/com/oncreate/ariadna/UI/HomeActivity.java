@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.oncreate.ariadna.Base.AppActivity;
 import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
+import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.Request.Services;
 import com.oncreate.ariadna.UI.Fragments.LoginFragment;
@@ -51,8 +52,20 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
         acceptableIntentActions = new String[]{"LoadContest", "LoadLessonDiscussion", "LoadLessonComments", "LoadDiscussion", "LoadProfile", "CheckAchievements"};
     }
 
-    class C11261 implements DrawerListener {
-        C11261() {
+
+    public void ErrorLogout() {
+
+        UserManager userManager = AriadnaApplication.getInstance().getUserManager();
+        if (userManager.isAuthenticated()) {
+            HomeActivity.this.toggleNavigationMenu(true);
+            userManager.logout();
+            HomeActivity.this.navigateHome();
+        }
+    }
+
+
+    class Drawer implements DrawerListener {
+        Drawer() {
         }
 
         public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -114,7 +127,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
       setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerToggle = new ActionBarDrawerToggle(this, this.drawerLayout, R.string.acc_open_drawer, R.string.acc_close_drawer);
-        drawerLayout.setDrawerListener(new C11261());
+        drawerLayout.setDrawerListener(new Drawer());
         promptLocationPermissions();
 
     }
@@ -163,26 +176,13 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
     protected void navigateHomeOnStart() {
 
         boolean forceSplash = true;
-        boolean i = true;
 
-        if (!(forceSplash || getApp().getUserManager().isAuthenticated())) {
-            boolean i2;
+        if (getApp().getUserManager().isAuthenticated()) {
             forceSplash = false;
-            if (!getApp().isStartupLoginEnabled() || getApp().getSettings().isLoginSkipPreferred()) {
-                i2 = false;
-            } else {
-                i2 = true;
-            }
-            forceSplash = i2;
-            if (getApp().isStartupLoginEnabled() || !getApp().getSettings().forceSplashLogin()) {
-                i = false;
-            }
-            forceSplash = i;
         }
-        if (forceSplash) {
 
+        if (forceSplash) {
             navigate(new LoginFragment());
-            getApp().getSettings().setForceSplashLogin(false);
 
         } else {
             super.navigateHomeOnStart();
@@ -248,7 +248,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
 //        if (headerAdapter != null) {
 //            this.headerListView.setSelection(headerAdapter.getSelectedPosition());
 //        }
-     //   getApp().hideSoftKeyboard();
+        getApp().hideSoftKeyboard();
     }
 
     protected boolean canHandleIntentAction(String action) {
@@ -360,9 +360,70 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
         }
     }
 
+    protected void onDestroy() {
+        super.onDestroy();
+        getApp().uninitialize();
+        //   getApp().getCourseManager().removeOnUpdateListener(this.appListeners);
+        //    getApp().getUserManager().removeListener(this.appListeners);
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (this.isDrawerEnabled && this.drawerLayout.getDrawerLockMode(this.navigationView) == 0 && this.drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        switch (item.getItemId()) {
+            case 16908332:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        return false;
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        Fragment fragment = null;
+        switch (menuItem.getItemId()) {
+            case R.id.navigation_action_home /*2131755721*/:
+                navigateHome();
+                return true;
+            case R.id.navigation_action_playground /*2131755722*/:
+                //  fragment = new CodesFragment();
+                break;
+            case R.id.navigation_action_discussion /*2131755723*/:
+                // fragment = DiscussionFragment.withQuery(getApp().getCourseManager().getCourse().getTags());
+                break;
+            case R.id.navigation_action_leaderboard /*2131755724*/:
+//            Fragment pagerFragment = new PagerFragment();
+//            pagerFragment.setName(getString(C0471R.string.page_title_leaderboard));
+//            pagerFragment.setIsMenuEnabled(true);
+//            pagerFragment.setMenuId(C0471R.id.navigation_action_leaderboard);
+//            pagerFragment.addFragment(C0471R.string.page_title_leaderboard_current, LeaderboardFragment.class);
+//            pagerFragment.addFragment((int) C0471R.string.page_title_leaderboard_total, LeaderboardFragment.class, new BundleBuilder().putBoolean("global", true).toBundle());
+//            fragment = pagerFragment;
+                break;
+            case R.id.navigation_action_similar /*2131755725*/:
+                //   fragment = new SimilarFragment();
+                break;
+            case R.id.navigation_action_glossary /*2131755726*/:
+                //   fragment = new GlossaryFragment();
+                break;
+            case R.id.navigation_action_invite_friends /*2131755727*/:
+//            toggleNavigationMenu(true);
+//            getApp().getExperience().invokeInviteFriends();
+                return true;
+            case R.id.navigation_action_settings /*2131755729*/:
+                // fragment = new SettingsFragment();
+                break;
+            case R.id.navigation_action_rate /*2131755730*/:
+//            toggleNavigationMenu(true);
+//            getApp().getExperience().openStoreAppPage();
+                return true;
+            default:
+                return false;
+        }
+        navigate(fragment);
+        return true;
     }
 }

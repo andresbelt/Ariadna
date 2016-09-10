@@ -3,7 +3,6 @@
     <string name="title_activity_menu_principal">MenuPrincipal</string>
     <string name="error_name_required">Name is required</string>
     <string name="error_social_conflict">This account is already connected to another user.</string>
-    <string name="error_wrong_credentials">Invalid email/password combination.</string>
     <string name="error_email_invalid">Email invalid</string>
     <string name="error_email_not_found">This email address is not registered at SoloLearn</string>
     <string name="error_email_registered">The email address is already registered</string>
@@ -108,4 +107,7 @@
     <string name="challenge_leave_dialog_button_text">leave</string>
     <string name="quiz_check_button">CHECK</string>
     <string name="internet_connection_failed">Please check your internet connection and try again.</string>
+    <string name="login_error_popup_title">Sign in failed</string>
+    <string name="external_logout_title">You have been signed out</string>
+    <string name="external_logout_message">Looks like you changed your password somewhere else…</string>
 </resources>

@@ -7,12 +7,15 @@ import android.util.SparseArray;
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.oncreate.ariadna.Base.AriadnaApplication;
+import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.ModelsVO.Course;
 import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.Quiz;
+import com.oncreate.ariadna.UI.Fragments.LoginFragment;
 import com.oncreate.ariadna.Util.StorageService;
 import com.oncreate.ariadna.loginLearn.ParamMap;
+import com.oncreate.ariadna.loginLearn.ServiceError;
 import com.oncreate.ariadna.loginLearn.WebService;
 
 import java.io.ByteArrayOutputStream;
@@ -33,7 +36,7 @@ public class CourseManager {
     private WebService  webService;
 
     public interface Listener {
-        void onResult(Course course);
+        void onResult(Course course, int result);
     }
 
 
@@ -45,18 +48,38 @@ public class CourseManager {
         }
 
         public void onResponse(GetCourseResult response) {
+
             if (response.isUpdated()) {
                 Gson gson = new Gson();
                 Course LGNRegion = gson.fromJson(leer("ariadnarespuestas.txt"), Course.class);
                 CourseManager.this.course = LGNRegion;
                 CourseManager.this.initSparse();
-              CourseManager.this.storage.writeText(CourseManager.FILE_NAME,   CourseManager.this.webService.getGson().toJson(CourseManager.this.course));
+                CourseManager.this.storage.writeText(CourseManager.FILE_NAME, CourseManager.this.webService.getGson().toJson(CourseManager.this.course));
                 CourseManager.this.raiseOnUpdateListeners();
             }
-            if (this.vallistener != null) {
-                this.vallistener.onResult(CourseManager.this.course);
+
+            if (response.isSuccessful()) {
+
+                ServiceError error = response.getError();
+
+                if (error.hasFault(ServiceError.ERROR_AUTHENTICATION_FAILED)) {
+                    //  MessageDialog.create(LoginFragment.this.getContext(), R.string.login_error_popup_title, R.string.error_email_invalid, R.string.action_ok).show(LoginFragment.this.getChildFragmentManager());
+                    return;
+                }
+                if (error == ServiceError.NO_CONNECTION) {
+                    //MessageDialog.showNoConnectionDialog(LoginFragment.this.getContext(), LoginFragment.this.getChildFragmentManager());
+                } else {
+                    //  MessageDialog.showUnknownErrorDialog(LoginFragment.this.getContext(), LoginFragment.this.getChildFragmentManager());
+                }
             }
+
+            if (this.vallistener != null) {
+                this.vallistener.onResult(CourseManager.this.course, 1);
+            }
+
         }
+
+
     }
 
     public CourseManager(StorageService storage, WebService webService) {
@@ -162,27 +185,13 @@ public class CourseManager {
         return ((Integer) this.moduleIndexes.get(id)).intValue();
     }
 
-    public boolean initializeFromCache() {
-        try {
-            String cachedCourse = this.storage.readText(FILE_NAME);
-            if (cachedCourse != null) {
-                this.course = (Course) this.webService.getGson().fromJson(cachedCourse, Course.class);
-                initSparse();
-                return true;
-            }
-        } catch (Exception e) {
-        }
-        return false;
-    }
-
-
     public boolean initialize(Listener listener) {
         return initialize(listener, false);
     }
 
     public boolean initialize(Listener listener, boolean forceUpdate) {
         boolean isImmediate = false;
-        if (!forceUpdate && (this.course != null || initializeFromCache())) {
+        if (!forceUpdate && (this.course != null)) {
             listener.onResult(this.course);
             listener = null;
             isImmediate = true;

@@ -17,12 +17,10 @@ public class SettingsManager {
     public static final int CODE_EDITOR_THEME_LIGHT = 1;
     public static final int CODE_EDITOR_WEB = 1;
     public static boolean FLING_TO_SCROLL = false;
-    private static final String FORCE_SPLASH_LOGIN = "ForceSplashLogin";
     private static final String LOCATION_KEY = "LOCATION_IS_ON";
     private static final String PLAYGROUND_EDITOR_TEXT_SCALE = "PlayGroundEditorTextScale";
     private static final String PUSH_KEY = "PUSH_IS_ON";
     public static boolean SHOW_LINE_NUMBERS = false;
-    private static final String SKIP_LOGIN_PREFERRED = "skip_login_preferred";
     private static final String SOUND_KEY = "SOUND_IS_ON";
     public static boolean WORDWRAP;
     private int codeEditorMode;
@@ -118,21 +116,6 @@ public class SettingsManager {
         this.storageService.setString(APPLICATION_LANGUAGE, language);
     }
 
-    public void setForceSplashLogin(boolean forceSplashLogin) {
-        this.storageService.setBoolean(FORCE_SPLASH_LOGIN, forceSplashLogin);
-    }
-
-    public boolean forceSplashLogin() {
-        return this.storageService.getBoolean(FORCE_SPLASH_LOGIN, false);
-    }
-
-    public boolean isLoginSkipPreferred() {
-        return this.storageService.getBoolean(SKIP_LOGIN_PREFERRED, false);
-    }
-
-    public void setLoginSkipPreferred(boolean skip) {
-        this.storageService.setBoolean(SKIP_LOGIN_PREFERRED, skip);
-    }
 
     static {
         SHOW_LINE_NUMBERS = true;

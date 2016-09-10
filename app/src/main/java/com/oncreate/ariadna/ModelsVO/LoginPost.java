@@ -2,32 +2,30 @@ package com.oncreate.ariadna.ModelsVO;
 
 import com.oncreate.ariadna.loginLearn.ServiceResult;
 
-import java.util.List;
-
 public class LoginPost extends ServiceResult {
     // Encapsulamiento de Posts
-    private UserVO Respuesta;
-    private String Authorization;
+    private UserVO respuesta;
+    private String authorization;
 
 
     public LoginPost(UserVO Respuesta, String Authorization) {
-        this.Respuesta = Respuesta;
-        this.Authorization=Authorization;
+        this.respuesta = Respuesta;
+        this.authorization = Authorization;
     }
 
     public void setItems(UserVO Respuesta) {
-        this.Respuesta = Respuesta;
+        this.respuesta = Respuesta;
     }
 
     public UserVO getItems() {
-        return Respuesta;
+        return respuesta;
     }
 
     public String getAuthorization() {
-        return Authorization;
+        return authorization;
     }
 
     public void setAuthorization(String authorization) {
-        Authorization = authorization;
+        this.authorization = authorization;
     }
 }

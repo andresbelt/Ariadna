@@ -16,7 +16,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.oncreate.ariadna.Adapters.ModuleAdapter;
 import com.oncreate.ariadna.Base.AppActivity;
 import com.oncreate.ariadna.Base.AppFragment;
+import com.oncreate.ariadna.Base.AriadnaApplication;
 import com.oncreate.ariadna.CourseManager;
+import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.ModuleState;
 import com.oncreate.ariadna.ProgressManager;
@@ -32,7 +34,37 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
     private ProgressManager.Listener progressListener;
     private RecyclerView recyclerView;
 
-    /* renamed from: com.sololearn.app.fragments.ModulesFragment.4 */
+    public interface InitializationListener {
+        void onError(int result);
+
+        void onSuccess();
+
+    }
+
+    class InicioCurso implements InitializationListener {
+
+
+        class MensajeWrong implements MessageDialog.Listener {
+
+            public void onResult(int result) {
+
+                inicializar();
+            }
+        }
+
+        @Override
+        public void onError(int result) {
+            //  Log.i("", "error inicializando");
+            MessageDialog.build(ModulesFragment.this.getContext()).setTitle((int) R.string.unknown_error_title).setMessage((int) R.string.unknown_error_message).setPositiveButton((int) R.string.action_retry).setListener(new MensajeWrong()).show(ModulesFragment.this.getChildFragmentManager());
+        }
+
+        @Override
+        public void onSuccess() {
+
+        }
+    }
+
+
     class C05414 implements Runnable {
         C05414() {
         }
@@ -45,7 +77,6 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.ModulesFragment.1 */
     class C11841 extends SpanSizeLookup {
         C11841() {
         }
@@ -61,9 +92,8 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
     }
 
 
-    /* renamed from: com.sololearn.app.fragments.ModulesFragment.2 */
-    class C11852 implements ProgressManager.Listener {
-        C11852() {
+    class listenerProgresso implements ProgressManager.Listener {
+        listenerProgresso() {
         }
 
         public void onModuleChange(int moduleId) {
@@ -79,7 +109,6 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.ModulesFragment.3 */
 //    class C11863 implements MessageDialog.Listener {
 //        C11863() {
 //        }
@@ -129,9 +158,20 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        inicializar();
+    }
+
+    public void inicializar() {
+
+        getApp().iniciarCurso(new InicioCurso());
+
+    }
+
+    public void completarInicializacion() {
         CourseManager course = getApp().getCourseManager();
-         this.adapter = new ModuleAdapter(getContext(), course.getCourse().getId(), course.getCourse().getModules());
+        this.adapter = new ModuleAdapter(getContext(), course.getCourse().getId(), course.getCourse().getModules());
         this.adapter.setListener(this);
+        scrollToCurrentModule();
     }
 
     public void onDestroy() {
@@ -150,9 +190,9 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         this.recyclerView.setLayoutManager(this.layoutManager);
         this.recyclerView.setAdapter(adapter);
         this.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        this.progressListener = new C11852();
+
+        this.progressListener = new listenerProgresso();
         getApp().getProgressManager().addListener(this.progressListener);
-        scrollToCurrentModule();
         return rootView;
     }
 
@@ -214,7 +254,9 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         int i = 0;
         while (i < items.size()) {
             if ((items.get(i) instanceof Module) && progressManager.getModuleState(((Module) items.get(i)).getId()).getState() == 2) {
-                this.layoutManager.scrollToPosition(Math.min(0, i - 3));
+
+                recyclerView.getLayoutManager().scrollToPosition(Math.min(0, i - 3));
+
                 return;
             }
             i++;

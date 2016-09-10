@@ -9,12 +9,17 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.oncreate.ariadna.Adapters.HeaderAdapter;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.loginLearn.StringUtils;
@@ -30,7 +35,8 @@ public abstract class AppFragment extends Fragment {
     private boolean isAlive;
     private boolean cancelDelayedDestroy;
     private String name;
-
+    private boolean isVisibleChildFragment;
+    private boolean isChildFragmentInAnimation;
     private int forcefeedAnimation;
     private boolean isStringName;
     public static final Entry DEFAULT_ENTRY;
@@ -41,6 +47,22 @@ public abstract class AppFragment extends Fragment {
 
     static {
         DEFAULT_ENTRY = new Entry();
+    }
+
+    class C05241 implements Runnable {
+        final /* synthetic */ View val$view;
+
+        C05241(View view) {
+            this.val$view = view;
+        }
+
+        public void run() {
+            if (AppFragment.this.isChildFragmentInAnimation) {
+                AppFragment.this.isChildFragmentInAnimation = false;
+                this.val$view.clearAnimation();
+            }
+            AppFragment.this.onDestroyViewAfterAnimation();
+        }
     }
 
     protected AriadnaApplication getApp() {
@@ -67,10 +89,6 @@ public abstract class AppFragment extends Fragment {
         return false;
     }
 
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
-
     public boolean isAlive() {
         return this.isAlive;
     }
@@ -78,6 +96,27 @@ public abstract class AppFragment extends Fragment {
     public void promptNavigate(NavigationPromptListener listener) {
         if (listener != null) {
             listener.onAction(true);
+        }
+    }
+
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        this.isVisibleChildFragment = isVisibleToUser;
+    }
+
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        if (this.forcefeedAnimation != 0) {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), this.forcefeedAnimation);
+            this.forcefeedAnimation = 0;
+            return animation;
+        } else if (enter || !this.isVisibleChildFragment) {
+            return super.onCreateAnimation(transit, enter, nextAnim);
+        } else {
+            Animation doNothingAnim = new AlphaAnimation(DefaultRetryPolicy.DEFAULT_BACKOFF_MULT, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            doNothingAnim.setDuration(300);
+            this.isChildFragmentInAnimation = true;
+            Log.i("FRAGMENT", "DUMMY ANIM: " + getClass().getSimpleName());
+            return doNothingAnim;
         }
     }
 
@@ -128,7 +167,6 @@ public abstract class AppFragment extends Fragment {
     public float getHeaderElevation() {
         return -1.0f;
     }
-
 
     public boolean isToolbarEnabled() {
         return true;
@@ -225,6 +263,23 @@ public abstract class AppFragment extends Fragment {
     }
 
     public void onOrientationChange(int orientation) {
+    }
+
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (this.isStringName) {
+            outState.putString("app_fragment_name", this.name);
+        }
+        if (this.savedState != null) {
+            outState.putAll(this.savedState);
+        }
+    }
+
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            restoreState(savedInstanceState);
+        }
     }
 
     public String getExternalName() {

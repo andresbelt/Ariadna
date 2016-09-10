@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 
 import com.oncreate.ariadna.R;
 
@@ -30,7 +31,7 @@ public class MessageDialog extends AppDialog {
     }
 
     public static class Builder {
-        private android.support.v7.app.AlertDialog.Builder builder;
+        private AlertDialog.Builder builder;
         private Boolean cancelable;
         private OnClickListener clickListener;
         private Listener listener;

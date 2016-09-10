@@ -6,18 +6,24 @@ public class ServiceError {
     public static final int ERROR_DEVICE_REQUIRED = 2;
     public static final int ERROR_ENDPOINT_NOT_FOUND = 7;
     public static final int ERROR_OPERATION_FAULT = 5;
-    public static final int ERROR_SESSION_EXPIRED = 4;
+    public static final int ERROR_SESSION_EXPIRED = 3;
     public static final int ERROR_UNKNOWN = 0;
-    public static final int ERROR_USER_REQUIRED = 3;
     public static final int FAULT_DEVICE_NOT_FOUND = 64;
-    public static final int FAULT_INSUFFICIENT_PERMISSIONS = 256;
     public static final int FAULT_NONE = 0;
-    public static final int FAULT_NOT_ACTIVATED = 2;
+    public static final int FAULT_NOT_ACTIVATED = 404;
     public static final int FAULT_IP = 44;
     public static final ServiceError NO_CONNECTION;
     private int code;
-    private int faultMask;
-    private String name;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    private String status;
 
     public int getCode() {
         return this.code;
@@ -27,22 +33,11 @@ public class ServiceError {
         this.code = code;
     }
 
-    public String getName() {
-        return this.name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public boolean isOperationFault() {
-        return this.code == ERROR_OPERATION_FAULT;
-    }
 
     public boolean hasFault(int fault) {
 
-        return this.faultMask != -1 && (this.faultMask & fault) == fault;
+        return this.code == fault;
     }
 
 
@@ -52,13 +47,11 @@ public class ServiceError {
 
     public ServiceError() {
         this.code = FAULT_NONE;
-        this.faultMask = -1;
     }
 
     public ServiceError(int code, String name) {
         this.code = FAULT_NONE;
-        this.faultMask = -1;
         this.code = code;
-        this.name = name;
+        this.status = name;
     }
 }

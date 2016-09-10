@@ -18,9 +18,11 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.Scopes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.oncreate.ariadna.ModelsVO.LoginPost;
+import com.oncreate.ariadna.Base.AppActivity;
+import com.oncreate.ariadna.Base.AriadnaApplication;
 import com.oncreate.ariadna.ModelsVO.LoginPost;
 import com.oncreate.ariadna.SettingsManager;
+import com.oncreate.ariadna.UI.HomeActivity;
 import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.StorageService;
 
@@ -34,13 +36,6 @@ public class WebService {
 
     public static final String HOST = "http://www.ariadnapp.biz/apiariadna/";
     public static final String VERSION_API = "v1/api/";
-    public static final String ADD_DISCUSSION_POST = "AddDiscussionPost";
-    public static final String AUTHENTICATE_EXTERNAL = "AuthenticateExternal";
-    public static final String CHANGE_EMAIL = "ChangeEmail";
-    public static final String CLEAR_CONTEST_result = "Challenge/ClearContestResults";
-    public static final String CREATE_CONTEST = "Challenge/CreateContest";
-    public static final String DECLINE_CONTEST = "Challenge/DeclineContest";
-    public static final String DISCONNECT_SERVICE = "DisconnectService";
     public static final String DISCUSSION_CREATE_LESSON_COMMENT = "Discussion/CreateLessonComment";
     public static final String DISCUSSION_CREATE_POST = "Discussion/CreatePost";
     public static final String DISCUSSION_CREATE_REPLY = "Discussion/CreateReply";
@@ -66,7 +61,7 @@ public class WebService {
     public static final String GET_CHALLENGE_FEED = "Challenge/GetChallengeFeed";
     public static final String GET_CONTEST = "Challenge/GetContest";
     public static final String GET_CONTEST_FEED = "Challenge/GetContestFeed";
-    public static final String GET_COURSE = "GetCourse";
+    public static final String GET_COURSE = "Unidades";
     public static final String GET_COURSES = "Profile/GetCourses";
     public static final String GET_DISCUSSION = "GetDiscussion";
     public static final String GET_FACEBOOK_FRIENDS = "Challenge/GetFacebookFriends";
@@ -77,7 +72,7 @@ public class WebService {
     public static final String GET_PROFILE = "GetProfile";
     public static final String GET_PROGRESS = "GetProgress";
     public static final String GET_SIMILAR_COURSES = "GetSimilarCourses";
-    public static final String LOGIN = "login";
+    public static final String LOGIN = "Login";
     public static final String LOGIN_WITH_ACCESS_TOKEN = "SocialAuthenticationWithAccessToken";
     public static final String LOGOUT = "Logout";
     public static final String ONE_APP_IS_SUBSCRIBED = "IsOneAppSubscribed";
@@ -111,109 +106,53 @@ public class WebService {
     private boolean isAuthenticating;
     private boolean isInitialAuthenticationPerformed;
     private RequestQueue requestQueue;
-    private String sessionId;
+    private String sessionAuthorization;
     private SettingsManager settings;
     private StorageService storageService;
     private UserManager.Interop userInterop;
     private UserManager userManager;
 
 
-    class C13122 implements Listener<LoginPost> {
-        final /* synthetic */ String val$action;
-        final /* synthetic */ Object val$data;
-        final /* synthetic */ Listener val$listener;
-        final /* synthetic */ Class val$type;
+    //escucha errores y respuesta de los servicios
+    class ListServicesResultado implements Response.Listener<ServiceResult> {
+        final String action;
+        final Object datos;
+        final Listener listener;
+        final Class tipo;
 
-        C13122(Class cls, String str, Object obj, Listener listener) {
-            this.val$type = cls;
-            this.val$action = str;
-            this.val$data = obj;
-            this.val$listener = listener;
-        }
-
-        public void onResponse(LoginPost response) {
-            WebService.this.requestWithFixup(this.val$type, this.val$action, this.val$data, this.val$listener);
-        }
-    }
-
-
-    class C13133 implements Response.Listener<ServiceResult> {
-        final /* synthetic */ String val$action;
-        final /* synthetic */ Object val$data;
-        final /* synthetic */ Listener val$listener;
-        final /* synthetic */ Class val$type;
-
-        C13133(Class cls, String str, Object obj, Listener listener) {
-            this.val$type = cls;
-            this.val$action = str;
-            this.val$data = obj;
-            this.val$listener = listener;
+        ListServicesResultado(Class cls, String str, Object obj, Listener listener) {
+            this.tipo = cls;
+            this.action = str;
+            this.datos = obj;
+            this.listener = listener;
         }
 
         public void onResponse(ServiceResult response) {
-            if (response.isSuccessful() || response.getError().getCode() != 4) {
+            if (response.isSuccessful()) {
+
                 if ((response instanceof LoginPost) && response.isSuccessful()) {
                     LoginPost authenticationResult = (LoginPost) response;
                     if (authenticationResult.getAuthorization() != null) {
-                        WebService.this.sessionId = authenticationResult.getAuthorization();
-                        WebService.this.storageService.setString(WebService.SESSION_ID_KEY, WebService.this.sessionId);
+                        WebService.this.sessionAuthorization = authenticationResult.getAuthorization();
+                        WebService.this.storageService.setString(WebService.SESSION_ID_KEY, WebService.this.sessionAuthorization);
                     }
                     if (authenticationResult.getItems() != null) {
                         WebService.this.userInterop.setUser(authenticationResult.getItems());
                     }
                 }
-                if (this.val$listener != null) {
-                    this.val$listener.onResponse(response);
-                    return;
-                }
+            }
+            if (this.listener != null) {
+                this.listener.onResponse(response);
                 return;
             }
-            WebService.this.abandonSession();
-            WebService.this.requestWithFixup(this.val$type, this.val$action, this.val$data, this.val$listener);
+            return;
+//            WebService.this.userInterop.setLoggedOut();
+//            WebService.this.abandonSession();
+            //   WebService.this.requestWithFixup(this.tipo, this.action, this.datos, this.listener);
         }
     }
 
 
-    class C13164 implements Listener<LoginPost> {
-        final Listener val$listener;
-
-        C13164(Listener listener) {
-            this.val$listener = listener;
-        }
-
-        class C13151 implements Listener<LoginPost> {
-
-            C13151() {
-            }
-
-
-            public void onResponse(LoginPost response) {
-                if (response.isSuccessful()) {
-                    WebService.this.userInterop.setUser(response.getItems());
-                } else if (response.error.isOperationFault()) {
-                    WebService.this.userInterop.setLoggedOut();
-                }
-                if (C13164.this.val$listener != null) {
-                    C13164.this.val$listener.onResponse(response);
-                }
-            }
-        }
-
-
-        public void onResponse(LoginPost response) {
-            if (response.isSuccessful() && response.getItems() == null && WebService.this.userManager != null && WebService.this.userManager.isAuthenticated()) {
-                String passwordHash = WebService.this.userInterop.getPasswordHash();
-                if (passwordHash != null) {
-                    WebService.this.requestWithFixup(LoginPost.class, WebService.LOGIN, ParamMap.create().add(Scopes.EMAIL, WebService.this.userManager.getName()), new C13151());
-                    return;
-                }
-                WebService.this.userInterop.setLoggedOut();
-            }
-            if (this.val$listener != null) {
-                this.val$listener.onResponse(response);
-            }
-        }
-    }
 
     public class Request<T extends ServiceResult> extends com.android.volley.Request<T> {
         private String authorization;
@@ -259,7 +198,7 @@ public class WebService {
                     } catch (Exception e) {
                     }}
             });
-
+            sessionAuthorization = storageService.getString(SESSION_ID_KEY, null);
             setRetryPolicy(new DefaultRetryPolicy(20000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             this.type = type;
             this.data = data;
@@ -273,10 +212,11 @@ public class WebService {
                     this.body = json.getBytes("UTF-8");
                 } catch (UnsupportedEncodingException e) {
                 }
-            this.authorization = "Bearer 1";
+            this.authorization = sessionAuthorization;
 
 
         }
+
 
         protected Response<T> parseNetworkResponse(NetworkResponse response) {
             T result = null;
@@ -326,7 +266,7 @@ public class WebService {
         this.storageService = storageService;
         this.requestQueue = Volley.newRequestQueue(context);
         this.gson = new GsonBuilder().setFieldNamingStrategy(new AppFieldNamingPolicy()).registerTypeAdapter(Date.class, new UtcDateTypeAdapter()).create();
-        this.sessionId = storageService.getString(SESSION_ID_KEY, null);
+
     }
 
     public void setUserManager(UserManager userManager, UserManager.Interop userInterop) {
@@ -334,6 +274,23 @@ public class WebService {
         this.userInterop = userInterop;
     }
 
+
+    public <T extends ServiceResult> void requestinternet(Class<T> type, Listener<T> listener) {
+        if (isNetworkAvailable()) {
+            return;
+        }
+
+        try {
+            ServiceResult response = type.newInstance();
+            response.setError(ServiceError.NO_CONNECTION);
+            if (listener != null) {
+                listener.onResponse((T) response);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    //metodo para hacer los request al servidor
     public <T extends ServiceResult> void request(Class<T> type, String action, Object data, Listener<T> listener) {
         if (isNetworkAvailable()) {
             requestWithFixup(type, action, data, listener);
@@ -350,14 +307,9 @@ public class WebService {
         }
     }
 
-
     private <T extends ServiceResult> void requestWithFixup(Class<T> type, String action, Object data, Listener<T> listener) {
-        if (this.isInitialAuthenticationPerformed) {
-            requestWithMaterialization(type, action, data, (Listener<T>) new C13133(type, action, data, listener));
-        } else {
-            this.isInitialAuthenticationPerformed = true;
-            authenticate(data, new C13122(type, action, data, listener));
-        }
+
+        requestWithMaterialization(type, action, data, (Listener<T>) new ListServicesResultado(type, action, data, listener));
     }
 
 
@@ -365,9 +317,6 @@ public class WebService {
         this.requestQueue.add(new Request(type, Uri.parse(HOST + VERSION_API + action), data, listener));
     }
 
-    private void authenticate(Object data, Listener<LoginPost> listener) {
-        requestWithFixup(LoginPost.class, LOGIN, data, new C13164(listener));
-    }
 
     public boolean isNetworkAvailable() {
         NetworkInfo netInfo = ((ConnectivityManager) this.context.getSystemService("connectivity")).getActiveNetworkInfo();
@@ -375,7 +324,7 @@ public class WebService {
     }
 
     public void abandonSession() {
-        this.sessionId = null;
+        this.sessionAuthorization = null;
         this.storageService.setString(SESSION_ID_KEY, null);
         this.isInitialAuthenticationPerformed = false;
     }

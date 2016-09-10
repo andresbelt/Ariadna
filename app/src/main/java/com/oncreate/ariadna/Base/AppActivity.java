@@ -12,8 +12,11 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.oncreate.ariadna.Dialog.AppDialog;
+import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.UI.Fragments.PagerFragment;
 import com.oncreate.ariadna.R;
+import com.oncreate.ariadna.UI.HomeActivity;
+import com.oncreate.ariadna.UserManager;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayDeque;
@@ -52,6 +55,7 @@ public abstract class AppActivity extends AppCompatActivity {
     public interface PermissionRequestCallback {
         void onResponse(boolean z, boolean z2);
     }
+
 
     static int access$006(AppActivity activity) {
         int i = activity.backStackItemsRemoved - 1;
@@ -329,12 +333,16 @@ public abstract class AppActivity extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
+
         if (this.isStartQueued) {
             this.isStartQueued = false;
             if (!getApp().isInitialized()) {
                 initializeApp();
+
             } else if (this.fragmentManager.findFragmentById(FRAGMENT_CONTAINER) == null) {
+
                 navigateHomeOnStart();
+
             } else {
                 syncFragmentState(null);
                 if (this.isIntentQueued) {
@@ -342,13 +350,16 @@ public abstract class AppActivity extends AppCompatActivity {
                    // handleIntentAction();
                 }
             }
+            getApp().initializeInternet();
         }
+
         this.isActive = true;
       //  AppGcmListenerService.clearById(this, 0);
-//        while (!this.dialogQueue.isEmpty()) {
-//            ((AppDialog) this.dialogQueue.poll()).show(getSupportFragmentManager());
-//        }
+        while (!this.dialogQueue.isEmpty()) {
+            ((AppDialog) this.dialogQueue.poll()).show(getSupportFragmentManager());
+        }
     }
+
 
     private boolean promptNavigation(AppFragment fromFragment, Fragment toFragment) {
         if (!fromFragment.interceptNavigation()) {
