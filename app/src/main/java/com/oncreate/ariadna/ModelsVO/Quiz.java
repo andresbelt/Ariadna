@@ -17,7 +17,6 @@ public class Quiz {
     private int id;
     private String linkedVideoId;
     private String question;
-    private String textContent;
     private String tip;
     private int type;
     private float videoEnd;
@@ -45,14 +44,6 @@ public class Quiz {
 
     public void setType(int type) {
         this.type = type;
-    }
-
-    public String getTextContent() {
-        return this.textContent;
-    }
-
-    public void setTextContent(String textContent) {
-        this.textContent = textContent;
     }
 
     public String getHint() {

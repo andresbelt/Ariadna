@@ -5,21 +5,17 @@ import android.content.res.Resources;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.android.volley.Response;
 import com.oncreate.ariadna.AchievementManager;
 import com.oncreate.ariadna.CourseManager;
 import com.oncreate.ariadna.Dialog.MessageDialog;
-import com.oncreate.ariadna.GetCourseResult;
 import com.oncreate.ariadna.ImageManager;
 import com.oncreate.ariadna.ModelsVO.Course;
 import com.oncreate.ariadna.ProgressManager;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.SettingsManager;
 import com.oncreate.ariadna.UI.Fragments.ModulesFragment;
-import com.oncreate.ariadna.UI.HomeActivity;
 import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.StorageService;
-import com.oncreate.ariadna.loginLearn.ServiceError;
 import com.oncreate.ariadna.loginLearn.WebService;
 
 /**
@@ -62,14 +58,14 @@ public class AriadnaApplication extends Application {
             this.val$listener = initializationListener;
         }
 
-        public void onResult(Course course, int result) {
+        public void onResult(Course course) {
             if (course != null) {
                 AriadnaApplication.this.isInitialized = true;
                 AriadnaApplication.this.initializeComponents();
                 this.val$listener.onSuccess();
                 return;
             }
-            this.val$listener.onError(result);
+            this.val$listener.onError();
         }
 
     }
@@ -97,7 +93,7 @@ public class AriadnaApplication extends Application {
         settingsManager = new SettingsManager(this, this.storage, isPlayEnabled);
         webService = new WebService(this, this.storage, this.settingsManager);
         courseManager = new CourseManager(this.storage, webService);
-        progressManager = new ProgressManager(this.storage, this.courseManager, this.userManager, achievementManager);
+        progressManager = new ProgressManager(webService, this.storage, this.courseManager, this.userManager, achievementManager);
 
         userManager = new UserManager(webService, storage);
 

@@ -22,6 +22,7 @@ import com.oncreate.ariadna.ModelsVO.Quiz;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.UI.HomeActivity;
 import com.oncreate.ariadna.UI.views.PlaceholderTextView;
+import com.oncreate.ariadna.Util.ConstantVariables;
 
 
 import java.util.ArrayList;
@@ -556,7 +557,7 @@ public class PlaceholderQuiz extends PlaceholderQuizBase {
                 return ((Answer) answers.get(i)).getText();
             }
         }
-        return BuildConfig.VERSION_NAME;
+        return ConstantVariables.VERSION_NAME;
     }
 
     protected Placeholder createPlaceholder(ViewGroup parent, String placeholder) {

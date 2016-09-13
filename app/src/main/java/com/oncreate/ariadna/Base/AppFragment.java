@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import com.android.volley.DefaultRetryPolicy;
 import com.oncreate.ariadna.Adapters.HeaderAdapter;
 import com.oncreate.ariadna.R;
+import com.oncreate.ariadna.Util.ConstantVariables;
 import com.oncreate.ariadna.loginLearn.StringUtils;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public abstract class AppFragment extends Fragment {
     private boolean isStringName;
     public static final Entry DEFAULT_ENTRY;
     private Bundle savedState;
+    private boolean isInitialNavigation;
 
     public void invalidate() {
     }
@@ -65,8 +67,38 @@ public abstract class AppFragment extends Fragment {
         }
     }
 
+
+    public AppFragment() {
+        this.name = ConstantVariables.VERSION_NAME;
+        this.isAlive = false;
+        this.isInitialNavigation = true;
+    }
+
+
     protected AriadnaApplication getApp() {
         return AriadnaApplication.getInstance();
+    }
+
+
+    public boolean isInitialNavigation() {
+        return this.isInitialNavigation;
+    }
+
+
+    public void onDestroyView() {
+        this.cancelDelayedDestroy = false;
+        super.onDestroyView();
+        this.isInitialNavigation = false;
+        View view = getView();
+        if (view != null) {
+            view.postDelayed(new C05241(view), 300);
+        } else {
+            onDestroyViewAfterAnimation();
+        }
+        this.isAlive = false;
+//        if (this.showcase != null) {
+//            this.showcase.cancel();
+//        }
     }
 
 
@@ -120,12 +152,13 @@ public abstract class AppFragment extends Fragment {
         }
     }
 
+
     public boolean onBackPressed() {
 //        if (this.showcase == null || !this.showcase.isOpen()) {
 //            return false;
 //        }
 //        this.showcase.close();
-        return true;
+        return false;
     }
 
     protected void getShowcase() {
@@ -239,7 +272,7 @@ public abstract class AppFragment extends Fragment {
     }
 
     public boolean interceptNavigation() {
-        return false;
+        return true;
     }
 
     public Entry getEntry(Fragment currentFragment) {
@@ -373,6 +406,9 @@ public abstract class AppFragment extends Fragment {
         public List<Fragment> getInjectedFragments() {
             return this.injectedFragments;
         }
+
+
+        //metodo para agregar fragments a la cola de fragments
 
         public void injectFragment(AppFragment fragment) {
             if (this.injectedFragments == null) {

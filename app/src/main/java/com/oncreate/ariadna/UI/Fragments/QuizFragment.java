@@ -58,7 +58,6 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
     private View unlockButton;
     private UserManager userManager;
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.5 */
     class C05475 implements Runnable {
         C05475() {
         }
@@ -68,7 +67,7 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.6 */
+
     class C05486 implements Runnable {
         C05486() {
         }
@@ -78,7 +77,6 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.9 */
     class C05499 implements OnTouchListener {
         private final float maxClickDrag;
         private float resultDragMaxY;
@@ -121,7 +119,6 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.1 */
     class C11931 implements QuizView.InputListener {
         C11931() {
         }
@@ -135,7 +132,6 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.2 */
     class C11942 implements MessageDialog.Listener {
         C11942() {
         }
@@ -145,7 +141,6 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.3 */
     class C11953 implements MessageDialog.Listener {
         C11953() {
         }
@@ -167,7 +162,7 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.7 */
+
     class C11977 implements MessageDialog.Listener {
         C11977() {
         }
@@ -179,11 +174,10 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.QuizFragment.8 */
     class C11988 implements MessageDialog.Listener {
-        final /* synthetic */ Runnable val$onAccept;
-        final /* synthetic */ int val$requiredXp;
-        final /* synthetic */ int val$type;
+        final Runnable val$onAccept;
+        final int val$requiredXp;
+        final int val$type;
 
         C11988(int i, int i2, Runnable runnable) {
             this.val$requiredXp = i;
@@ -369,7 +363,7 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
     private void setResult(boolean isCorrect, boolean animate) {
         Lesson lesson = getLessonManager().getLesson();
         Button button = this.resultButton;
-        int i = (isCorrect || lesson.getType() == 1) ? 8 : 0;
+        int i = (isCorrect) ? 8 : 0;
         button.setVisibility(i);
         this.resultIcon.setImageResource(isCorrect ? R.drawable.quiz_correct_icon : R.drawable.quiz_wrong_icon);
         this.resultText.setText(isCorrect ? R.string.quiz_correct_text : R.string.quiz_wrong_text);
@@ -396,9 +390,10 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
 
     public boolean onBackPressed() {
         if (!getLessonManager().isShortcut()) {
+            MessageDialog.create(getContext(), (int) R.string.quiz_shortcut_leave_title, (int) R.string.quiz_shortcut_leave_text, (int) R.string.challenge_leave_dialog_button_text, (int) R.string.action_cancel, new C11964()).show(getChildFragmentManager());
+
             return super.onBackPressed();
         }
-        MessageDialog.create(getContext(), (int) R.string.quiz_shortcut_leave_title, (int) R.string.quiz_shortcut_leave_text, (int) R.string.challenge_leave_dialog_button_text, (int) R.string.action_cancel, new C11964()).show(getChildFragmentManager());
         return true;
     }
 
@@ -422,7 +417,7 @@ public class QuizFragment extends LessonFragmentBase implements QuizView.Listene
                 Module module = getLessonManager().getModule();
                 int requiredXp = type == 1 ? module.getHintPrice() : module.getSkipPrice();
                 if (canExchange(requiredXp)) {
-                    MessageDialog.build(getContext()).setTitle(type == 1 ? R.string.quiz_hint_prompt_title : R.string.quiz_unlock_prompt_title).setMessage(getString(type == 1 ? R.string.quiz_hint_prompt_text : R.string.quiz_unlock_prompt_text, Integer.valueOf(requiredXp), Integer.valueOf(this.progressManager.getXp()))).setPositiveButton((int) R.string.action_ok).setNegativeButton((int) R.string.action_cancel).setListener(new C11988(requiredXp, type, onAccept)).show(getChildFragmentManager());
+                    //   MessageDialog.build(getContext()).setTitle(type == 1 ? R.string.quiz_hint_prompt_title : R.string.quiz_unlock_prompt_title).setMessage(getString(type == 1 ? R.string.quiz_hint_prompt_text : R.string.quiz_unlock_prompt_text, Integer.valueOf(requiredXp)))).setPositiveButton((int) R.string.action_ok).setNegativeButton((int) R.string.action_cancel).setListener(new C11988(requiredXp, type, onAccept)).show(getChildFragmentManager());
                     return;
                 }
                 return;

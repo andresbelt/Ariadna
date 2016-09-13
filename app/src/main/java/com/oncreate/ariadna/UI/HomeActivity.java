@@ -14,17 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListAdapter;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonObjectRequest;
+
 import com.oncreate.ariadna.Base.AppActivity;
 import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
-import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.R;
-import com.oncreate.ariadna.Request.Services;
 import com.oncreate.ariadna.UI.Fragments.LoginFragment;
 import com.oncreate.ariadna.UI.Fragments.ModulesFragment;
 import com.oncreate.ariadna.UI.Fragments.PagerFragment;
@@ -152,7 +147,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
         UserManager user = AriadnaApplication.getInstance().getUserManager();
         if (user.isAuthenticated()) {
 //            this.menuEmail.setText(user.getEmail());
-//            this.menuName.setText(user.getName());
+//            this.menuName.setText(user.getTitulo());
 //            this.menuLogin.setVisibility(8);
 //            this.menuAvatar.setImageResource(C0471R.drawable.no_avatar);
 //            getApp().getImageManager().getAvatarFromCacheAndUpdate(user.getId(), new C11288());
@@ -337,7 +332,7 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
         } else {
             homeFragment = new ModulesFragment();
         }
-        //homeFragment.setName(getApp().getCourseManager().getCourse().getName());
+        //homeFragment.setTitulo(getApp().getCourseManager().getCourse().getTitulo());
         clearFragmentManager();
         return homeFragment;
     }
@@ -381,6 +376,16 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
         }
     }
 
+    protected boolean handleBackPress() {
+        if (!this.drawerLayout.isDrawerOpen(this.navigationView)) {
+            return false;
+        }
+        this.drawerLayout.closeDrawer(this.navigationView);
+        return true;
+    }
+
+
+
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         Fragment fragment = null;
@@ -388,38 +393,12 @@ public class HomeActivity extends AppActivity implements NavigationView.OnNaviga
             case R.id.navigation_action_home /*2131755721*/:
                 navigateHome();
                 return true;
-            case R.id.navigation_action_playground /*2131755722*/:
-                //  fragment = new CodesFragment();
-                break;
-            case R.id.navigation_action_discussion /*2131755723*/:
-                // fragment = DiscussionFragment.withQuery(getApp().getCourseManager().getCourse().getTags());
-                break;
-            case R.id.navigation_action_leaderboard /*2131755724*/:
-//            Fragment pagerFragment = new PagerFragment();
-//            pagerFragment.setName(getString(C0471R.string.page_title_leaderboard));
-//            pagerFragment.setIsMenuEnabled(true);
-//            pagerFragment.setMenuId(C0471R.id.navigation_action_leaderboard);
-//            pagerFragment.addFragment(C0471R.string.page_title_leaderboard_current, LeaderboardFragment.class);
-//            pagerFragment.addFragment((int) C0471R.string.page_title_leaderboard_total, LeaderboardFragment.class, new BundleBuilder().putBoolean("global", true).toBundle());
-//            fragment = pagerFragment;
-                break;
-            case R.id.navigation_action_similar /*2131755725*/:
-                //   fragment = new SimilarFragment();
-                break;
             case R.id.navigation_action_glossary /*2131755726*/:
                 //   fragment = new GlossaryFragment();
                 break;
-            case R.id.navigation_action_invite_friends /*2131755727*/:
-//            toggleNavigationMenu(true);
-//            getApp().getExperience().invokeInviteFriends();
-                return true;
             case R.id.navigation_action_settings /*2131755729*/:
                 // fragment = new SettingsFragment();
                 break;
-            case R.id.navigation_action_rate /*2131755730*/:
-//            toggleNavigationMenu(true);
-//            getApp().getExperience().openStoreAppPage();
-                return true;
             default:
                 return false;
         }

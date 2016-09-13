@@ -64,6 +64,45 @@ public abstract class AppActivity extends AppCompatActivity {
         return i;
     }
 
+    protected boolean handleBackPress() {
+        return false;
+    }
+
+
+    class C11182 implements AppFragment.NavigationPromptListener {
+        C11182() {
+        }
+
+        public void onAction(boolean allowNavigation) {
+            if (allowNavigation) {
+                AppActivity.this.popFragment();
+                AppActivity.super.onBackPressed();
+            }
+        }
+    }
+
+    public void onBackPressed() {
+        if (!handleBackPress()) {
+            Fragment fragment = this.fragmentManager.findFragmentById(FRAGMENT_CONTAINER);
+            if (fragment instanceof AppFragment) {
+                AppFragment appFragment = (AppFragment) fragment;
+                if (!appFragment.onBackPressed()) {
+                    if (appFragment.interceptNavigation()) {
+                        appFragment.promptNavigate(new C11182());
+                        return;
+                    }
+                }
+                return;
+            }
+            popFragment();
+            if (this.backStackFragments.size() == 0) {
+                super.onBackPressed();
+            }
+            super.onBackPressed();
+        }
+    }
+
+
     class BackStack implements FragmentManager.OnBackStackChangedListener {
         BackStack() {
         }

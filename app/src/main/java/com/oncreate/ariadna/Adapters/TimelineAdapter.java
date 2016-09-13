@@ -74,10 +74,9 @@ public class TimelineAdapter extends HeaderAdapter {
 
     public TimelineAdapter(Context context, Lesson lesson, LessonProgress lessonProgress, int currentQuizId, int mode) {
         this.context = context;
-        boolean includeLesson = lesson.getType() == 0;
         int lessonId = lesson.getId();
         List<Quiz> quizzes = lesson.getQuizzes();
-        this.items = new ArrayList(includeLesson ? quizzes.size() * QUIZ : quizzes.size());
+        this.items = new ArrayList(quizzes.size());
         boolean isShortcut = lesson.getIsShortcut();
         boolean isCompleted = lessonProgress != null && lessonProgress.getIsCompleted().booleanValue();
         boolean prevCompleted = true;
@@ -96,12 +95,6 @@ public class TimelineAdapter extends HeaderAdapter {
                         isUnlocked = isUnlocked || prevCompleted;
                     }
                 }
-            }
-            if (includeLesson) {
-                isSelected = mode == LESSON && isCurrent;
-                list = this.items;
-                z = isUnlocked && !isSelected;
-                list.add(new TimelineItem(lessonId, quizId, LESSON, z, isSelected));
             }
             isSelected = mode == QUIZ && isCurrent;
             list = this.items;

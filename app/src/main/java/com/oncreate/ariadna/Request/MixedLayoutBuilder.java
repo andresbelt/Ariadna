@@ -53,14 +53,14 @@ public class MixedLayoutBuilder {
 
         protected Void doInBackground(Void[] params) {
             for (Item item : this.items) {
-                for (SpanStyle style : this.decorations) {
-                    if (style.getStart() >= item.start && style.getEnd() <= item.end) {
-                        if (item.stringBuilder == null) {
-                            item.stringBuilder = new SpannableStringBuilder(item.text);
-                        }
-                        item.stringBuilder.setSpan(new ForegroundColorSpan(style.getColor()), style.getStart() - item.start, style.getEnd() - item.start, 18);
-                    }
-                }
+//                for (SpanStyle style : this.decorations) {
+//                    if (style.getStart() >= item.start && style.getEnd() <= item.end) {
+//                        if (item.stringBuilder == null) {
+//                            item.stringBuilder = new SpannableStringBuilder(item.text);
+//                        }
+//                        item.stringBuilder.setSpan(new ForegroundColorSpan(style.getColor()), style.getStart() - item.start, style.getEnd() - item.start, 18);
+//                    }
+//                }
             }
             return null;
         }

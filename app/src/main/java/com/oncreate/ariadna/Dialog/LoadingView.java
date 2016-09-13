@@ -6,13 +6,13 @@ import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.android.volley.DefaultRetryPolicy;
-import com.oncreate.ariadna.BuildConfig;
 import com.oncreate.ariadna.R;
+import com.oncreate.ariadna.Util.ConstantVariables;
 
 public class LoadingView extends LinearLayout {
     public static final int ERROR = 2;
@@ -93,29 +93,32 @@ public class LoadingView extends LinearLayout {
         this.mode = mode;
         switch (mode) {
             case 0 /*0*/:
-                setVisibility(8);
+                setVisibility(GONE);
+                break;
             case LOADING /*1*/:
                 if (this.loadingStringId != -1) {
                     this.textView.setText(this.loadingStringId);
-                    this.textView.setVisibility(0);
+                    this.textView.setVisibility(VISIBLE);
                 } else {
-                    this.textView.setText(BuildConfig.VERSION_NAME);
-                    this.textView.setVisibility(8);
+                    this.textView.setText(ConstantVariables.VERSION_NAME);
+                    this.textView.setVisibility(GONE);
                 }
-                this.progressBar.setVisibility(0);
-                this.button.setVisibility(8);
-                setVisibility(0);
+                this.progressBar.setVisibility(VISIBLE);
+                this.button.setVisibility(GONE);
+                setVisibility(VISIBLE);
+                break;
             case ERROR /*2*/:
                 if (this.errorStringId != -1) {
                     this.textView.setText(this.errorStringId);
-                    this.textView.setVisibility(0);
+                    this.textView.setVisibility(VISIBLE);
                 } else {
-                    this.textView.setText(BuildConfig.VERSION_NAME);
-                    this.textView.setVisibility(8);
+                    this.textView.setText(ConstantVariables.VERSION_NAME);
+                    this.textView.setVisibility(GONE);
                 }
-                this.progressBar.setVisibility(8);
-                this.button.setVisibility(0);
-                setVisibility(0);
+                this.progressBar.setVisibility(GONE);
+                this.button.setVisibility(VISIBLE);
+                setVisibility(VISIBLE);
+                break;
             default:
         }
     }

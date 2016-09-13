@@ -10,6 +10,7 @@ import android.widget.LinearLayout.LayoutParams;
 import com.oncreate.ariadna.BuildConfig;
 import com.oncreate.ariadna.ModelsVO.Answer;
 import com.oncreate.ariadna.R;
+import com.oncreate.ariadna.Util.ConstantVariables;
 
 public class MultipleTypeInQuiz extends PlaceholderQuizBase {
     private boolean isUnlocking;
@@ -94,7 +95,7 @@ public class MultipleTypeInQuiz extends PlaceholderQuizBase {
 
     protected String getReplacement(int index) {
         Answer answer = (Answer) this.quiz.getAnswers().get(index);
-        String replacement = BuildConfig.VERSION_NAME;
+        String replacement = ConstantVariables.VERSION_NAME;
         if (answer.getProperties().containsKey(TypeInQuiz.PREFIX_KEY)) {
             replacement = replacement + ((String) answer.getProperties().get(TypeInQuiz.PREFIX_KEY));
         }

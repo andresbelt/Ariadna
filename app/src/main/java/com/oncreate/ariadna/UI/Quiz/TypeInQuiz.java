@@ -51,7 +51,7 @@ public class TypeInQuiz extends QuizView implements TextWatcher {
 
     protected View onCreateQuiz(LayoutInflater inflater, ViewGroup parent, Quiz quiz) {
         View view = inflater.inflate(R.layout.quiz_typein, parent, false);
-        this.editText = (PrefixedEditText) view.findViewById(R.id.edit_text);
+        this.editText = (PrefixedEditText) view.findViewById(R.id.edit_text_);
         this.answer = quiz.getAnswer();
         bindAnswerToView(this.editText, this.answer);
         this.editText.setImeOptions(268435456);

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.util.Log;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
@@ -19,9 +21,13 @@ import com.google.android.gms.common.Scopes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.oncreate.ariadna.Base.AppActivity;
+import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
+import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.ModelsVO.LoginPost;
+import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.SettingsManager;
+import com.oncreate.ariadna.UI.Fragments.LoginFragment;
 import com.oncreate.ariadna.UI.HomeActivity;
 import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.StorageService;
@@ -55,10 +61,7 @@ public class WebService {
     public static final String DISCUSSION_VOTE_LESSON_COMMENT = "Discussion/VoteLessonComment";
     public static final String DISCUSSION_VOTE_POST = "Discussion/VotePost";
     public static final String EDIT_DISCUSSION_POST = "EditDiscussionPost";
-    public static final String FIND_PLAYERS = "Challenge/FindPlayers";
-    public static final String FORGOT_PASSWORD = "ForgotPassword";
-    public static final String GET_CERTIFICATE = "DownloadCertificate";
-    public static final String GET_CHALLENGE_FEED = "Challenge/GetChallengeFeed";
+    ;
     public static final String GET_CONTEST = "Challenge/GetContest";
     public static final String GET_CONTEST_FEED = "Challenge/GetContestFeed";
     public static final String GET_COURSE = "Unidades";
@@ -73,7 +76,6 @@ public class WebService {
     public static final String GET_PROGRESS = "GetProgress";
     public static final String GET_SIMILAR_COURSES = "GetSimilarCourses";
     public static final String LOGIN = "Login";
-    public static final String LOGIN_WITH_ACCESS_TOKEN = "SocialAuthenticationWithAccessToken";
     public static final String LOGOUT = "Logout";
     public static final String ONE_APP_IS_SUBSCRIBED = "IsOneAppSubscribed";
     public static final String ONE_APP_SUBSCRIBE = "SubscribeOneApp";
@@ -86,25 +88,11 @@ public class WebService {
     public static final String PLAYGROUND_SAVE_CODE = "Playground/SaveCode";
     public static final String PLAYGROUND_TOGGLE_CODE_PUBLIC = "Playground/ToggleCodePublic";
     public static final String PLAYGROUND_VOTE_CODE = "Playground/VoteCode";
-    public static final String PUSH_CONTEST_RESULT = "Challenge/PushContestResult";
-    public static final String PUSH_PROGRESS = "PushProgress";
-    public static final String REGISTER = "Register";
-    public static final String REMOVE_AVATAR = "RemoveAvatar";
-    public static final String REMOVE_DISCUSSION_POST = "RemoveDiscussionPost";
-    public static final String RESET_PROGRESS = "ResetProgress";
     private static final String SESSION_ID_KEY = "sessionId";
-    public static final String SET_DEVICE_LOCATION = "SetDeviceLocation";
     public static final String SET_DEVICE_PUSH_ID = "RegisterPushNotificationID";
-    public static final String TOGGLE_LEARN = "Profile/ToggleLearn";
-    public static final String TOGGLE_PLAY = "Profile/TogglePlay";
-    public static final String UPDATE_AVATAR = "UpdateAvatar";
-    public static final String UPDATE_PROFILE = "UpdateProfile";
-    public static final String VOTE_DISCUSSION_POST = "VoteDiscussionPost";
     private ArrayList<Runnable> authCallbacks;
     private Context context;
     private Gson gson;
-    private boolean isAuthenticating;
-    private boolean isInitialAuthenticationPerformed;
     private RequestQueue requestQueue;
     private String sessionAuthorization;
     private SettingsManager settings;
@@ -140,7 +128,21 @@ public class WebService {
                         WebService.this.userInterop.setUser(authenticationResult.getItems());
                     }
                 }
+            } else {
+
+                ServiceError error = response.getError();
+
+                if (error.hasFault(ServiceError.ERROR_NOT_AUTH)) {
+                    //  MessageDialog.create(LoginFragment.this.getContext(), R.string.login_error_popup_title, R.string.error_email_invalid, R.string.action_ok).show(LoginFragment.this.getChildFragmentManager());
+
+                    WebService.this.userInterop.setLoggedOut();
+                    WebService.this.abandonSession();
+                    AriadnaApplication.getInstance().getActivity().navigate(LoginFragment.createBackStackAware());
+                    return;
+                }
+
             }
+
             if (this.listener != null) {
                 this.listener.onResponse(response);
                 return;
@@ -212,9 +214,9 @@ public class WebService {
                     this.body = json.getBytes("UTF-8");
                 } catch (UnsupportedEncodingException e) {
                 }
-            this.authorization = sessionAuthorization;
+            this.authorization = "Bearer " + sessionAuthorization;
 
-
+            Log.i("", authorization);
         }
 
 
@@ -258,8 +260,6 @@ public class WebService {
     }
 
     public WebService(Context context, StorageService storageService, SettingsManager settings) {
-        this.isInitialAuthenticationPerformed = false;
-        this.isAuthenticating = false;
         this.authCallbacks = new ArrayList();
         this.context = context;
         this.settings = settings;
@@ -326,7 +326,6 @@ public class WebService {
     public void abandonSession() {
         this.sessionAuthorization = null;
         this.storageService.setString(SESSION_ID_KEY, null);
-        this.isInitialAuthenticationPerformed = false;
     }
 
     public Gson getGson() {

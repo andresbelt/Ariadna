@@ -13,11 +13,9 @@ public class Lesson {
     private int id;
     private boolean isRestricted;
     private boolean isShortcut;
-    private int mode;
     private String name;
     private List<Quiz> quizzes;
     private String tags;
-    private int type;
     private String videoId;
 
     public Lesson() {
@@ -48,21 +46,6 @@ public class Lesson {
         this.videoId = value;
     }
 
-    public int getType() {
-        return this.type;
-    }
-
-    public void setType(int value) {
-        this.type = value;
-    }
-
-    public int getMode() {
-        return this.mode;
-    }
-
-    public void setMode(int value) {
-        this.mode = value;
-    }
 
     public boolean getIsRestricted() {
         return this.isRestricted;

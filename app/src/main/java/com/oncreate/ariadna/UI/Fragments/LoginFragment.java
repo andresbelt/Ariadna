@@ -1,8 +1,6 @@
 package com.oncreate.ariadna.UI.Fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -13,15 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.android.volley.Response;
-import com.oncreate.ariadna.Base.AppActivity;
 import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
 import com.oncreate.ariadna.Dialog.MessageDialog;
-import com.oncreate.ariadna.GetCourseResult;
 import com.oncreate.ariadna.ModelsVO.LoginPost;
 import com.oncreate.ariadna.R;
-import com.oncreate.ariadna.UI.HomeActivity;
-import com.oncreate.ariadna.UserManager;
 import com.oncreate.ariadna.Util.InputValidator;
 import com.oncreate.ariadna.loginLearn.ServiceError;
 
@@ -75,7 +69,7 @@ public class LoginFragment extends AppFragment implements View.OnClickListener, 
             }
             ServiceError error = response.getError();
 
-            if (error.hasFault(ServiceError.ERROR_AUTHENTICATION_FAILED) || error.hasFault(ServiceError.ERROR_ARGUMENT_MISSING) || error.hasFault(ServiceError.FAULT_NOT_ACTIVATED)) {
+            if (error.hasFault(ServiceError.ERROR_ARGUMENT_MISSING) || error.hasFault(ServiceError.ERROR_EMAIL_NOT_FOUND) || error.hasFault(ServiceError.ERROR_EMAIL_WRONG)) {
                 MessageDialog.create(LoginFragment.this.getContext(), R.string.login_error_popup_title, R.string.error_email_invalid, R.string.action_ok).show(LoginFragment.this.getChildFragmentManager());
                 return;
             }

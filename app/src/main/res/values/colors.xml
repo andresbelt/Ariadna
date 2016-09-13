@@ -9,10 +9,10 @@
     <color name="background_overlay_5">#55eeeeee</color>
     <color name="app_primary_color">#ff00bcd4</color>
     <color name="app_primary_color_700">#ff0097a7</color>
-    <color name="card_background">#fffafafa</color>
+    <color name="card_background">#55eeeeee</color>
     <color name="app_primary_color_800">#ff00839f</color>
     <color name="app_accent_color">#ff8bc34a</color>
-    <color name="card_disabled_background">#ffdfdfdf</color>
+    <color name="card_disabled_background">#ff00bcd4</color>
     <color name="black_87">#87000000</color>
     <color name="background_color">#ffe9e9e9</color>
     <color name="note_block_text">#ff727272</color>

@@ -12,6 +12,8 @@ import com.oncreate.ariadna.ModelsVO.Quiz;
 import com.oncreate.ariadna.R;
 import com.oncreate.ariadna.Request.MixedLayoutBuilder;
 import com.oncreate.ariadna.Request.SpanStyle;
+import com.oncreate.ariadna.Util.ConstantVariables;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -151,7 +153,7 @@ public abstract class PlaceholderQuizBase extends LoadingQuizView {
         Matcher matcher = this.formatterPattern.matcher(this.quiz.getQuestion());
         HighlightTask highlightTask = new HighlightTask(layoutBuilder);
         while (matcher.find()) {
-            highlightTask.addBlock(matcher.group(1), parseGroup(layoutBuilder, matcher.group(2).replaceAll("\\r", BuildConfig.VERSION_NAME)));
+            highlightTask.addBlock(matcher.group(1), parseGroup(layoutBuilder, matcher.group(2).replaceAll("\\r", ConstantVariables.VERSION_NAME)));
         }
         this.currentLayout = layoutBuilder.getLayout();
         this.container.addView(this.currentLayout);

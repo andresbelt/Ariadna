@@ -27,7 +27,6 @@ public class LessonsFragment extends AppFragment implements LessonAdapter.Listen
     GridLayoutManager layoutManager;
     private ProgressManager.Listener progressListener;
 
-    /* renamed from: com.sololearn.app.fragments.LessonsFragment.1 */
     class C11791 implements ProgressManager.Listener {
         C11791() {
         }
@@ -45,7 +44,6 @@ public class LessonsFragment extends AppFragment implements LessonAdapter.Listen
         }
     }
 
-    /* renamed from: com.sololearn.app.fragments.LessonsFragment.2 */
     class C11802 implements MessageDialog.Listener {
         C11802() {
         }
@@ -102,7 +100,7 @@ public class LessonsFragment extends AppFragment implements LessonAdapter.Listen
     public void loadLesson(Lesson lesson, LessonState state) {
         if (state.getState() == 0) {
             MessageDialog.create(getContext(), (int) R.string.lesson_locked_title, (int) R.string.lesson_locked_text, (int) R.string.action_ok).show(getChildFragmentManager());
-        } else if (getApp().getUserManager().isAuthenticated() || (lesson.getType() != 1 && getApp().getCourseManager().getCourse().getModule(0).getLessons().contains(lesson))) {
+        } else if (getApp().getUserManager().isAuthenticated() || (getApp().getCourseManager().getCourse().getModule(0).getLessons().contains(lesson))) {
             navigate(LessonManager.getFragment(lesson));
         } else {
            // MessageDialog.create(getContext(), (int) R.string.lesson_login_required_title, (int) R.string.lesson_login_required_text, (int) R.string.action_login, (int) R.string.action_cancel, new C11802()).show(getChildFragmentManager());

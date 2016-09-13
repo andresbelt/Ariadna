@@ -5,35 +5,24 @@ import java.util.List;
 
 public class Course {
     private List<Glossary> glossary;
-    private List<Group> groups;
-    private int id;
+    private String id;
     private ArrayList<Module> modules;
-    private String name;
-    private String tags;
-    private int version;
+    private String titulo;
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int value) {
+    public void setId(String value) {
         this.id = value;
     }
 
-    public String getName() {
-        return this.name;
+    public String getTitulo() {
+        return this.titulo;
     }
 
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    public int getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(int value) {
-        this.version = value;
+    public void setTitulo(String value) {
+        this.titulo = value;
     }
 
     public ArrayList<Module> getModules() {
@@ -42,14 +31,6 @@ public class Course {
 
     public void setModules(ArrayList<Module> value) {
         this.modules = value;
-    }
-
-    public List<Group> getGroups() {
-        return this.groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
     }
 
     public List<Glossary> getGlossary() {
@@ -72,7 +53,4 @@ public class Course {
         return this.modules.size();
     }
 
-    public String getTags() {
-        return this.tags;
-    }
 }

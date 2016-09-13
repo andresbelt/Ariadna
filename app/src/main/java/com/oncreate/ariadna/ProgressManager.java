@@ -5,7 +5,9 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.oncreate.ariadna.Adapters.SparseArrayTypeAdapter;
 import com.oncreate.ariadna.ModelsVO.Course;
 import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.LessonProgress;
@@ -18,9 +20,13 @@ import com.oncreate.ariadna.ModelsVO.ProgressChangeset;
 import com.oncreate.ariadna.ModelsVO.Quiz;
 import com.oncreate.ariadna.ModelsVO.QuizProgress;
 import com.oncreate.ariadna.Util.StorageService;
+import com.oncreate.ariadna.loginLearn.AppFieldNamingPolicy;
+import com.oncreate.ariadna.loginLearn.UtcDateTypeAdapter;
+import com.oncreate.ariadna.loginLearn.WebService;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -49,6 +55,7 @@ public class ProgressManager {
     private int totalCompletedLessons;
     private int totalItems;
     private UserManager userManager;
+    private WebService webService;
 
 
     class C06835 extends AsyncTask<Void, Void, Void> {
@@ -198,16 +205,16 @@ public class ProgressManager {
         }
     }
 
-    public ProgressManager(StorageService storage, CourseManager courseManager, UserManager userManager, AchievementManager achievementManager) {
+    public ProgressManager(WebService webService, StorageService storage, CourseManager courseManager, UserManager userManager, AchievementManager achievementManager) {
         this.moduleStates = new SparseArray();
         this.lessonStates = new SparseArray();
         this.listeners = new ArrayList();
-
+        this.webService = webService;
         this.storage = storage;
         this.courseManager = courseManager;
         this.userManager = userManager;
         this.achievementManager = achievementManager;
-      //  this.gson = new GsonBuilder().setFieldNamingStrategy(new AppFieldNamingPolicy()).registerTypeAdapter(Date.class, new UtcDateTypeAdapter()).registerTypeAdapter(new C12993().getType(), new SparseArrayTypeAdapter(LessonProgress.class, webService.getGson())).registerTypeAdapter(new C12982().getType(), new SparseArrayTypeAdapter(Level.class, Services.getGson())).registerTypeAdapter(new C12971().getType(), new SparseArrayTypeAdapter(Long.class, webService.getGson())).create();
+        this.gson = new GsonBuilder().setFieldNamingStrategy(new AppFieldNamingPolicy()).registerTypeAdapter(Date.class, new UtcDateTypeAdapter()).registerTypeAdapter(new C12993().getType(), new SparseArrayTypeAdapter(LessonProgress.class, webService.getGson())).registerTypeAdapter(new C12982().getType(), new SparseArrayTypeAdapter(Level.class, webService.getGson())).registerTypeAdapter(new C12971().getType(), new SparseArrayTypeAdapter(Long.class, webService.getGson())).create();
         this.totalCompletedLessons = storage.getInt(STORAGE_KEY_COMPLETED_LESSONS, 0);
     }
 
@@ -225,16 +232,9 @@ public class ProgressManager {
         return this.percent;
     }
 
-    public int getXp() {
-        return this.progress.getXp();
-    }
 
     public int getLevel() {
         return this.progress.getLevel();
-    }
-
-    public int getPoints() {
-        return this.progress.getPoints();
     }
 
     public ModuleState getModuleState(int moduleId) {
@@ -437,9 +437,7 @@ public class ProgressManager {
                     LessonState ls = getLessonState(l.getId());
                     if (ls != null && ls.getState() == EXCHANGE_HINT) {
                         completedItems += EXCHANGE_HINT;
-                        if (l.getType() == 0) {
-                            completedLessons += EXCHANGE_HINT;
-                        }
+                        completedLessons += EXCHANGE_HINT;
                     }
                 }
                 moduleState.setCompletedItems(completedItems);
@@ -471,15 +469,8 @@ public class ProgressManager {
         if (this.isPushing) {
             this.isSyncQueued = true;
         } else {
-
             //servicios
           //  this.webService.request(ProgressResult.class, WebService.GET_PROGRESS, null, new C13016());
-        }
-    }
-
-    public void checkAchievements() {
-        if (!this.isPushing && this.userManager.isAuthenticated()) {
-            pushChanges(true);
         }
     }
 
@@ -498,7 +489,7 @@ public class ProgressManager {
             int totalPassed = 0;
             boolean prevLessonCompleted = prevModuleCompleted;
             for (Lesson lesson : lessons) {
-                boolean isLesson = lesson.getType() == 0;
+                boolean isLesson = true;
                 LessonState lessonState = new LessonState();
                 LessonProgress lp = (LessonProgress) this.progress.getLocalProgress().get(lesson.getId());
                 if (isLesson) {

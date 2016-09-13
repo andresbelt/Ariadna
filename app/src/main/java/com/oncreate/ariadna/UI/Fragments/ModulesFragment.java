@@ -19,6 +19,7 @@ import com.oncreate.ariadna.Base.AppFragment;
 import com.oncreate.ariadna.Base.AriadnaApplication;
 import com.oncreate.ariadna.CourseManager;
 import com.oncreate.ariadna.Dialog.MessageDialog;
+import com.oncreate.ariadna.LessonManager;
 import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.ModuleState;
 import com.oncreate.ariadna.ProgressManager;
@@ -35,7 +36,7 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
     private RecyclerView recyclerView;
 
     public interface InitializationListener {
-        void onError(int result);
+        void onError();
 
         void onSuccess();
 
@@ -53,14 +54,14 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         }
 
         @Override
-        public void onError(int result) {
+        public void onError() {
             //  Log.i("", "error inicializando");
             MessageDialog.build(ModulesFragment.this.getContext()).setTitle((int) R.string.unknown_error_title).setMessage((int) R.string.unknown_error_message).setPositiveButton((int) R.string.action_retry).setListener(new MensajeWrong()).show(ModulesFragment.this.getChildFragmentManager());
         }
 
         @Override
         public void onSuccess() {
-
+            completarInicializacion();
         }
     }
 
@@ -158,7 +159,6 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        inicializar();
     }
 
     public void inicializar() {
@@ -171,6 +171,10 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         CourseManager course = getApp().getCourseManager();
         this.adapter = new ModuleAdapter(getContext(), course.getCourse().getId(), course.getCourse().getModules());
         this.adapter.setListener(this);
+        this.recyclerView.setAdapter(adapter);
+        this.recyclerView.setItemAnimator(new DefaultItemAnimator());
+        this.progressListener = new listenerProgresso();
+        getApp().getProgressManager().addListener(this.progressListener);
         scrollToCurrentModule();
     }
 
@@ -188,11 +192,10 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
       //  this.recyclerView.addItemDecoration(this.moduleDecoration);
         this.recyclerView.setHasFixedSize(true);
         this.recyclerView.setLayoutManager(this.layoutManager);
+        if (adapter != null) {
         this.recyclerView.setAdapter(adapter);
-        this.recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        this.progressListener = new listenerProgresso();
-        getApp().getProgressManager().addListener(this.progressListener);
+        }
+        inicializar();
         return rootView;
     }
 
@@ -238,7 +241,7 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
                 return;
             }
         }
-      //  navigate(LessonManager.getShortcutFragment(module.getId()));
+        // navigate(LessonManager.getShortcutFragment(module.getId()));
     }
 
     public void onOrientationChange(int orientation) {
@@ -254,8 +257,8 @@ public class ModulesFragment extends AppFragment implements ModuleAdapter.Listen
         int i = 0;
         while (i < items.size()) {
             if ((items.get(i) instanceof Module) && progressManager.getModuleState(((Module) items.get(i)).getId()).getState() == 2) {
-
-                recyclerView.getLayoutManager().scrollToPosition(Math.min(0, i - 3));
+                // this.recyclerView = (RecyclerView) mView.findViewById(R.id.recycler_view);
+                this.layoutManager.scrollToPosition(Math.min(0, i - 3));
 
                 return;
             }

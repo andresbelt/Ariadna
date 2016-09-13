@@ -40,11 +40,11 @@
 //        private List<GlossaryTerm> items;
 //        private String name;
 //
-//        public String getName() {
+//        public String getTitulo() {
 //            return this.name;
 //        }
 //
-//        public void setName(String name) {
+//        public void setTitulo(String name) {
 //            this.name = name;
 //        }
 //
@@ -68,7 +68,7 @@
 //        }
 //
 //        public void bind(Section section) {
-//            this.sectionName.setText(section.getName());
+//            this.sectionName.setText(section.getTitulo());
 //        }
 //    }
 //
@@ -76,7 +76,7 @@
 //        this.glossary = list;
 //        this.context = context;
 //        for (Glossary group : list) {
-//            addSection(new Section(group.getName(), group.getTerms()));
+//            addSection(new Section(group.getTitulo(), group.getTerms()));
 //        }
 //    }
 //

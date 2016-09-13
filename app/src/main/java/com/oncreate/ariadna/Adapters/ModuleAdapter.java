@@ -32,7 +32,7 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
     public static final int MODULE_RIGHT = 3;
     public static final int SHORTCUT = 5;
     private Context context;
-    private int courseId;
+    private String courseId;
     private ArrayList<Object> items;
     private Listener listener;
 
@@ -156,9 +156,9 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
                     break;
             }
             this.name.setText(module.getName());
-            if (this.state.getTotalLessons() <= 0 || this.state.getState() == ModuleAdapter.MODULE_NONE) {
-                this.counts.setVisibility(View.GONE);
-            } else {
+//            if (this.state.getTotalLessons() <= 0 || this.state.getState() == ModuleAdapter.MODULE_NONE) {
+//              //  this.counts.setVisibility(View.GONE);
+//            } else {
                 TextView textView = this.counts;
                 Context access$300 = ModuleAdapter.this.context;
                 Object[] objArr = new Object[ModuleAdapter.MODULE_CENTER];
@@ -166,7 +166,7 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
                 objArr[ModuleAdapter.MODULE_NONE] = Integer.valueOf(this.state.getTotalLessons());
                 textView.setText(access$300.getString(R.string.lesson_number_format, objArr));
                 this.counts.setVisibility(ModuleAdapter.MODULE);
-            }
+            // }
             if (this.state.getState() == ModuleAdapter.MODULE_CENTER) {
                 this.progressBar.setProgress((this.state.getCompletedItems() * 100) / this.state.getTotalItems());
                 this.progressBar.setVisibility(View.VISIBLE);
@@ -180,16 +180,16 @@ public class ModuleAdapter extends Adapter<android.support.v7.widget.RecyclerVie
             int loadIconId = this.iconId;
             this.icon.setImageBitmap(null);
             ImageManager imageManager = app.getImageManager();
-            int access$400 = ModuleAdapter.this.courseId;
+            String acceso = ModuleAdapter.this.courseId;
             int id = module.getId();
             if (this.state.getState() != 0) {
                 z = false;
             }
-            imageManager.getModule(access$400, id, z, new C11482(loadIconId));
+            imageManager.getModule(acceso, id, z, new C11482(loadIconId));
         }
     }
 
-    public ModuleAdapter(Context context, int courseId, List<Module> modules) {
+    public ModuleAdapter(Context context, String courseId, List<Module> modules) {
         this.context = context;
         this.courseId = courseId;
         setHasStableIds(true);

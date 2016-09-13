@@ -41,8 +41,6 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
             }
         }
     }
-
-    /* renamed from: com.sololearn.app.fragments.LessonFragmentBase.1 */
     class C11761 implements LessonManager.GetQuestionCountListener {
         final /* synthetic */ ActionMenuItemBadgeView val$badge;
 
@@ -216,10 +214,10 @@ public abstract class LessonFragmentBase extends AppFragment implements OnClickL
     }
 
     public boolean onBackPressed() {
-       // if (this.commentsFragment != null && this.bottomSheetBehavior.getState() == 3 && this.commentsFragment.onBackPressed()) {
+//        if (this.bottomSheetBehavior.getState() == 3) {
 //            return true;
 //        }
-//        if (this.commentsFragment == null || (this.bottomSheetBehavior.getState() != 4 && this.bottomSheetBehavior.getState() != 3)) {
+//        if ((this.bottomSheetBehavior.getState() != 4 && this.bottomSheetBehavior.getState() != 3)) {
 //            return super.onBackPressed();
 //        }
 //        this.bottomSheetBehavior.setState(5);

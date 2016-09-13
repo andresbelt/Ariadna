@@ -2,15 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/menu_main_group" android:checkableBehavior="single">
         <item android:icon="@drawable/nav_home" android:id="@+id/navigation_action_home" android:checked="true" android:title="@string/page_title_home" />
-        <item android:icon="@drawable/nav_playground" android:id="@+id/navigation_action_playground" android:title="@string/page_title_playground" />
-        <item android:icon="@drawable/nav_discussion" android:id="@+id/navigation_action_discussion" android:title="@string/page_title_discussion" />
-        <item android:icon="@drawable/nav_leaderboard" android:id="@+id/navigation_action_leaderboard" android:title="@string/page_title_leaderboard" />
-        <item android:icon="@drawable/nav_similar_courses" android:id="@+id/navigation_action_similar" android:title="@string/page_title_similar" />
         <item android:icon="@drawable/nav_glossary" android:id="@+id/navigation_action_glossary" android:title="@string/page_title_glossary" />
-        <item android:icon="@drawable/nav_invite_friends" android:id="@+id/navigation_action_invite_friends" android:title="@string/page_title_invite_friends" android:checkable="false" />
     </group>
     <group android:id="@+id/menu_extra_group" android:checkableBehavior="single">
         <item android:icon="@drawable/nav_settings" android:id="@+id/navigation_action_settings" android:title="@string/page_title_settings" />
-        <item android:icon="@drawable/nav_rate" android:id="@+id/navigation_action_rate" android:title="@string/page_title_rate" android:checkable="false" />
     </group>
 </menu>

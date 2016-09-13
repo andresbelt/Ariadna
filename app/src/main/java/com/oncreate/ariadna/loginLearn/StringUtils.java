@@ -1,6 +1,7 @@
 package com.oncreate.ariadna.loginLearn;
 
 import com.oncreate.ariadna.BuildConfig;
+import com.oncreate.ariadna.Util.ConstantVariables;
 
 import java.nio.CharBuffer;
 import java.util.regex.Pattern;
@@ -8,7 +9,7 @@ import java.util.regex.Pattern;
 public class StringUtils {
     public static String capitalize(String s) {
         if (s == null || s.length() == 0) {
-            return BuildConfig.VERSION_NAME;
+            return ConstantVariables.VERSION_NAME;
         }
         char first = s.charAt(0);
         return !Character.isUpperCase(first) ? Character.toUpperCase(first) + s.substring(1) : s;
@@ -19,7 +20,7 @@ public class StringUtils {
             return true;
         }
         String[] a = str.split("\\s+");
-        String s = BuildConfig.VERSION_NAME;
+        String s = ConstantVariables.VERSION_NAME;
         for (String anA : a) {
             s = s + anA;
         }
@@ -48,7 +49,7 @@ public class StringUtils {
     }
 
     public static String onlyLettersAndNumbers(String s) {
-        return s.replaceAll("[^a-zA-Z0-9]", BuildConfig.VERSION_NAME);
+        return s.replaceAll("[^a-zA-Z0-9]", ConstantVariables.VERSION_NAME);
     }
 
     public static int getSelectionLineNumber(String multiLines, int selection) {

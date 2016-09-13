@@ -9,6 +9,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 
 import com.oncreate.ariadna.BuildConfig;
+import com.oncreate.ariadna.Util.ConstantVariables;
 
 public class PrefixedEditText extends AppCompatEditText {
     private String fitText;
@@ -121,7 +122,7 @@ public class PrefixedEditText extends AppCompatEditText {
 
     private String getMeasureString(String string) {
         if (string == null) {
-            string = BuildConfig.VERSION_NAME;
+            string = ConstantVariables.VERSION_NAME;
         }
         if (this.fitText != null && this.fitText.length() == 1 && string.length() == 0) {
             return "|";

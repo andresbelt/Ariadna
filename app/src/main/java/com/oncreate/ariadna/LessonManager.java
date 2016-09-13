@@ -52,42 +52,6 @@ public class LessonManager {
         void onResponse(int i);
     }
 
-//    class C11281 implements Listener<DiscussionPostResult> {
-//        final /* synthetic */ GetQuestionCountListener val$listener;
-//
-//        C11281(GetQuestionCountListener getQuestionCountListener) {
-//            this.val$listener = getQuestionCountListener;
-//        }
-//
-//        public void onResponse(DiscussionPostResult response) {
-//            if (response.isSuccessful()) {
-//                int count = response.getCount();
-//                LessonManager.questionCounts.put(LessonManager.this.lesson.getTags(), Integer.valueOf(count));
-//                this.val$listener.onResponse(count);
-//            }
-//        }
-//    }
-//
-//    class C11292 implements Listener<DiscussionPostResult> {
-//        final /* synthetic */ GetQuestionCountListener val$listener;
-//        final /* synthetic */ int val$quizId;
-//        final /* synthetic */ int val$type;
-//
-//        C11292(int i, int i2, GetQuestionCountListener getQuestionCountListener) {
-//            this.val$quizId = i;
-//            this.val$type = i2;
-//            this.val$listener = getQuestionCountListener;
-//        }
-//
-//        public void onResponse(DiscussionPostResult response) {
-//            if (response.isSuccessful()) {
-//                int count = response.getCount();
-//                LessonManager.commentCounts.put(this.val$quizId + "-" + this.val$type, Integer.valueOf(count));
-//                this.val$listener.onResponse(count);
-//            }
-//        }
-//    }
-
     static {
         lessonBackEntries = Collections.singletonList(ENTRY_LESSONS);
     }
@@ -127,26 +91,9 @@ public class LessonManager {
         args.putInt(ARG_QUIZ_ID, quizId);
         AppFragment fragment = null;
         fragment = new QuizFragment();
-        if (lesson.getType() != 1 && !forceQuiz && lesson.getMode() != 0) {
-            switch (lesson.getMode()) {
-                case AppActivity.OFFSET_TOOLBAR /*1*/:
-                    fragment = new TextFragment();
-                    break;
-                case AppActivity.OFFSET_TABS /*2*/:
-                case ConnectionResult.SIGN_IN_REQUIRED /*4*/:
-                    fragment = new LessonFragment();
-                    break;
-                case 3 /*3*/:
-                   //fragment = new VideoFragment();
-                    break;
-                default:
-                    break;
-            }
-        }
-        if (fragment != null) {
-            fragment.setName(lesson.getName());
-            fragment.setArguments(args);
-        }
+        fragment.setName(lesson.getName());
+        fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -283,9 +230,6 @@ public class LessonManager {
                 } else {
                     entry = new Entry(lessonBackEntries, R.anim.enter_from_left, R.anim.exit_to_right);
                 }
-                if (newEntry.equals(ENTRY_QUIZ) && this.lesson.getType() == 0) {
-                    entry.injectFragment(getFragment(this.lesson, this.quiz.getId()));
-                }
             }
         }
         return entry;
@@ -302,7 +246,6 @@ public class LessonManager {
     private Lesson generateShortcut(int moduleId, int[] quizIds) {
         int i = 0;
         Lesson shortcut = new Lesson();
-        shortcut.setType(1);
         shortcut.setName(AriadnaApplication.getInstance().getString(R.string.quiz_shortcut_title));
         shortcut.setIsShortcut(true);
         ArrayList<Quiz> quizzes = new ArrayList();
@@ -317,7 +260,7 @@ public class LessonManager {
                 it2 = module.getLessons().iterator();
                 while (it2.hasNext()) {
                     Lesson lesson = (Lesson) it2.next();
-                    if (lesson.getType() == 1 && progressManager.getLessonState(lesson.getId()).getState() != 1) {
+                    if (progressManager.getLessonState(lesson.getId()).getState() != 1) {
                         quizzes.addAll(lesson.getQuizzes());
                     }
                 }

@@ -15,5 +15,6 @@ public class ConstantVariables {
     public static final String TOKEN = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJub21icmUiOiJBbmRyZXMiLCJlbWFpbCI6ImFiZWx0cmFuQHVwYy5lZHUuY28iLCJncnVwbyI6IjEiLCJhdWQiOiJodHRwOlwvXC9hcGlhcmlhZG5hLmNvbSIsImlhdCI6MTQ3MDYwNzMyNywiZXhwIjoxNDcwNjEwOTI3fQ.MC6M5CbM82TfVq50Nk953z_mX-VY278bp6f4U8Hka9I";
     public static final String LOGIN ="/login" ;
     public static final String UNIDADES ="/unidades" ;
+    public static final String VERSION_NAME = "";
 
 }

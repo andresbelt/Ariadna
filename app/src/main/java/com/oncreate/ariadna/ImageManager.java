@@ -22,6 +22,7 @@ import com.android.volley.toolbox.ImageLoader.ImageListener;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
+import com.oncreate.ariadna.Util.ConstantVariables;
 import com.oncreate.ariadna.Util.StorageService;
 
 import java.io.FileOutputStream;
@@ -343,9 +344,9 @@ public class ImageManager {
         }
     }
 
-    public void getModule(int courseId, int moduleId, boolean disabled, Listener listener) {
+    public void getModule(String courseId, int moduleId, boolean disabled, Listener listener) {
         int size = this.context.getResources().getDimensionPixelSize(R.dimen.module_icon_size);
-        String iconName = moduleId + (disabled ? "_disabled" : BuildConfig.VERSION_NAME);
+        String iconName = moduleId + (disabled ? "_disabled" : ConstantVariables.VERSION_NAME);
         getImage(String.format(this.modulePath, new Object[]{iconName}), String.format(this.moduleUrl, new Object[]{Integer.valueOf(courseId), iconName}), size, size, false, listener);
     }
 

@@ -7,15 +7,12 @@ import android.util.SparseArray;
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.oncreate.ariadna.Base.AriadnaApplication;
-import com.oncreate.ariadna.Dialog.MessageDialog;
 import com.oncreate.ariadna.ModelsVO.Course;
+import com.oncreate.ariadna.ModelsVO.GetCourseResult;
 import com.oncreate.ariadna.ModelsVO.Lesson;
 import com.oncreate.ariadna.ModelsVO.Module;
 import com.oncreate.ariadna.ModelsVO.Quiz;
-import com.oncreate.ariadna.UI.Fragments.LoginFragment;
 import com.oncreate.ariadna.Util.StorageService;
-import com.oncreate.ariadna.loginLearn.ParamMap;
-import com.oncreate.ariadna.loginLearn.ServiceError;
 import com.oncreate.ariadna.loginLearn.WebService;
 
 import java.io.ByteArrayOutputStream;
@@ -36,7 +33,7 @@ public class CourseManager {
     private WebService  webService;
 
     public interface Listener {
-        void onResult(Course course, int result);
+        void onResult(Course course);
     }
 
 
@@ -58,23 +55,9 @@ public class CourseManager {
                 CourseManager.this.raiseOnUpdateListeners();
             }
 
-            if (response.isSuccessful()) {
-
-                ServiceError error = response.getError();
-
-                if (error.hasFault(ServiceError.ERROR_AUTHENTICATION_FAILED)) {
-                    //  MessageDialog.create(LoginFragment.this.getContext(), R.string.login_error_popup_title, R.string.error_email_invalid, R.string.action_ok).show(LoginFragment.this.getChildFragmentManager());
-                    return;
-                }
-                if (error == ServiceError.NO_CONNECTION) {
-                    //MessageDialog.showNoConnectionDialog(LoginFragment.this.getContext(), LoginFragment.this.getChildFragmentManager());
-                } else {
-                    //  MessageDialog.showUnknownErrorDialog(LoginFragment.this.getContext(), LoginFragment.this.getChildFragmentManager());
-                }
-            }
 
             if (this.vallistener != null) {
-                this.vallistener.onResult(CourseManager.this.course, 1);
+                this.vallistener.onResult(CourseManager.this.course);
             }
 
         }
@@ -161,7 +144,7 @@ public class CourseManager {
         return null;
     }
 
-    public int getCourseId() {
+    public String getCourseId() {
         return this.course.getId();
     }
 
@@ -215,19 +198,26 @@ public class CourseManager {
         }
     }
 
+    public boolean initializeFromCache() {
+        try {
+            String cachedCourse = this.storage.readText(FILE_NAME);
+            if (cachedCourse != null) {
+                this.course = (Course) this.webService.getGson().fromJson(cachedCourse, Course.class);
+                initSparse();
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
     public void update(Listener listener) {
         int version;
         WebService webService = this.webService;
         Class cls = GetCourseResult.class;
         String str = WebService.GET_COURSE;
-        ParamMap create = ParamMap.create();
-        String str2 = "version";
-        if (this.course != null) {
-            version = this.course.getVersion();
-        } else {
-            version = 0;
-        }
-        webService.request(cls, str, create.add(str2, Integer.valueOf(version)), new C12951(listener));
+
+        webService.request(cls, str, null, new C12951(listener));
        // ServicesPrincipal.getInstance(AriadnaApplication.getInstance()).request(cls, str, create.add(str2, Integer.valueOf(version)), new C12951(listener));
     }
 
